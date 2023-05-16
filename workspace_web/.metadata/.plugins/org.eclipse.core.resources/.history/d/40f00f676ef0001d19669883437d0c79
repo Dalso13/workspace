@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function() {
+		
+	}
+</script>
+</head>
+<body>
+	<h1>DOM삭제</h1>
+	<div id="box">
+		<p id="p1">첫 번째 문단</p>
+		<p id="p2">두 번째 문단 </p>
+	</div>
+</body>
+</html>

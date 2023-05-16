@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// 인라인 스타일 방식 (jquery 에서 style == css)
+	})
+	$(".html").css();
+</script>
+</head>
+<body>
+	<h1>jQuery</h1>
+	<div class="wrap">
+		<ul id="web">
+			<li class="html">html </li>
+			<li class="css">css </li>
+			<li class="javascript">javascript</li>
+			<li class="jquery">jquery</li>
+			<li class="ajax">"ajax"</li>
+		</ul>
+	</div>
+</body>
+</html>

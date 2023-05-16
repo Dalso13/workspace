@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> css </title>
+<style type="text/css">
+	p{
+		color: red;
+	}
+	.p1{
+		color: yellow ;
+	}
+	#p2{
+		
+	}
+</style>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+	<p style="color: blue; text-align: center;">Hello CSS</p>
+	<p class="p1">Hello CSS</p>
+	<p class="p1">Hello CSS</p>
+	<p id="p2">Hello CSS</p>
+	<p id="p2">Hello CSS</p>
+
+</body>
+</html>

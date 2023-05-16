@@ -1,0 +1,40 @@
+<!-- 
+	<table> <form> :데이터 전송
+	<div> 영역 전체
+	<span> 안에 내용물
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		border: 1px solid black; /* 외각선 */
+		width: 500px; 
+		height: 500px;
+	}
+	#box1{
+		background-image: url("images/hot.jpg");
+		background-size: 500px 500px;
+		opacity: 1; /* 투명도 : 값이 낮을수록 투명함(0~1) */
+	}
+	#box2{
+		background-image: url("images/hot.jpg");
+		background-size: cover; /* 박스보다 이미지가 큼 */
+	}
+	#box3{
+		background-image: url("images/firefox.png");
+		background-size: contain; /* 박스가 이미지보다 작을때 영역 채움 */
+	}
+</style>
+</head>
+<body>
+	<div id="box1">박스1</div>
+	<br/><br/>
+	<div id="box2">박스2</div>
+	<br/><br/>
+	<div id="box3">박스3</div>
+</body>
+</html>

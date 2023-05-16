@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math.random()</title>
+<script type="text/javascript">
+
+	document.write("<h1> 0 ~ 1 사이 난수 :" + Math.random() + "</h1>");
+	
+	// 10% 확룰로 "불합격" 출력하고, 나머지 확률로 "합격"을 출력하시오.
+	alert( Math.random() <= 0.1 ? "불합격" : "합격");
+	
+	// 0 ~ 9 사이의 난수를 1개 출력하시오.
+	document.write("<h1> 0 ~ 9 사이 난수 : " + (Math.floor(Math.random() * 10)) +"</h1>");
+	// 1 ~ 10 사이의 난수를 1개 출력하시오.
+	document.write("<h1> 1 ~ 10 사이 난수 : " + (Math.floor(Math.random() * 10)+1) +"</h1>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

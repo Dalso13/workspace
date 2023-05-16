@@ -1,0 +1,7 @@
+package org.joonzis.test;
+
+public class test03_WeekSchedulerMain {
+	public static void main(String[] args) {
+	}
+
+}

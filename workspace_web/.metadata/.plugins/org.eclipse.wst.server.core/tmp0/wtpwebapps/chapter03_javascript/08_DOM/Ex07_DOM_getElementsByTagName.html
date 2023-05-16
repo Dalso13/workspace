@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function() {
+		var hobbies = ["산책", "독서", "게임", "일기작성", "영화감상"]
+		
+		// 모든 <h1> 태그를 가져와서 배열을 생성
+		var headLists = document.getElementsByTagName("h1");
+			
+		for ( var i in headLists) {
+			let list1 = document.createTextNode(hobbies[i]);
+			headLists[i].appendChild(list1);
+		}
+		
+		
+	}
+</script>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+</body>
+</html>

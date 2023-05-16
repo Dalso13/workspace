@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 1. 전역 객체 선언
+	var newWin;
+	
+	// 2. 창 열기
+	function winOpen() {
+		
+	}
+</script>
+</head>
+<body>
+	<button onclick="winOpen()">창 열기</button>
+	<button onclick="winClose()">창 닫기</button>
+
+</body>
+</html>

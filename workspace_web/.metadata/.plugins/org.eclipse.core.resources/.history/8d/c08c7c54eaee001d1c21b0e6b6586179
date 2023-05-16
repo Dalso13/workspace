@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 		중요!
+		타이머 함수
+		
+		1. 특정한 시간에 특정한 함수를 실행시키는 함수
+		2. 전달 인자 : 함수, 시간(밀리초)
+		3. 종류
+			1) id = setTimeout(함수, 시간)	: 지정된 시간 후 함수를 한 번 실행
+			2) clearTimeout(id)				: 해당 id의 setTimeout 중지 (1&2 번 세트로 사용)
+			3) id2 - setInterval(함수, 시간)	: 지정된 시간마다 함수를 반복하여 실행
+			4) clearInterval(id2)			: 해당 id의 setInterval 중지 ( 3&4번 세트로 사용 )
+		4. setInterval 함수의 경우는 지정된 시간마다 함수를 스택에 쌓아두는 방식을 사용
+			스택에 많이 쌓이면 원래 실행하기로 한 만큼 실행되지 않을 수 있다.
+	*/
+	
+	// 1. setTimeout 함수 이용 : 5초 후에 "안녕하세요" 경고창 출력하기
+	let hello = setTimeout(function() {
+		alert("안녕하세요");
+	} ,5000);
+	clearTimeout(hello);
+	
+	// 2. setInterval 함수 이용 : 1초마다 숫자를 1씩 증가시켜서 출력하기
+	// 10초만 진행하고 종료
+	var n = 0;
+	var id = setInterval(function() {
+		n++;
+		document.write(n);
+		if (n = 10) {
+			clearInterval(id);
+		}
+	} , 1000);
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h1>jQuery css 변경 방법</h1>
+	<p id="set-css">jQuery css </p>
+	<hr>
+	<button id="add-class">클래스 추가</button>
+	<button id="add-class">클래스 제거</button>
+	<button id="add-class">클래스 토글</button>
+</body>
+</html>

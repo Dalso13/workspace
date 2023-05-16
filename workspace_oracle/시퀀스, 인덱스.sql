@@ -1,0 +1,81 @@
+-- 시퀀스
+-- 테이블 내의 유일한 숫자를 자동으로 생성하는 자동 번호 발생기
+-- 기본 키로 사용하면 사용자의 부담을 줄일 수 있다.
+
+-- CREATE SEQUENCE 시퀀스 네임
+--      조건들~
+
+-- 조건
+
+-- START WITH
+-- 몇번 부터 시작할건지
+-- START WITH 시작할 숫자
+
+-- INCREMENT BY
+-- 한번 증가할때 몇 증가할지
+-- INCREMENT BY 증가할 숫자
+
+CREATE SEQUENCE DEPT_DEPTNO_SEQ
+INCREMENT BY 10 START WITH 10;
+
+-- 시퀀스 출력
+SELECT * FROM USER_SEQUENCES;
+
+-- CURRVAL  시퀀스 현재값 반환
+-- NEXTVAL  시퀀스 다음값 반환
+
+SELECT DEPT_DEPTNO_SEQ.NEXTVAL FROM DUAL;
+
+SELECT DEPT_DEPTNO_SEQ.CURRVAL FROM DUAL;
+
+CREATE SEQUENCE EMP_SEQ
+INCREMENT BY 1 MAXVALUE 100000 START WITH 1;
+
+CREATE TABLE EMP01(
+EMPNO NUMBER(4) PRIMARY KEY,
+ENAME VARCHAR2(10),
+HIREDATE DATE
+);
+
+INSERT INTO EMP01
+VALUES(EMP_SEQ.NEXTVAL,'김씨',SYSDATE);
+
+SELECT * FROM EMP01;
+
+CREATE TABLE DEPT_EXAMPLE(
+DEPTNO NUMBER(4) PRIMARY KEY,
+DNAME VARCHAR2(15),
+LOC VARCHAR2(15)
+);
+
+CREATE SEQUENCE DEPT_EXAMPLE_SEQ
+INCREMENT BY 10 START WITH 10;
+
+INSERT INTO dept_example
+VALUES(DEPT_EXAMPLE_SEQ.NEXTVAL,'전산부','수원');
+
+SELECT * FROM DEPT_EXAMPLE;
+
+-- 인덱스
+-- SQL 명령문의 처리 속도를 향상시기 위해 컬럼에 대항해서 생성한다
+-- 너무많이쓰면 오히려 성능 저하가 옴
+-- 쓰면 검색이 빨리 된다고 생각하면 편함
+
+-- 인덱스를 사용해야 하는 경우
+-- 테이블에 행의 수가 많을때
+-- JOIN에 자주 사용되는 컬럼이나 NULL을 포함하는 컬럼이 많은 경우
+
+
+-- CREATE INDEX 인덱스 네임
+-- ON 테이블 네임(컬럼 네임);
+
+SELECT TABLE_NAME, INDEX_NAME, COLUMN_NAME
+FROM USER_IND_COLUMNS
+WHERE TABLE_NAME IN('EMP','EMP01');
+
+CREATE INDEX IDX_EMP01_ENAME
+ON EMP01(ENAME);
+
+DROP INDEX IDX_EMP01_ENAME;
+
+

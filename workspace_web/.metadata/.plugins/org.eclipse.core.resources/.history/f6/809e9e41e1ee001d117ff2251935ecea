@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*  
+		선언적 함수
+		
+		- 동일한 함수를 두 개 이상 만들면 덮어쓰기해서 나중에 만든 함수를 사용
+		* 자바의 오버로드 불가(매개변수가 달라도 같은 함수로 인식)
+	*/
+	
+	function view() {
+		document.write("<h1>첫 번쨰 view</h1>");
+	}
+	view();
+	
+	function view() {
+		document.write("<h1>두 번쨰 view</h1>");
+	}
+	
+	view();
+</script>
+</head>
+<body>
+
+</body>
+</html>

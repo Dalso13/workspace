@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// book 객체 생성
+	var book = {
+		title : "자바스크립트의 정석",
+		price : 30000,
+		stock : 10
+	};
+	
+	// price를 35000으로 수정하시오.	* 객체 속성 수정
+	document.write("<h1>")
+	document.write(book.title + "<br>");
+	document.write(book.price + "<br>");
+	document.write(book.stock + "<br><br>");
+	
+	
+	book.price = 35000;
+	
+	document.write(book.title + "<br>");
+	document.write(book.price + "<br>");
+	document.write(book.stock);
+	document.write("</h1>")
+	
+	// salePrice 속성을 price의 90%로 새로 추가하시오	* 객체 속성 추가
+	// salePrice 는 원래 없지만, 있었던 것처럼 작성하면 된다.
+	book.salePrice = book.price + (book.price/book.stock);
+	
+	document.write(book.salePrice + "<br>");
+	
+	// stock 속성을 제거 하시오.			* 객체 속성 제거
+	delete book.stock;
+	document.write(book.stock);
+</script>
+</head>
+<body>
+
+</body>
+</html>

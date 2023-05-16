@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 
+		랜덤 값 맞추기	
+	
+		1. 1 ~ 20 사이의 숫자를 컴퓨터가 랜덤 생성
+		2. 사용자는 prompt를 이용하여 그 숫자를 맞춤
+		3. 조건
+			1) 1 ~ 20 사이를 벗어난 숫자를 입력하면 해당 작업은 무시
+			2) 맞추면 "정답!", 틀리면 "오답!" 출력
+			3) 몇 번만에 맞췄는지 카운팅도 출력
+			4) while 이용
+	*/
+	
+	const sum = Math.floor(Math.random() * (21 - 1) + 1);
+	let num;
+	let count = 1;	
+	
+	 while (true) {
+		num = Number(prompt("1 ~ 20 입력"));
+
+		if (num === sum ) {
+			alert(`정답! 시도한 횟수 ${count}번`)
+			break;
+		} else if (num <= 20 && num >= 0){
+			alert("오답!");
+		} else {
+			continue;
+		}
+		count++;
+	}
+	
+	
+	
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

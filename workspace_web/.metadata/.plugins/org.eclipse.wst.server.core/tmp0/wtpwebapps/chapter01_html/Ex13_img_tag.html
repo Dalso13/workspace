@@ -1,0 +1,67 @@
+<!-- 	
+	<img> 태그
+	
+	1. 이미지를 삽입
+	2, 속성
+		1) src : 이미지의 위치(경로)
+		2) alt : 이미지 대신 띄울 텍스트
+	3. 경로 표시
+		1) 절대 경로 : c:/dev	...... c부터 시작해서 경로띄우기
+		2) 상대 경로 : images/google.jpg	html 파일 기준으로 경로 시작
+		3) 주요 폴더
+			(1) .  : 현재 폴더
+			(2) .. : 상위 폴더
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 	
+		img 태그의 속성
+	- alt : 이미지 설명
+	- src : 이미지 출저(경로)
+	- title : 이미지 타이틀
+	- style : 이미지 스타일
+	- width, height : 이미지 넓이, 높이
+-->
+
+
+	<h1>이미지 표시</h1>
+	<img width = 20%; height = 10%; alt="구글 이미지" src="./images/google.jpg">
+	<!-- alt 속성을 사용해야 하는 이유 : 이미지를 제대로 가져오지 못할 경우 alt 값 출력  -->
+	
+	<h1>서버에 저장된 이미지</h1>
+	<img alt="구글" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/368px-Google_2015_logo.svg.png">
+	
+	<h1> 크기를 조정한 이미지</h1>
+	<img width = 20%; alt="바트 심슨" src="./images/bart.jpg">
+	<!-- 너비나 높이중 하나만 조정해도 함께 조정됨 -->
+	
+	<hr>
+	
+	<img src="./images/google.jpg" width = "300" align = "top"> 구글 로고-1 <br> <br>
+	<img src="./images/google.jpg" width = "300" align = "middle"> 구글 로고-2 <br> <br>
+	<img src="./images/google.jpg" width = "300" align = "bottom"> 구글 로고-3 <br> <br>
+	<img src="./images/google.jpg" width = "300" align = "left"> 구글 로고-4 <br> <br>
+	<img src="./images/google.jpg" width = "300" align = "right"> 구글 로고-5 <br> <br>
+	
+	
+	<!-- 이미지에 링크 걸기 
+		유즈맵 과 맵네임을 같게하고 
+		shape로 모양 (rect, circle) 설정후 코드에 좌표넣기 스타일도 걸어줄수 있음 -->
+		
+	<!-- 좌표는 그림판을 이용해서 넣기  -->
+	
+	<h1>이미지 맵</h1>
+	<img width = 500; src="./images/google.jpg" usemap="#google">
+	<map name="google">
+		<area href="https://www.google.com/" shape = "rect"
+			coords="15, 1, 145, 140" style="background-color: red">
+		<area href="https://www.naver.com/" shape = "circle" coords="310,75,40">
+	</map>
+	
+</body>
+</html>

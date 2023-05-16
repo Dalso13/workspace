@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function() {
+		let h = document.querySelector("#heading");
+		
+		h.onclick = change;	// 이벤트 연결
+		
+	}
+	
+	// 이벤트 리스너
+	function change() {
+		console.log(this);
+		// 이벤트 리스너가 등록된 객체 : 이벤트 객체
+		// 리스너 내에서는 "this == 이벤트 객체" (change > h > this)
+		this.innerHTML = "바뀐 제목";
+		this.style.backgroundColor = "gold";
+	}
+</script>
+</head>
+<body>
+	<h1 id="heading">원래 제목</h1>
+</body>
+</html>

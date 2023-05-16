@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 선언적 함수를 "변수에" 에 저장할 수 있다.
+	
+	// 1. 선언적 함수 정의 + 변수 저장
+	var view = function yourFunction() {
+		document.write("<h3> yourFunction </h3>")
+	}
+	
+	// 2. 변수에 저장된 선언적 함수 호출
+	view(); // yourFunction();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

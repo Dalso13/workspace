@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button onclick="winOpen()">창 열기</button>
+	<button onclick="winClose()">창 닫기</button>
+</body>
+</html>

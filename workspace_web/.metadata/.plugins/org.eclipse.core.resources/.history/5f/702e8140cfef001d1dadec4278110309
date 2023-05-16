@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 1. 전역 객체 선언
+	var newWin;
+	
+	// 2. 창 열기
+	function winOpen() {
+		var feature = "width = 400, height = 300, top = 100, left = 100,";
+		feature += "menubar=yes, location=yes, scrollbars=yes, status=yes, resizable=yes";
+		
+		newWin = Window.open("index.html","", feature)
+	}
+	
+	// 3. 창 닫기
+	function winClose() {
+		
+	}
+</script>
+</head>
+<body>
+	<button onclick="winOpen()">창 열기</button>
+	<button onclick="winClose()">창 닫기</button>
+
+</body>
+</html>

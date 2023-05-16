@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 개요</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+	//	single comment 
+	/*
+		multiline comment
+	*/
+	
+	// 프론트 엔드 개발 언어
+	//	1. HTML : 웹 페이지의 컨텐트(내용)을 작성
+	//  2. CSS : 웹 페이지의 스타일(레이아웃)을 작성
+	//  3. JavaScript : 웹 페이지의 동적인 동작(기능)을 프로그램
+	
+	// HTML 파일에서 자바스크립트를 사용하는 방법
+	//	1. script 태그 안에서 자바스크립트 코드를 작성
+	//		1) head 태그 안에서 script 태그를 포함
+	//		2) body 태그 안에서 script 태그를 포함
+	//	2. 자바스크립트 코드만을 포함한 .js 파일을 HTML 파일에서 링크
+	//		=> 자바스크립트 코드가 있는 위치에서 실행
+	
+	
+	/*
+		본래 명칭 : ECMAScript 
+		<script> 태그에 작성
+		<script> 태그는 <head>와 <body>태그에 모두 작성 가능
+	*/
+	// 1. 출력1. 경고창에 출력하기
+	window.alert("Hello! Javascript!");
+	alert("Hello! ECAMScript!");			// window 생략가능! 추천!
+	
+	// 2. 출력2. 콘솔창에 출력하기
+	console.log("Hello! javascript World!");
+	
+	// 3. 출력3. 브라우저 화면에 출력하기
+	document.write("Hello!");
+	document.write("<h1>");
+	document.write("Javascript");
+	document.write("</h1>");
+	document.write("<h3>ECMAScript</h3>");
+	
+	/*
+	   4. 선택 메소드 : DOM 이용
+		   1) document.getElementById(아이디) : id 속성을 가진 문서 객체(DOM) 선택
+		   2) document.getElementsByTagName(태그) : 태그를 가진 여러 문서 객체들 선택
+		   3) document.querySelector(선택자) : 선택자를 사용해서 문서 객체 선택
+		   4) document.querySelectorAll(선택자) : 선택자를 사용해서 여러 문서 객체 선택
+	   
+	   5. 속성
+		   1) 선택.innerHTML = new content 		내부 글자 변경
+		   2) 선택.style.property = new style	스타일 변경
+		   3) 선택.attribute = new value			속성에 새 값 설정
+	*/
+</script>
+
+</head>
+<body>
+	<h1>자바스크립트</h1>
+	<p>대한민국의 수도는?</p>
+	<p>정답은 <span id="answer"></span>입니다.</p>	
+	<script type="text/javascript">		/* 순서대로 사용되므로 자바스크립트의 사용 개수는 상관없다.  */
+		document.getElementById("answer").innerHTML ="서울";
+	</script>
+</body>
+</html>
+
+
+

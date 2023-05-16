@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 1. 선언적 함수 정의
+	function view() {
+		document.write("<h1>선언적 함수</h1>")
+	}
+
+	
+	// 2. 표현식 함수 정의
+	
+	let view = function() {
+		document.write("<h1>표현식 함수</h1>")
+	}
+	
+	view();
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

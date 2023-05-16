@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = changeStyle;	// 괄호 없이!! 함수를 실행시키는것이 아닌 함수자체를 대입
+	
+	function changeStyle() {
+		
+		
+		
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+	<h1 id="heading">DOM</h1>
+	<div id="box">
+		<p>Document</p>
+		<p>Object</p>
+		<p>Model</p>
+	</div>
+</body>
+</html>

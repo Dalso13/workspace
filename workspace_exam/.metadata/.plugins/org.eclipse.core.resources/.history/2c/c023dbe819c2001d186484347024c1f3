@@ -1,0 +1,74 @@
+<!-- 
+	<form>태그
+
+
+ 	method:	1)get 
+			2)post
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" method="get">
+		<!-- 텍스트 상자 -->
+		<h3>텍스트 상자</h3>
+		일반 텍스트 상자 : <input type="text" placeholder="일반 텍스트 상자"><br>
+		비밀번호 텍스타 상자 : <input type="password" placeholder="비밀번호"><br/>
+		숫자용 텍스트 상자 : <input type="number"><br>
+		
+		
+		<hr/>
+		
+		<!-- 2. 버튼 -->
+		<h3>버튼</h3>
+		일반 버튼 : <input type="button" value="전송1"> <br>
+		일반 버튼 : <button>전송2</button> <br>
+		전송 버튼 : <input type="submit" value="전송3"> <br>
+		취소 버튼 : <input type="reset" value="취소"> <br>
+		숨김 버튼 : <input type="hidden" name="age" value="20">	 <br>	
+	
+	
+		<hr/>
+ 		
+ 		<!-- 3.라디오 버튼 -->
+ 		<h3>라디오 버튼</h3>
+ 		<input type="radio" name="gender" value="남"> 남
+ 		<input type="radio" name="gender" value="여"> 여 <br>
+ 		
+ 		<hr>
+ 		
+ 		<h3>체크박스</h3>
+ 		<input type="checkbox" name="hobbies" value="영화"> 영화
+ 		<input type="checkbox" name="hobbies" value="음악"> 음악
+ 		<input type="checkbox" name="hobbies" value="독서"> 독서
+ 		
+ 		<hr>
+ 		
+ 		<!-- 5.필드 셋 (특정영역 잡아주는 역할)--> 
+		<h3>필드셋</h3>
+		<fieldset>
+			<legend>지역</legend>
+			<input type="checkbox" name="region" value="강남"> 강남
+			<input type="checkbox" name="region" value="강동"> 강동
+			<input type="checkbox" name="region" value="강북"> 강북
+			<input type="checkbox" name="region" value="강서"> 강서
+		</fieldset>
+	
+	 	<hr>
+	 	
+	 	
+	 	<!-- 6.textarea -->
+ 		<!-- 많은 양의 텍스트를 처리할 때 사용 -->
+ 		
+ 		<h3>textarea</h3>	
+ 		<textarea row="10" close="100" placeholder="자기 소개 1000자 입력"> </textarea>
+	</form>
+
+
+</body>
+</html>

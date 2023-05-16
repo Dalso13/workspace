@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var car = {
+		model : "e-class",
+		price : 8000,
+		company : {			// 중괄호는 객체! 객체 안에 객체가 잇는 형태!
+			name : "benz",
+			logo : "triangle"
+		},
+		tries : ["frontLeft", "frontRight", "backtLeft" , "backtRight"],
+		drive : function() {
+			document.write("Let's go!")
+		}	
+	};
+	
+	// 2. 객체 출력
+	document.write("<h1>");
+	document.write(car.model + "<br>");
+	
+	document.write(car.price + "<br>");
+	document.write((car.company).name + "<br>");
+	document.write((car.company).logo + "<br>");
+	for ( var i in car.tries) {
+		document.write(car.tries[i] + "<br>");
+	}
+	document.write("</h1>");
+	
+	let tries = car.tries();
+</script>
+</head>
+<body>
+
+</body>
+</html>

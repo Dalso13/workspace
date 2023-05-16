@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ .hot{background-color: hotpink}
+ .cold{background-color: aqua}
+</style>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	/* 
+		'컬렉션'.each(handler);
+		- each 반복문과 비슷한 구조
+		- handler : 컬렉션의 모든 원소들에 대해서 적용할 기능
+		
+		ex)
+		$("li").each(function(index, element){  // li의 개수 만큼 반복
+			// element 대신에 this를 사용할 수 있음 $(this)
+		})
+	*/
+	
+	$(function() {
+		$("li").each(function(index, element) {
+			if (index / 2 == 0) {
+				$("elenment").toggleClass(".hot")
+			}
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>jQuery each() 함수</h1>
+	<ul>
+		<li>java </li>
+		<li>oracle </li>
+		<li>HTML </li>
+		<li>CSS </li>
+		<li>JavaScript </li>
+		<li>jQuery </li>
+	</ul>
+	<button id="btn">Toggle Style</button>
+</body>
+</html>

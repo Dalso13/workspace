@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr = [1, 1.5, "hello", function() {
+		alert("함수호출")	}]
+</script>
+</head>
+<body>
+
+</body>
+</html>

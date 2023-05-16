@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//onload	= init; 함수명만 필요함
+	function init() {
+		document.body.style.backgroundColor = "yellow";
+	}
+</script>
+</head>
+<body onload="init()">
+
+	<h1 onclick="location.href='https://www.google.com/'">구글로 이동</h1>
+</body>
+</html>

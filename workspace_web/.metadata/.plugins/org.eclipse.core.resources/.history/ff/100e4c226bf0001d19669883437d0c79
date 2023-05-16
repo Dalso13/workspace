@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function() {
+		// 1. 이미 있는 요소에 속성 추가(변경)
+		let img = document.querySelector("#img1");
+		img.setAttribute("src", "../images/bart.jpg");
+		
+	 	img.src = "../images/bart.jpg" 
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+	<img id="img1">
+	<br>
+</body>
+</html>

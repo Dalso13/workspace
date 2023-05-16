@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  .red{color: red}
+  .blue{color: blue}
+  .important{
+  	font-size: 1.5em;
+  	font-weight : bold;
+  }
+</style>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// addClass('클래스 이름') : HTML 요소에 클래스 속성 추가
+		// addClass('클래스 이름') : HTML 요소에 클래스 속성 제거
+		// addClass('클래스 이름') : HTML 요소에 클래스 속성 추가/제거 토글	이게 사용하기 편한거같음
+		
+		$("#add-class").click(function() {
+			$("#set-css").addClass('red');	// classList
+		})
+		$("#remove-class").click(function() {
+			$("#set-css").removeClass('red');
+		})
+		$("#toggle-class").click(function() {
+			$("#set-css").toggleClass('important');
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>jQuery css 변경 방법</h1>
+	<p id="set-css">jQuery css </p>
+	<hr>
+	<button id="add-class">클래스 추가</button>
+	<button id="remove-class">클래스 제거</button>
+	<button id="toggle-class">클래스 토글</button>
+</body>
+</html>

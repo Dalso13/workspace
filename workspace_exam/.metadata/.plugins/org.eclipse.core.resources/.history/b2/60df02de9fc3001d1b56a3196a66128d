@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 출력1. 경고창에 출력하기
+	window.alert("Hello! Javascript!!"); //window문구는 생략가능
+	
+	//2. 출력2. 콘솔창에 출력하기
+	console.log("Hello Javascript World");
+	
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

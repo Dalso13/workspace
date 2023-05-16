@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr = [1, 5, 3, 4, 2];
+	
+	// 배열의 마지막에 값 추가하기 : push(값)
+	arr.push(6);
+	
+	document.write(arr + "<br>");
+	
+	// 배열의 첫 번째 요소에 값 추가하기 : unshift(값)
+	arr.unshift(0);
+	
+	document.write(arr + "<br>");
+	
+	// 배열의 마지막 욧를 삭제하기 : pop();
+	arr.pop();
+	
+	document.write(arr + "<br>");
+	
+	// 배열의 첫 번째 요소 삭제하기 : shift();
+	arr.shift();
+	
+	document.write(arr + "<br>");
+	
+	// 배열 정렬
+	arr.sort();
+	
+	document.write(arr + "<br>");
+
+	// 배열 정렬 (내림차순)	
+	arr.sort(function(a , b) {
+		return b-a;
+	})
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+package org.joonzis.ex;
+class Person{
+	
+}
+
+public class Ex02_PersonMain {
+	public static void main(String[] args) {
+		
+	}
+}

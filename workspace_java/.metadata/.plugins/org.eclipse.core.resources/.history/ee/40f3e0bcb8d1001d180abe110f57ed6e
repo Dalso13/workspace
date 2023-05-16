@@ -1,0 +1,25 @@
+package org.joonzis.test;
+
+public class test02_Singer {
+	String name;
+	test02_Song songList;
+	int idx;
+	
+	
+	
+	public test02_Singer() {}
+	public test02_Singer(String name, int idx) {
+		this.name = name;
+		this.idx = idx;
+	}
+	void setSong(test02_Song songList) {
+		this.songList = songList;
+	}
+	void output() {
+		System.out.println("가수 이름 : " + name );
+		System.out.println();
+		
+	}
+	
+	
+}

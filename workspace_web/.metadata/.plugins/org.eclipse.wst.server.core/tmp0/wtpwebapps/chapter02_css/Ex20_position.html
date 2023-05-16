@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* 
+		position : absolute
+		
+		1. 기준 위치에서 원하는 위치를 직접 지정(top, bottom, left, right)
+		2. 기준 위치
+			1) 가장 가까운 부모중에 position : relative; 인 요소
+			2) 1) 요소가 없으면 화면 전체로 이해	
+	 */
+	 
+	 .container{
+	 	width: 500px;
+	 	height: 500px;
+	 	margin: 50px;
+	 	border: 1px solid black;
+	 	position: relative;
+	 }
+	 
+	 .box{
+	 	position: absolute;
+	 	width: 100px;
+	 	height: 100px;
+	 }
+	 .red{
+	 	background-color: red;
+	 	top: 0;
+	 	left: 0;
+	 }
+	  .yellow{
+	 	background-color: yellow;
+	 	position: absolute;
+	 	bottom: 0;
+	 }
+	 .green{
+	 	background-color: green;
+	 	bottom: 0;
+		right: 0;
+	 }
+	 .orange{
+	 	background-color: orange;
+	 	top	: 0;
+	 	right: 0;
+	 }
+</style>
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="box red">빨강 박스</div>
+		<div class="box yellow">노랑 박스</div>
+		<div class="box green">초록 박스</div>
+		<div class="box orange">주황 박스</div>
+	</div>
+	
+
+</body>
+</html>

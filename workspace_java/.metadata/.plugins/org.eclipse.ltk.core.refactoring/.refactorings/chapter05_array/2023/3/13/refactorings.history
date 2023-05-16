@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;org.joonzis.ex.Ex04_array&apos; to &apos;Ex04_2D_array&apos;&#x0D;&#x0A;- Original project: &apos;chapter05_array&apos;&#x0D;&#x0A;- Original element: &apos;org.joonzis.ex.Ex04_array&apos;&#x0D;&#x0A;- Renamed element: &apos;org.joonzis.ex.Ex04_2D_array&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ex04_array&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;org.joonzis.ex{Ex04_array.java[Ex04_array" matchStrategy="1" name="Ex04_2D_array" qualified="false" references="true" similarDeclarations="false" stamp="1679967698715" textual="false" version="1.0"/>
+</session>

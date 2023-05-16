@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1>DOM</h1>
+		<p class="ex">Document </p>
+		<p class="ex">Object </p>
+		<p>Model</p>
+	</div>
+</body>
+</html>

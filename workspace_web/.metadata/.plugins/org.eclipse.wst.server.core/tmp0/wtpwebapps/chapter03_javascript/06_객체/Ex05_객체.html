@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var person = {
+		name : "김씨",
+		age : 20
+	};
+	
+	// person 객체의 프로퍼티 순회
+	// for-in 문 : 객체의 프로퍼티를 추출할 수 있다.
+	// for(var 변수 in 객체){}
+	
+	// person 객체의 프로퍼티 순회
+	// [] 쓰는 표기법만 지원
+	for ( var p in person) {
+		document.write("<h1>" + person[p] + "</p>");
+	}
+	
+	// .(마침표) 표기법 - for-in 문에서 마침표 표기법을 지원하지 않는다.
+	for ( var p in person) {
+		document.write("<h1>" + person.p + "</p>");		// underfind
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

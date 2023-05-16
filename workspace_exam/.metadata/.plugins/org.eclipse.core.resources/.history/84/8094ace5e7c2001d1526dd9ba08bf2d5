@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		width: 300px;
+		margin: 10px;
+	}
+	#img2{
+		visibility: hidden;
+	
+	}
+</style>
+</head>
+<body>
+	<img alt="과일이미지1" src="images/fruit1.jpg" id="img1">
+	<img alt="과일이미지2" src="images/fruit2.jpg" id="img2">
+	<img alt="과일이미지3" src="images/fruit3.jpg" id="img3">
+</body>
+</html>

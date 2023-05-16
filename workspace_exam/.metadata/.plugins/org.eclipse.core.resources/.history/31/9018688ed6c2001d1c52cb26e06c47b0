@@ -1,0 +1,27 @@
+<!-- 
+	<table> <form> :데이터 전송
+	<div> 영역 전체
+	<span> 안에 내용물
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		border:1px soild black;
+		width: 500px;
+		height: 500px;
+	}
+</style>
+</head>
+<body>
+	<div id="box1">박스1</div>
+	<br/><br/>
+	<div id="box2">박스2</div>
+	<br/><br/>
+	<div id="box3">박스3</div>
+</body>
+</html>

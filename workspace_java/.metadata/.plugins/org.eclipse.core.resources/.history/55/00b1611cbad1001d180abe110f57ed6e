@@ -1,0 +1,60 @@
+package org.joonzis.test;
+
+import java.util.Scanner;
+
+public class test03_WeekScheduler {
+	test03_Day[] days;
+	String[] week;
+	Scanner sc = new Scanner(System.in);
+
+	public test03_WeekScheduler() {
+		week = new String[7];
+		week[0] = "일";
+		week[1] = "월";
+		week[2] = "화";
+		week[3] = "수";
+		week[4] = "목";
+		week[5] = "금";
+		week[6] = "토";
+		}
+	void menu() {
+		System.out.print("1. 스케줄 생성, 2. 삭제, 3. 수정, 4. 보기, 0. 종료 : ");
+		int menu = sc.nextInt(); 
+		switch (menu) {
+		case 1: makeSchedule();
+			
+			
+		case 2:	removeSchedule();
+			
+			
+		case 3: modifySchedule();
+		
+			
+		case 4: output();
+		
+			
+		case 5: exit();
+		
+			break;
+		}
+	}
+	void makeSchedule() {
+		
+	}
+	void removeSchedule() {
+		
+	}
+	 void modifySchedule() {
+		 
+	 }
+	 void  output() {
+		 
+	 }
+	
+	 void exit() {
+		 System.out.println("종료 되었습니다.");
+	 }
+	 void run() {
+		 menu();
+	 }
+ }

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;chapter04_jQuery/WebContent/Ex06_jQyeryarray.html&apos; to &apos;Ex06_jQyery_array.html&apos;" description="Rename resource &apos;Ex06_jQyeryarray.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/Ex06_jQyeryarray.html" name="Ex06_jQyery_array.html" stamp="1684216083535" updateReferences="true"/>
+</session>

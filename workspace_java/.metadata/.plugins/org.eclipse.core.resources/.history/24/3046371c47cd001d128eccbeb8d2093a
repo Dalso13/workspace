@@ -1,0 +1,15 @@
+package org.joonzis.ex;
+
+public class Ex_01_BookMain {
+	public static void main(String[] args) {
+		
+		
+		// 1. Book 객체(인스턴스) 생성
+		Ex_01_Book myBook = new Ex_01_Book();
+		
+		// 2. 생성된 객체(myBook) 활용
+		
+		myBook.info();
+		
+	}
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{
+		margin: 0px;
+	}
+	body {
+		background-color:  #d3d1d1;
+	}
+	.aa{
+		margin: 10px;
+		font-weight: bold;
+		text-decoration: none;
+		color: black;
+	}
+	
+	#search1{
+		height: 30px;
+		width: 200px;
+		margin: 0px;
+		outline: none;
+	}
+	#images1{
+		padding-right: 0px;
+		height: 30px;
+		vertical-align: bottom;
+	}
+	#head {
+		margin: 10px;
+		margin-right: 1px;
+		display: inline-block;
+		background-color: white;
+		border-radius: 10px;
+		border: 2px solid black;
+		padding: 2px;
+
+	}
+	#logo{
+		width: 220px; 
+		height: 120px; 
+		margin: 10px;
+		margin-left: 40px;
+	}
+	.select{
+		color: white;
+		display: inline-block;
+		padding: 15px;
+		text-decoration: none;
+	}
+	.appliances{
+		margin: 10px;
+		display: inline-block;
+	}
+	.a1{
+		width: 450px;
+	}
+	.button{
+		margin-top: 20px;
+		margin-left: 160px;
+	}
+	#bottom{
+		width: 566px;
+
+		margin: auto;
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+	#bottom a{
+		text-decoration: none;
+		color: black;
+	}
+	.appliances ul li{
+		list-style-type: square;
+	}
+	@media screen and (max-width: 1910px) and (min-width: 1100px) {
+		.appliances{
+			width: 40%;
+		}
+	}
+	@media screen and (max-width: 1099px) {
+		.appliances{
+			width: 90%;
+		}
+	}
+</style>
+</head>
+<body>
+<a href="#" class="aa">회원가입</a>
+<a href="#" class="aa">로그인</a>
+	<div id="head">
+		<input type="image" src="./images/searchicon.png" id = "images1">
+		<input type="search" style="border: 0px; " id="search1" placeholder="Search">
+	</div>
+	<button style="height: 40px;">검색</button>
+	<br>
+	<img alt="" src="./images/logo.png" id="logo">
+	
+	<div style="background-color: black;">
+		<a href="#" class="select">베스트</a>
+		<a href="#" class="select">세일중</a>
+		<a href="#" class="select">기획전</a>
+		<a href="#" class="select">이벤트</a>
+		<a href="#" class="select">스토어</a>
+	</div>
+	<div style="background-color: white;" id="media">
+		<div class="appliances">
+			<br>
+			<h2>건조기</h2>
+			<img alt="" src="./images/product-1.jpg" class="a1">
+			<ul>
+				<li> 트롬의류건조기 </li>
+				<li> 히트펌프식 </li>
+				<li> 16kg </li>
+				<li> 모던스테인리스 </li>
+				<li> 1,669,600원 </li>
+			</ul>
+			<div class="button">
+				<button>바로구매</button>
+				<button>장바구니</button>
+			</div>
+		</div>
+		<div class="appliances">
+			<h2>일반세탁기</h2>
+			<img alt="" src="./images/product-2.jpg" class="a1">
+				<ul>
+				<li> 통돌이 </li>
+				<li> DD모터 </li>
+				<li> 16kg </li>
+				<li> 미드프리실버</li>
+				<li> 574,500원</li>
+			</ul>
+			<div class="button">
+				<button>바로구매</button>
+				<button>장바구니</button>
+			</div>
+		</div>
+		<div class="appliances">
+			<h2>의류관리기</h2>
+			<img alt="" src="./images/product-3.jpg" class="a1">
+				<ul>
+				<li> 트롬스타일러 </li>
+				<li> 히트펌프식 </li>
+				<li> 상의5벌,하의1벌 </li>
+				<li> 린넨블랙</li>
+				<li> 1,504,000원</li>
+			</ul>
+			<div class="button">
+				<button>바로구매</button>
+				<button>장바구니</button>
+			</div>
+		</div>
+		<div class="appliances">
+			<h2>드럼세탁기</h2>
+			<img alt="" src="./images/product-4.jpg" class="a1">
+			<ul>
+				<li> 트윈워시 </li>
+				<li> DD모터 </li>
+				<li> 21kg + 4kg </li>
+				<li> 모던스테인리스 </li>
+				<li> 1,546,600원 </li>
+			</ul>
+			<div class="button">
+				<button>바로구매</button>
+				<button>장바구니</button>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<a href="#">| 회사소개 |</a>
+		<a href="#">| 이용약관 |</a>
+		<a href="#">| 전자금융거래약관 |</a>
+		<a href="#">| 개인정보처리방침 |</a>
+		<a href="#">| 고객센터 |</a>
+	</div>
+</body>
+</html>

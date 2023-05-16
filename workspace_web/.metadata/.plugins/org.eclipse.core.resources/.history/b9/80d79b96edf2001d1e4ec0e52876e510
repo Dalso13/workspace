@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.success{color: blue;}
+	.fail{color: red;}
+</style>
+<script type="text/javascript">
+	
+	
+	function check() {
+		let form = document.forms.myForm;
+		let result = document.getElementById("result");
+		if (form.num.value < "1" || form.num.value > 10) {
+			result.setAttribute("class","fail");
+			result.innerHTML = "비정상 범위입니다.";
+			return;
+		} else if (form.num.value >= "1" && form.num.value <= 10){
+			result.setAttribute("class","success");
+			result.innerHTML = "정상 범위입니다.";
+		} else{
+			result.setAttribute("class","none");
+			result.innerHTML = "다시 입력해주세요.";
+		}
+		form.submit();
+	}
+</script>
+</head>
+<body>
+	<form action="#" name="myForm">
+		1 ~ 10 사이 정수
+		<input type="number" id="num" name="num">
+		<input type="button" value="검증" onclick="check()">
+	</form>
+	<br>
+	<div id="result"></div>
+</body>
+</html>

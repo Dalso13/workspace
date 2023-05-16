@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 
+	1. 아래 div들 크기 변경 (500px, 500px)
+	너비 -  width
+	높이 -	height
+	1-1 div들 외각선 적용
+		border:1px solid black;
+	
+	2. 박스 1, 2, 3에 배경 이미지 적용 - hot.jpg
+ */
+ 
+	div{
+ 		border: 1px solid black;
+		width: 500px;
+		height: 500px;
+	}
+	.boxs{
+		background-image: url("./images/hot.jpg");
+
+	}
+	#box1{
+		/* 이미지 크기 = 박스 크기  */
+		background-size: 500px 500px;
+		opacity: 0.5; /* 투명도 : 값이 낮을수록 투명함 (0~1) */
+	}
+	#box2{
+		/* 이미지 크기 > 박스 크기 */
+		background-size: cover;
+	}
+ 	#box3{
+ 		/* 이미지 크기 < 박스 크기 */
+		background-size: contain;
+ 	}
+</style>
+</head>
+<body>
+	<div id="box1" class="boxs">박스1</div><br>
+	<div id="box2" class="boxs">박스2</div><br>
+	<div id="box3" class="boxs">박스3</div><br>
+	<div id="box4">박스4</div>
+</body>
+</html>

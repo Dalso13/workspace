@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" method="get">
+		<h3>이름</h3>
+		이름 : <input type="text" value="이름">이름
+		나이 : <input type="text" value="나이">나이
+		비밀번호 : <input type="text" value="나이">나이
+		나이 : <input type="text" value="나이">나이
+</body>
+</html>

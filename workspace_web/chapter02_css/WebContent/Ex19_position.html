@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*  
+		relative
+		1.	기존 요소를 참고해서 알아서 배치
+		2.	기존 요소를 기준으로 top, bottom, left, right 값을 사용
+	
+	*/
+	
+	div {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+	}
+	#red{	
+		
+		top: 100px;
+		left: 100px;
+		background-color: red; 
+	
+	}
+	#orange{
+		background-color: orange; 
+	}
+	#yellow{
+		background-color: yellow; 
+	}
+	#green{
+		background-color: green; 
+	}
+
+</style>
+</head>
+<body>
+	<div id="red">
+		<div id="orange">
+			<div id="yellow">
+				<div id="green">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

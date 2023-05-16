@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{
+		margin: 0px;
+	}
+	html, body{
+		height: 100%;
+	}
+	
+	
+	#head{
+		background-color: #d3d1d1; 
+		height: 25%;
+	}
+	
+	#body{
+		
+		background-color:#adacac; 
+		height: 75%
+	}
+	
+	#h11{
+		text-align: center;
+		padding-top: 100px;
+	}
+	.div1{
+		width : 300px;
+		padding : 20px;
+		border: 1px solid gray;
+	}
+	.input{
+		width: 100%;
+		height: 40px;
+		border: none;
+	}
+	div input[type="password"]{
+		margin-top : 5px;
+		margin-bottom: 50px;
+	}
+	
+	button{
+		background-color: #d3d1d1;
+		margin-bottom: 40px;
+		font-size: 18px;
+	}
+	input[type = "checkbox"]{
+		margin-right: 10px; 
+	}
+	a{
+		display : inline-block;
+		color: white;
+		margin-left: 10px;
+		text-decoration: none;
+	}
+</style>
+</head>
+<body>
+		<div id="head">
+			<h1 id="h11">로그인 화면</h2>
+		</div>
+		
+		<div id="body">
+			<br>
+			<div class="div1" style="margin: auto;">
+				<input type="text" class="input" placeholder="ID"> <br>
+				<input type="password" class="input" placeholder="PASSWORD">	 <br>
+				<button class="input" style="height: 60px;">로그인</button>	<br>
+				<input type="checkbox"><span style="color: red">로그인 유지</span>
+				<a href="#">아이디 / 비밀번호 찾기</a>
+			</div>
+		</div>
+</body>
+</html>

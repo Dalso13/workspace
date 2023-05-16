@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var car = {
+		model : "e-class",
+		drive : function(){
+			document.write("<h1>" + this.model + "</h1>");
+		}
+	};
+	
+	car.drive;
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

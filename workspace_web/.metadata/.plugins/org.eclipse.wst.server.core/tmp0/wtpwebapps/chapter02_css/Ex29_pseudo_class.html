@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*  
+		<a> 태그의 가상 클래스
+		
+		1. a:link		: 방문하기 전
+		2. a:visited	: 방문한 적 있음
+		3. a:hover		: 마우스 오버(올려놓기)
+		4. a:active		: 마우스 누를 때(클릭x)
+	
+	*/
+	div {
+	width: 100px;
+	}
+	
+	div .btn1:link{
+		display: block;
+		background-color: yellow;
+		padding: 10px;
+		
+	}
+	div .btn1:visited {
+		background-color: fuchsia;
+		color: black;
+	}
+	div .btn1:hover {
+		background-color: black;
+		color: red;
+	}
+	div .btn1:active {
+		background-color: olive;
+		color: lime;
+	}
+	
+</style>
+</head>
+<body>
+	<div>
+		<a href="#" class="btn1">버튼1</a>
+		<a href="https://www.naver.com" class="btn1">버튼1</a>
+	</div>
+</body>
+</html>

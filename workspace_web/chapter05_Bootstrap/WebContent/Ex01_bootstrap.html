@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bootstrap</title>
+<!-- 
+부트스트랩
+
+ - 각종 레이아웃, 버튼, 입력창 등의 디자인을 CSS와 Javascript로 만들어 놓은 것
+ - http://bootstrapk.com/ -> css, js
+ - https://cdnjs.com/libraries/popper.js -> popper
+ - https://getbootstrap.com/ -> doc 사용법
+
+ -->
+<!-- 모바일 디바이스에서 터치/줌 등을 지원하기 위한 meta 태그 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS 파일들을 링크 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery js파일들을 링크 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper 버전 링크 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Bootstrap 버전 링크 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h1>Bootstrap</h1>
+  <div class="container-fluid">
+    <h1>같은 넓이의 컬럼</h1>
+    <div class="row">
+      <div class="col" style="background-color: red;">.col</div>
+      <div class="col" style="background-color: blue;">.col</div>
+      <div class="col" style="background-color: green;">.col</div>
+      <div class="col" style="background-color: orange;">.col</div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <h1>다른 넓이의 반응형 컬럼</h1>
+    <p>효과를 보기 위해서 브라우저 사이즈를 변경
+    <p>578px 넓이 밑으로 브라우저를 변경하면 컬럼 위치가 변경됨</p>
+    <div class="row">
+      <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+      <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

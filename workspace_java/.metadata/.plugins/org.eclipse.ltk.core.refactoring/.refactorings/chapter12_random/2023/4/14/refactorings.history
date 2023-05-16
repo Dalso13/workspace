@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;org.joonzis.text&apos; to &apos;org.joonzis.test&apos;&#x0D;&#x0A;- Original project: &apos;chapter12_random&apos;&#x0D;&#x0A;- Original element: &apos;chapter12_random/src/org.joonzis.text&apos;&#x0D;&#x0A;- Renamed element: &apos;chapter12_random/src/org.joonzis.test&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;org.joonzis.text&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;org.joonzis.text" name="org.joonzis.test" qualified="false" references="true" stamp="1680505653781" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,143 @@
+
+<!--
+	테이블 태그 
+	
+	1. 표를 만들 때 사용 
+	2. <table></table> 태그 사용
+	3. 행을 만들 때 <tr></tr> 태그 사용
+	4. 열을 만들 때 <td> </td> 태그 사용
+	5. 제목 열을 만들 때 <th> </th> 태그 사용
+	6. 행 병합은 rowspan 속성 이용 (rowspan = "2"  : ("합칠 칸 수 넣기"))
+	7. 열 병합은 colspan 속성 이용
+	
+	* cellpadding : 셀 내부 간격
+	* cellspacing : 셀과 셀 사이 간격
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h1>3행 2열 테이블</h1>
+	<table border="1px">
+		<tr style="background-color: green">
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<tr>
+			<td>김씨</td>	
+			<td>10</td>	
+		</tr>
+		<tr>
+			<td>이씨</td>
+			<td>20</td>
+		</tr>
+	</table>
+	
+	
+	<h1>열 병합 연습</h1>
+	
+	<table border="1px">
+		<tr style="background-color: green">
+			<td colspan="2"> 인구조사 </td>
+		</tr>
+		<tr>
+			<td>지역</td>	
+			<td>인구</td>	
+		</tr>
+		<tr>
+			<td>서울</td>
+			<td>1000만</td>
+		</tr>
+	</table>
+		
+	<h1>행 병합 연습</h1>
+	
+	<table border="1px">
+	
+		<tr style="background-color: green">
+			<td colspan="2"> 라커 1번 </td>
+		</tr>
+		<tr>
+			<td rowspan="2">김씨</td>	
+			<td>10월 20일</td>	
+		</tr>
+		<tr>
+			<td>10월 31일</td>
+		</tr>
+		
+		
+	</table>
+
+
+
+
+	<h1>연습 문제 1</h1>
+	<table border="1px">
+		<tr> 
+			<th> 이름 </th>
+			<th colspan = "0.5"> 나이 </th>
+			<th colspan="3"> 주소 </th>
+		</tr>
+		<tr>
+			<td> 홍길동 </td>
+			<td> 20세 </td>
+			<td> 서울시 마포구 노고산동 </td>
+		</tr>
+		<tr>
+			<th> 특기 </th>
+			<td colspan="3"> 먹기 </td>
+		</tr>
+		<tr>
+			<th rowspan="2"> 신체 </th>
+			<td colspan="2"> 180.0cm </td>
+			
+		</tr>
+		<tr> <td colspan="2"> 83kg </td>	</tr>
+		
+	</table>
+
+
+
+	<h1>연습 문제 2</h1>
+	<table border="1px" cellpadding = "7">
+		<tr > 
+			<td rowspan="5" > 1 </td>
+			<td > 2  </td>
+			<td > 3  </td>
+			<td > 4 </td>
+			<td > 5 </td>
+		</tr>
+		<tr>
+			<td> 6 </td>
+			<td> 7 </td>
+			<td> 8 </td>
+			<td> 9 </td>
+		</tr>
+		<tr>
+			<td rowspan="3"> 10 </td>
+			<td> 11 </td>
+			<td> 12 </td>
+			<td rowspan="2"> 13 </td>
+		</tr>
+		<tr>
+			<td> 14 </td>
+			<td> 15 </td>
+		</tr>
+		<tr> 
+			<td> 16 </td>
+			<td> 17 </td>
+			<td> 18 </td>
+		</tr>
+		<tr> 
+			<td colspan="5"> 19 </td>
+		</tr>
+		
+		
+	</table>
+</body>
+</html>

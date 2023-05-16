@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="clock" >0000-00-00 00:00:00</h1>
+	<button onclick="watch();">현재 시간 출력</button>
+	<button id="stop" >정지</button>
+	
+<script type="text/javascript">
+	/* 
+		현재 날짜와 시간을 다음과 같은 형식으로 출력하시오.
+		
+		ex) 2023-05-10 17:04:08
+	*/
+	
+	function watch(){
+		let d = new Date;
+					
+		let month = d.getMonth()+1;
+		let minute = d.getMinutes()
+		let hours = d.getHours();
+		let day =  d.getDate();
+		let second = d.getSeconds();
+				
+		let zero = function(aaa) {
+			if ((String(aaa)).length == 1) {
+				aaa = "0"+aaa;	
+			}
+			return aaa;
+		}
+				
+		let h11 = document.querySelector("#clock");
+				
+		let result = `${d.getFullYear()}-${zero(month)}-${zero(day)}  
+						${zero(hours)}:${zero(minute)}:${zero(second)}` ;
+						
+		h11.innerHTML = result;
+		let start = setTimeout(watch, 1000);
+	}			
+	
+	let stop = document.querySelector("#stop");
+	
+	function stops() {
+		clearTimeout
+	}
+					
+	stop.onclick = stops();
+
+</script>
+
+</body>
+</html>

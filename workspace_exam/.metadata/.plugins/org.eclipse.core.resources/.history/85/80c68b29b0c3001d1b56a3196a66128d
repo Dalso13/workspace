@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#">
+		<input type="text" onkeydown="keyDownFunc()">
+		<div i="content"></div>
+	</form>
+	
+	<script type="text/javascript">
+		function keyDownFunc() {
+			alert(1) //임시- 함수 적용 확인 용도
+		}
+	</script>
+</body>
+</html>

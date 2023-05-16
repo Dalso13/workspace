@@ -1,0 +1,23 @@
+Q1. Test01.java
+Thread 클래스를 상속받아 2개의 쓰레드의(메인 스레드 포함)
+동작 완료 시간을 출력
+★System.currentTimeMillis(),
+ sleep((int)(Math.random()*1000)) 이용
+
+
+Q2. Test02.java
+멀티 스레드를 이용하여 구구단을 출력(동기화 X)
+class GugudanPlay	메소드 : play(int dan)
+class Gugudan		필드 : int dan, GugudanPlay gugudan
+					메소드 : 생성자 , run()
+class Main
+ - 참조 배열 이용
+ 
+
+Q3. Test03.java
+멀티 스레드를 이용하여 구구단을 출력(동기화 O)
+class GugudanPlay2	메소드 : play()
+class Gugudan2		필드 : int dan, GugudanPlay2 gugudan
+					메소드 : 생성자 , run()
+class Main
+ - 참조 배열 이용, 개별 객체 이용(2가지 모두 구현)

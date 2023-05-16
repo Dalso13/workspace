@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	const date = new Date;
+	
+	date.setMonth(4);
+	date.setDate(24);
+	
+	document.write(date);
+	
+	document.write(date.getDay());
+	let week = date.getDay();
+	let result = "";
+	
+	if (week == 0) {
+		week = "SUN";
+	} else if (week == 1) {
+		week = "MON";
+	}  else if (week == 2) {
+		week = "TUE";
+	}  else if (week == 3) {
+		week = "WED";
+	}  else if (week == 4) {
+		week = "THU";
+	}  else if (week == 5) {
+		week = "FRI";
+	}  else if (week == 6) {
+		week = "SAT";
+	}
+	
+	document("<br>" + week);
+</script>
+</head>
+<body>
+
+</body>
+</html>

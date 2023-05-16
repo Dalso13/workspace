@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<fieldset>
+		<legend>취미 선택(1개만 선택가능)</legend>
+		<input type="radio" name="hobbies" value="운동">운동
+		<input type="radio" name="hobbies" value="영화">영화
+	</fieldset>
+	
+	<fieldset>
+		<legend>관심 분야(복수 선택 가능)</legend>
+		<input type="checkbox" name="interasting" value="정치">정치
+		<input type="checkbox" name="interasting" value="문화">문화
+		<input type="checkbox" name="interasting" value="경제">경제
+	</fieldset>
+</body>
+</html>

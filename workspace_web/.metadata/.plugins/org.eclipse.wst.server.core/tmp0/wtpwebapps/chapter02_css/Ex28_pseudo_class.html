@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ /* 
+ 	1. E:nth-child(n)		: n번째 요소
+ 	2. E:nth-child(odd)		: 홀수번째 요소
+ 	3. E:nth-child(even)	: 짝수번째 요소
+ 	4. E:nth-child(an+b)	: b번째부터 a단위 요소
+ 	5. E:nth-of-type(n)		: E 타입 요소 중에서 n번째 요소
+ 
+  */
+  
+    body p:nth-child(2) {
+		color: red;
+	}
+	body p:nth-of-type(2) {
+		color: blue;
+	}
+	body p:nth-child(2n+0) {
+		font-weight: bold;
+	}
+	
+	
+</style>
+</head>
+<body>
+	<div>여기가 div</div>
+	<p> 첫 번째 P </p>
+	<p> 두 번째 P </p>
+	<p> 세 번째 P </p>
+	<p> 네 번째 P </p>
+</body>
+</html>

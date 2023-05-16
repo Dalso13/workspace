@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#box{
+		width : 100px;
+		height : 100px;
+		color : white;
+		background-color: red;
+		text-align:  center;		/* 가로 방향 가운데 정렬 */
+		display: table-cell;		/* 테이블의 셀로 변경하면 수직 정렬 가능 */
+		vertical-align: middle;		/* 세로 방향 가운데 정렬 */
+	}
+	#text{
+		font-size: 16px;
+		font-weight: bold;
+	}
+</style>
+<script type="text/javascript">
+	// 전역 변수
+	var i = 0;	// 증가 인덱스
+	var colors = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+	var contents = ["빨", "주", "노", "초", "파", "남", "보"];
+	
+	onload = function() {
+		rainbow();
+	}
+	
+	function rainbow() {
+		if (i >= 7) {
+			i = 0;
+		}
+		let box = document.querySelector("#box");
+		let text = document.querySelector("#text");
+		
+		box.style.backgroundColor = colors[i];
+		text.innerHTML = contents[i];
+		i++;
+		
+		setInterval(rainbow, 1000);
+	}
+</script>
+</head>
+<body>
+	<div id="box">
+		<p id="text">빨</p>
+	</div>
+</body>
+</html>

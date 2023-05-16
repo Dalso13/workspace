@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" method="get">
+		이름 : <input type="text" value="이름"><br>
+		나이 : <input type="text" value="나이"><br>
+		비밀번호 : <input type="text" value="비밀번호"><br>
+		이메일 : <input type="text" value="이메일"><br>
+		
+		<fieldset>
+			<legend>성별</legend>
+			<input type="radio" name="gender" value="남">남
+			<input type="radio" name="gender" value="여">여
+		</fieldset>
+		
+		<fieldset>
+			<legend>취미</legend>
+			<input type="checkbox" name="habbies" value="운동">운동
+			<input type="checkbox" name="habbies" value="영화">영화
+			<input type="checkbox" name="habbies" value="게임">게임
+			<input type="checkbox" name="habbies" value="여행">여행
+		</fieldset>
+		
+		거주지 : <select name="addr1">
+				<option value="서울">서울
+				<option value="경기">경기
+				<option value="강원">강원
+				<option value="제주">제주
+				</select>
+				
+		<br>
+				
+		이력서 : <input type="file">
+		
+		<br>
+		
+		자기 소개서 : <textarea rows="50" cols="100"></textarea>
+		
+		<br>
+		
+		제출일 : <input type="date">
+		
+		제출 버튼 : <input type="submit" value="제출">
+		취소 버튼 : <input type="reset" value="취소">
+</body>
+</html>

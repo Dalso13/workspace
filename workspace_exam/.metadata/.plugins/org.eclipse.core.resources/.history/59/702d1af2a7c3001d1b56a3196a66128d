@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function btnEvent(){
+		alert("clicked");
+		
+	}
+
+</script>
+	
+</head>
+<body>
+	<button onclick="btnEvent()">클릭</button>
+</body>
+</html>

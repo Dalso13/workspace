@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1. 오프라인에 제이쿼리.js 파일 추가 -->
+<script src="js/jquery-3.4.1.js">
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

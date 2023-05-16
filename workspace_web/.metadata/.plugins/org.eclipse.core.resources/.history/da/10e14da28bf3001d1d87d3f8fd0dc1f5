@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
+	<div id="box" ">마우스 올리기</div>
+</body>
+</html>

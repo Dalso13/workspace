@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*  
+		선언적 함수 ( 함수 선언식 )
+	
+		1. 이름이 있는 함수! (자바스크립트 영역은 두 번 읽히는데 첫 번째로 선언 함수 정의 부분을 읽는다)
+		2. 함수를 정의하고(만들고), 호출하는(사용하는) 과정이 필요
+		3. 정의와 호출 순서 상관 X
+	*/
+	
+	// 1. 선언적 함수 정의
+	function myFunction() {
+		document.write("<h3> myFunction 실행 </h3>")
+	}
+	
+	// 2. 선언적 함수 호출
+	myFunction();
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

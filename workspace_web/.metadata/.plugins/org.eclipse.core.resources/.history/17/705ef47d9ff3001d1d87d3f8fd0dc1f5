@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#header").mouseover().css({"background-color":"yellow"})
+		$("#header").mouseout().css({"background-color":"yellow"})
+	})
+</script>
+</head>
+<body>
+	<h2 id="header">MouseOver / MouseOut</h2>
+</body>
+</html>

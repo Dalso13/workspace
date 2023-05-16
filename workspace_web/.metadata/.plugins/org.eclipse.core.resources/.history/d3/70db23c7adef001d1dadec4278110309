@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var cal = {
+			model : "e-class",
+			proce : 8000,
+			company : {
+				name : "benz",
+				logo : "triangle"
+			},
+			tries : ["frontLeft", "frontRight", "backtLeft" , "backtRight"]
+			
+			
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

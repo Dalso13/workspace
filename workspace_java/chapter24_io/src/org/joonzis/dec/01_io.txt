@@ -1,0 +1,28 @@
+1.1 입출력 스트림 (IO Stream)
+ - 데이터를 전송하기 위한 일종의 통로 개념이다.
+ - 일방통행이 기본이다.
+ - 데이터의 방향에 따라 입력 스트림(InputStream)과 출력 스트림(OutputStream)으로 구분한다.
+ - 스트림 클래스는 크게 바이트(byte) 기반 스트림과 문자(character) 기반 스트림으로 구분한다.
+ 	바이트 기반 스트림은 그림, 멀티미디어, 문자 등 모든 종류의 데이터를 받고 보낼 수 있으나,
+ 	문자 기반 스트림은 문자만 받고 보낼 수 있다.
+ 	
+ - 바이트 기반 스트림 
+ 	* 최상위 클래스 : InputStream, OutputStream
+	1) InputStream : 입력스트림
+		(1) FileInputStream
+		(2) PipedInputStream
+	2) OutputStream : 출력 스트림
+		(1) FileOutputStream
+		(2) PipedOutputStream
+ - 문자기반 스트림
+ 	* 최상위 클래스 : Reader, Writer
+	1) Reader : 입력 스트림
+		(1) FileReader
+		(2) PipedReader
+	2) Writer : 출력 스트림
+		(1) FileWriter
+		(2) PipedWriter		
+ - 보조 스트림 (단독으로는 사용불가, 주 스트림에 끼워서 쓴다.)
+	1) BufferedInputStream : 버퍼를 통해서 입력
+	2) BufferedOutputStream : 버퍼를 통해서 출력
+	

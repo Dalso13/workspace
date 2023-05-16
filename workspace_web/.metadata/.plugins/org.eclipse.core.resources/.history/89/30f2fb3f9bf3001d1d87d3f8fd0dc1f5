@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#idbtn").click(function() {
+			$("#pa").hide();
+		});
+	})
+</script>
+</head>
+<body>
+	<h2>여기가 h 태그</h2>
+	<p id="pa"> 여기가 p 태그 </p>
+	<p id="pb"> 여기가 또다른 p 태그 </p>
+	<button id="idBtn">아이디 숨기기 버튼</button>
+	<button id="classBtn">클래스 숨기기 버튼</button>
+	<button id="tagBtn">태그 숨기기 버튼</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" method="post">
+	<h1>상품 주문서</h1>
+		
+	<fieldset>
+	<legend>주문자 정보</legend>
+	이름 <input type="text" placeholder="여백없이입력(필수)">
+	전화번호<select name="addr1">
+			<option value="02"></option>
+			<option value="031"></option>
+			<option value="032"></option>
+		</select>
+	<input placeholder="연락가능한 번호">
+	</fieldset>
+	
+	
+	<fieldset>
+	<legend>배송지 정보</legend>
+	주소<input type="text" placeholder="배송받을주소(필수)"><br>
+	배송메모<textarea rows="5" cols="50"></textarea>
+	</fieldset>
+	
+	<br>
+	
+	<input type="button" value="주문">
+	<input type="button" value="다시작성">
+	</form>
+</body>
+</html>

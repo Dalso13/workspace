@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = changeStyle;	// 괄호 없이!! 함수를 실행시키는것이 아닌 함수자체를 대입
+	
+	function changeStyle() {
+		// 1. css 속성을 그대로 사용하는 경우 ( 하이픈 없이 단어 하나로 구성된 속성들 )
+		//		.(마침표) 표기법 사용
+		var h1 = document.querySelector("#heading");
+		
+		h1.style.color = "red";
+		/* 
+			너비 400px, 높이 100px, 배경색 pink, 외각선 1px solid black
+		*/
+		h1.width = 400;
+		h1.height = 100;
+		h1.style = "background-color : pink";
+		h1.border = "1px solid black;";
+		
+		
+	}
+</script>
+</head>
+<body>
+	<h1 id="heading">DOM</h1>
+	<div id="box">
+		<p>Document</p>
+		<p>Object</p>
+		<p>Model</p>
+	</div>
+</body>
+</html>

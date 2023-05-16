@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 출력1. 경고창에 출력하기
+	window.alert("Hello! Javascript!!");
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

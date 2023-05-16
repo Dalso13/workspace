@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 출력1. 경고창에 출력하기
+	//window.alert("Hello! Javascript!!"); //window문구는 생략가능. 중요!
+	
+	//2. 출력2. 콘솔창에 출력하기
+	//console.log("Hello Javascript World"); //데이터 확인을 목적으로 쓰고 사용. 중요!
+	
+	//3. 출력3. 브라우저 화면에 출력하기
+	//document.write("Hello");
+	//document.write("<h1>");
+	//document.write("javascript");
+	//document.write("</h1>");       //body 태그 내용에 사용하는 것처럼 head에서 사용. document문서를의미
+	
+
+
+</script>
+</head>
+<body>
+	<h1>자바스크립트</h1>
+	<p>대한민국의 수도는?</p> <!-- span 안에 있는 컨텐츠, 내용물 p: 한줄 블럭-->
+	<p>정답은 <span id="answer"></span>입니다. </p>
+	
+	<script type="text/javascript">
+		document.getElementById("answer").innerHTML = "서울";
+		
+	
+	</script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+		background-color: #d3d1d1; 
+	}
+	.body {
+		width: 600px;
+		margin: auto;	
+	}
+	.body .input{
+		width: 430px;
+		height: 20px;
+	}
+	h3{
+		color: red;
+	}
+	.uls{
+		border: 1px solid black;
+		padding-top: 20px;
+		padding-bottom: 20px; 
+		list-style-type: none;
+	}
+	span{
+		display: inline-block;
+		width: 70px;
+		font-weight: bold;
+	}
+	#last{
+		margin-top: 20px;
+	}
+</style>
+</head>
+<body>
+	<h1 style="text-align: center;">상품 주문서</h1>
+	<div class="body">
+		<h3>개인 정보</h3>
+		
+		<ul class="uls">
+			<li> 
+				<span>이름</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+			<br>
+			<li>
+				<span>연락처</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+			<br>
+			<li>
+				<span>주소</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+		</ul>	
+	</div>
+	
+	<div class="body">
+		<h3  style="margin-bottom: 0px;">배송지 정보</h3>
+		<input type="checkbox" style="width: 10px;">주문자 정보와 같음
+		
+		<ul class="uls" style="margin-top: 0px;">
+			<li> 
+				<span>이름</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+			<br>
+			<li>
+				<span>연락처</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+			<br>
+			<li>
+				<span>주소</span>
+				<input class="input" type="text" placeholder="필수">
+			</li>
+			<li id="last">
+				<span style="vertical-align: top;">메모</span>
+				<textarea style="width: 430px; height: 100px;" placeholder="경비실에 맡겨주세요, 2층에 맡겨주세요"></textarea>
+			</li>
+		</ul>	
+		<div style="margin-left: 215px;">
+			<button>주문하기</button>
+			<button>다시작성</button>
+		</div>
+	</div>
+</body>
+</html>

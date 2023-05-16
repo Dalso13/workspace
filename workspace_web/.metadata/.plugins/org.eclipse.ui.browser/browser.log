@@ -1,0 +1,114 @@
+
+5월 02, 2023 15:47:13.483 NEW SESSION
+5월 02, 2023 15:47:13.483 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 15:52:18.438 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 15:52:39.322 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 16:37:43.107 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 16:43:15.240 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 16:51:33.377 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 16:53:35.114 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 17:05:27.386 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 17:14:22.45 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 17:16:52.911 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 17:17:18.856 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 17:45:05.243 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 18:06:54.531 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 18:09:05.132 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 02, 2023 18:11:14.772 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+5월 03, 2023 10:02:42.556 NEW SESSION
+5월 03, 2023 10:02:42.556 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 10:03:18.836 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 10:03:57.572 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 10:04:19.518 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 10:04:51.53 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 10:06:35.362 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 11:42:28.924 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 12:02:21.838 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 12:16:42.989 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 12:44:22.835 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 14:42:38.158 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 14:46:25.821 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 16:32:17.273 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 16:44:03.30 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 16:44:38.326 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 16:50:48.214 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 16:53:37.984 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 17:18:46.832 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 17:38:37.542 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 17:48:35.563 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 17:49:55.859 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 17:52:05.262 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 18:03:23.107 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 03, 2023 18:07:48.436 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+5월 04, 2023 09:54:33.734 NEW SESSION
+5월 04, 2023 09:54:33.734 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 04, 2023 15:03:46.466 [3044:10164:0504/150346.466:ERROR:usb_descriptors.cc(114)] Failed to parse configuration descriptor.
+5월 04, 2023 15:04:06.219 [3044:10164:0504/150406.218:ERROR:usb_descriptors.cc(114)] Failed to parse configuration descriptor.
+5월 04, 2023 15:04:06.690 [3044:10164:0504/150406.690:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 04, 2023 15:04:06.691 [3044:10164:0504/150406.690:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 04, 2023 15:04:06.692 [3044:10164:0504/150406.690:ERROR:device_event_log_impl.cc(222)] [15:04:06.690] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&5#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 04, 2023 15:04:08.51 [3044:10164:0504/150408.050:ERROR:usb_descriptors.cc(114)] Failed to parse configuration descriptor.
+5월 04, 2023 15:04:08.51 [3044:10164:0504/150408.050:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 04, 2023 15:04:08.52 [3044:10164:0504/150408.050:ERROR:device_event_log_impl.cc(222)] [15:04:08.051] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&5#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 04, 2023 17:36:02.483 [4112:10116:0504/173602.482:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 04, 2023 17:36:02.483 [4112:10116:0504/173602.482:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 04, 2023 17:36:02.484 [4112:10116:0504/173602.482:ERROR:device_event_log_impl.cc(222)] [17:36:02.483] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+
+5월 08, 2023 16:59:23.239 NEW SESSION
+5월 08, 2023 16:59:23.240 [5224:3752:0508/165923.237:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+5월 09, 2023 12:09:57.783 NEW SESSION
+5월 09, 2023 12:09:57.783 [5136:6112:0509/120957.783:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 09, 2023 12:09:57.783 [5136:6112:0509/120957.783:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 09, 2023 12:09:57.783 [5136:6112:0509/120957.783:ERROR:device_event_log_impl.cc(222)] [12:09:57.779] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 09, 2023 13:06:08.204 [5204:5716:0509/130608.204:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 09, 2023 13:06:08.205 [5204:5716:0509/130608.204:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 09, 2023 13:06:08.205 [5204:5716:0509/130608.204:ERROR:device_event_log_impl.cc(222)] [13:06:08.204] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+
+5월 11, 2023 11:19:52.135 NEW SESSION
+5월 11, 2023 11:19:52.135 [432:6032:0511/111952.132:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 11, 2023 11:19:52.136 [432:6032:0511/111952.132:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 11, 2023 11:19:52.136 [432:6032:0511/111952.132:ERROR:device_event_log_impl.cc(222)] [11:19:52.132] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 11, 2023 16:46:14.962 [5180:684:0511/164614.962:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 11, 2023 16:46:14.964 [5180:684:0511/164614.962:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 11, 2023 16:46:14.964 [5180:684:0511/164614.962:ERROR:device_event_log_impl.cc(222)] [16:46:14.962] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 11, 2023 16:47:32.234 [3812:2004:0511/164732.234:ERROR:usb_descriptors.cc(114)] Failed to parse configuration descriptor.
+5월 11, 2023 16:47:53.426 [6752:8916:0511/164753.426:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 11, 2023 16:47:53.427 [6752:8916:0511/164753.426:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 11, 2023 16:47:53.427 [6752:8916:0511/164753.426:ERROR:device_event_log_impl.cc(222)] [16:47:53.425] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+
+5월 12, 2023 11:45:34.970 NEW SESSION
+5월 12, 2023 11:45:34.970 [8488:2476:0512/114534.968:ERROR:usb_descriptors.cc(114)] Failed to parse configuration descriptor.
+5월 12, 2023 12:46:36.943 [10720:3364:0512/124636.942:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+5월 12, 2023 12:46:36.944 [10720:3364:0512/124636.942:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 12, 2023 12:46:36.944 [10720:3364:0512/124636.942:ERROR:device_event_log_impl.cc(222)] [12:46:36.942] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 12, 2023 15:14:16.857 [9596:9852:0512/151416.856:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+5월 12, 2023 15:14:16.858 [9596:9852:0512/151416.856:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 12, 2023 15:14:16.858 [9596:9852:0512/151416.856:ERROR:device_event_log_impl.cc(222)] [15:14:16.856] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+
+5월 15, 2023 09:50:41.485 NEW SESSION
+5월 15, 2023 09:50:41.485 [7580:7680:0515/095041.483:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+5월 15, 2023 09:50:41.486 [7580:7680:0515/095041.483:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 15, 2023 09:50:41.486 [7580:7680:0515/095041.483:ERROR:device_event_log_impl.cc(222)] [09:50:41.483] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 15, 2023 09:53:48.115 [884:7092:0515/095348.115:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+5월 15, 2023 09:53:48.116 [884:7092:0515/095348.115:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 15, 2023 09:53:48.116 [884:7092:0515/095348.115:ERROR:device_event_log_impl.cc(222)] [09:53:48.114] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 15, 2023 10:58:21.840 [4592:5604:0515/105821.839:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+5월 15, 2023 10:58:21.841 [4592:5604:0515/105821.839:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 15, 2023 10:58:21.841 [4592:5604:0515/105821.839:ERROR:device_event_log_impl.cc(222)] [10:58:21.839] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 15, 2023 17:32:04.350 [6504:7080:0515/173204.350:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 15, 2023 17:32:04.351 [6504:7080:0515/173204.350:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 15, 2023 17:32:04.351 [6504:7080:0515/173204.350:ERROR:device_event_log_impl.cc(222)] [17:32:04.349] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 15, 2023 18:27:15.626 [9176:9576:0515/182715.626:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 15, 2023 18:27:15.628 [9176:9576:0515/182715.626:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 15, 2023 18:27:15.628 [9176:9576:0515/182715.626:ERROR:device_event_log_impl.cc(222)] [18:27:15.626] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+
+5월 16, 2023 10:49:00.965 NEW SESSION
+5월 16, 2023 10:49:00.965 [3488:7676:0516/104900.931:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 16, 2023 10:49:00.966 [3488:7676:0516/104900.931:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 16, 2023 10:49:00.966 [3488:7676:0516/104900.931:ERROR:device_event_log_impl.cc(222)] [10:49:00.931] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+5월 16, 2023 10:50:17.220 [8024:1396:0516/105017.219:ERROR:usb_descriptors.cc(117)] Failed to read configuration descriptor.
+5월 16, 2023 10:50:17.220 [8024:1396:0516/105017.219:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+5월 16, 2023 10:50:17.220 [8024:1396:0516/105017.219:ERROR:device_event_log_impl.cc(222)] [10:50:17.219] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_275d&pid_0ba6#6&2a3b5f9a&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.

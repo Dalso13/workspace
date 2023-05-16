@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		color:blue;
+	}
+</style>
+</head>
+<body>
+	<h1>CSS TEXT</h1>
+	<h2 Class="cls-left">Left</h2>
+	<h2 Class="cls-center>Center</h2>
+	<h2 Class="cls-right">Right</h2>
+</body>
+</html>

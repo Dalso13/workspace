@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	const date = new Date;
+	
+	date.setMonth(4);
+	date.setDate(24);
+	
+	document.write(date);
+	document.write(date.getDay);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

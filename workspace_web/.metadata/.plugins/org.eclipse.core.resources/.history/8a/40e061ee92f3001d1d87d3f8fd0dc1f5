@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.onkeydown = function(e) {
+		var key = e.keyCode;
+		
+		// 새로고침, 뒤로가기 기능 정지
+		console.lof(key);
+	}
+</script>
+</head>
+<body>
+	<h1>새로고침(F5)과 뒤로가기(BackSpace) 금지 페이지</h1>
+</body>
+</html>

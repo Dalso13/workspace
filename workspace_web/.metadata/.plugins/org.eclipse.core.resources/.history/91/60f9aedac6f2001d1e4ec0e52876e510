@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	// form name 속성을 통해서 form 요소를 회극하기
+	// 1.표기법 : document.forms.폼name.요소,name
+	// 2. [] 표기법 : document.forms["폼name"]["요소name"]
+	// id값 말고 name으로 접근
+	function goLogin() {
+		// 아이디는 반드시 입력되도록 하고,
+		// 비밀번호는 8~16자만 입력되도록 처리
+		// 그렇지 않으면 function 종료
+		
+		let form = document.forms.myForm;
+		
+		if (form.id.value == "") {
+			alert("아이디 입력 해주세요");
+			return;
+		} else if ((form.pw.value).length > 16 || (form.pw.value).length < 8) {
+			alert("비밀번호는 8~16자 사이를 입력 해주세요");
+			form.pw.value = ""; //데이터 초기화
+			form.pw.focus();
+			
+			return;
+		}
+		
+		// 자바스크립트 코드로 데이터 submit
+		form.submit();
+	}
+</script>
+</head>
+<body>
+	<form action="#" name = myForm>
+		<label for="uid">아이디</label>
+		<input type="text" name="id" id="uid"> <br>
+		<label for="upw">비밀번호</label>
+		<input type="password" name = "pw" id="upw"> <br>
+		<button onclick="goLogin();">로그인</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var arr = [1, 2, 3, 4, 5];
+	// arr의 길이 : 5
+	// arr의 마지막 인덱스 : 4
+	
+	// 1. 존재하지 않는 인덱스 사용
+	arr[5] = 6;
+	
+	document.write("<h1>" + arr + "</h1>")
+</script>
+</head>
+<body>
+
+</body>
+</html>

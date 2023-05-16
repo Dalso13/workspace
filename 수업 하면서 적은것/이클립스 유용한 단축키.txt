@@ -1,0 +1,76 @@
+
+1.가장 많이쓰는거	
+
+	Home, Shift + End
+	Shift + End	: 줄 하나 선택
+
+----------
+
+	ALT + Left(Right) : 이전, 이후 작업 화면
+
+
+
+	Alt + Shift + A : 세로 블럭 지정이 가능한 모드로 변경 된다.
+
+
+
+	Alt + Shift + R : Refactoring (이름변경) - Refactoing 으로 전체 소스에서 이름변경에 의한 참조 정보를 변경해 준다
+
+
+
+	Alt + Shift + J : 자동으로 주석 달기 (메소드나 멤버변수에 포커스 두고 실행)
+
+
+	
+	Ctrl + Space : 입력 보조장치(Content Assistance) 강제 호출 → 입력하는 도중엔 언제라도 강제 호출 가능함
+
+
+
+	Ctrl + L : 특정 줄 번호로 이동
+
+
+
+	Ctrl + D : 한 줄 삭제
+
+
+
+	Ctrl + W : 파일 닫기
+
+
+
+	Ctrl + I : 들여쓰기 자동 수정
+
+
+
+	Ctrl + M : 전체화면 토글
+
+
+
+	Ctrl + K : 찾고자 하는 문자열을 블럭으로 설정한 후 키를 누른다
+	
+
+
+	Ctrl + Shift + K : 역으로 찾고자 하는 문자열을 찾아간다
+
+
+
+	Ctrl + Shift + G : 특정 메소드나 필드를 Reference하고 있는 곳을 검색
+
+
+
+	Ctrl + Shift + O : 자동으로 Import
+
+
+
+	Ctrl + Shift + X : 대문자로 변환
+
+
+
+	Ctrl + Shift + Y : 소문자로 변환
+	
+
+
+	Ctrl + Alt + Up(Down) : 한 줄(블럭) 복사
+
+
+

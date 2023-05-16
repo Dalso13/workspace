@@ -1,0 +1,11 @@
+1. 중복값 없애기
+for (int i = 0; i < sum.length; i++) {					// 중복값 없애기 중요!!
+	sum[i] = rnd.nextInt(10);
+	for (int j = 0; j < i; j++) {
+		if (sum[i] == sum[j]) {
+		   i--;
+		}
+					
+	}
+				
+}

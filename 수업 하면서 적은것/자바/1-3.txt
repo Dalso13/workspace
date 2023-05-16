@@ -1,0 +1,6 @@
+
+1. 조건실행  if , switch 문
+
+2. 반복실행 while , do while , for
+
+3. break  빠져 나오기   ,contiue 건너 뛰

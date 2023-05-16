@@ -1,0 +1,92 @@
+---- DESC : 테이블 구조를 확인하는 명령어
+
+	DESC emp;
+
+---- NUMBER : 간단하게 생각해서 숫자 데이터 타입
+---- DATE : 날짜 데이터 타입
+---- CHAR : 정적 문자 타입(길이를 정해줌)  VARCHAR2 : CHAR와 같지만 길이가 유동적 쓰기편함 
+---- NULL : ZERO 값이 아니라 미확정, 알수없음 값
+
+---- 출력
+s
+	SELECT  * FROM DEPT;
+
+
+---- 골라서 출력
+
+	SELECT
+   	  SAL,JOB FROM EMP;
+
+---- 산수 가능   
+
+	SELECT
+   	 ename, SAL,SAL*12 FROM EMP;
+
+	SELECT  ename, SAL, JOB, COMM, SAL*12 , SAL*12+comm
+  	  FROM EMP;
+
+---- NVL NULL 값 치환 
+
+	SELECT  ename, SAL, JOB, nvL(COMM, 0), SAL*12 , SAL*12+nvL(COMM, 0)
+   	 FROM EMP;    
+
+---- 열 AS "" 별명 짓기    AS 생략 가능, 쌍따옴표 생략 가능 BUT 쌍따옴표 생략시 무조건 대문자
+
+	SELECT  ename AS "이름", SAL AS "연봉", JOB AS "직급", nvL(COMM, 0) AS "성과금", SAL*12 AS "연봉 ", SAL*12+nvL(COMM, 0) AS "연봉 + 성과금"
+   	 FROM EMP;  
+    
+---- 행을 연결할떄 || 수직바 사용
+
+	SELECT ENAME ||' is a ' || JOB FROM EMP;
+
+---- 중복 제거 DISTINCT
+
+	SELECT DISTINCT JOB FROM EMP;
+
+
+---- 조건문 WHERE 문자열, 날짜는 ''로 감싸기
+
+	SELECT EMPNO, ENAME, SAL FROM EMP WHERE ENAME = '김사랑';
+	SELECT * FROM EMP WHERE hiredate >= '03/09/01';
+
+---- AND OR NOT 은 영어 그대로 쓰자   NOT 은 != 쓸수있음.
+
+	SELECT * FROM EMP WHERE DEPTNO = 10 AND JOB = '사원';
+	SELECT * FROM EMP WHERE DEPTNO = 10 OR JOB = '사원';
+	SELECT * FROM EMP WHERE DEPTNO = 10 AND NOT JOB = '사원';
+
+---- 사이 값을 출력하기위한 BETWEEN (200<= SAL AND 300>= SAL) 와 같음
+
+	SELECT * FROM EMP WHERE SAL BETWEEN 200 AND 300;
+
+---- 200보다 작고 300보다 큰것
+
+	SELECT * FROM EMP WHERE SAL < 200 OR SAL > 300;
+	SELECT * FROM EMP WHERE SAL NOT BETWEEN 200 AND 300;
+
+---- IN 연산자 : OR 연산자 쓰기 편하게
+
+	SELECT * FROM EMP WHERE SAL = 300 OR SAL = 500 OR SAL = 1000;
+	SELECT * FROM EMP WHERE SAL IN(300,500,1000);
+
+
+---- *** 중요 ***   LIKE 연산자 : 컬럼명 LIKE % // LIKE _ 
+
+	SELECT * FROM EMP WHERE ename LIKE '김%';
+	SELECT * FROM EMP WHERE ename LIKE '_사_';
+
+---- NULL 을 찾고 싶을때 IS NULL 반대는 IS NOT NULL
+
+	SELECT * FROM EMP WHERE COMM IS NULL;
+	SELECT * FROM EMP WHERE COMM IS NOT NULL;
+
+---- 순서 정렬 : 오름차순 ASC , 내림차순 DESC , 쓸때 ORDER BY 추가 후 사용
+
+	SELECT * FROM EMP ORDER BY hiredate DESC;
+	SELECT * FROM EMP ORDER BY hiredate ASC;    ---- ASC는 안써도 되는데 쓰는게 좋음
+	SELECT * FROM EMP ORDER BY SAL ASC;
+	SELECT * FROM EMP ORDER BY SAL DESC;
+
+---- 정렬에 조건 : 대입 첫번째 정렬에서 겹치는 부분을 두번째에서 정렬
+
+	SELECT * FROM EMP ORDER BY SAL DESC , ename ASC;

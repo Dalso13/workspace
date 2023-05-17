@@ -28,7 +28,7 @@
 		var regExp = /^[0-9]+$/;
 		
 		// 4. test() : 정규식에서 지원하는 함수(boolean 리턴)
-		if (regExp.test(target.value)) {
+		if (regExp.text(target.value)) {
 			alert("숫자가 맞습니다.")
 		} else {
 			alert("숫자가 아닙니다.")

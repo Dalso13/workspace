@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Ex04_servlet")
-public class Ex04_servlet extends HttpServlet {
+@WebServlet("/Ex05_servlet")
+public class Ex05_servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Ex04_servlet() {
+    public Ex05_servlet() {
         super();
     
     }
@@ -26,12 +26,6 @@ public class Ex04_servlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
-		Calendar cal = Calendar.getInstance();
-		
-		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH)+1;
-		int date = cal.get(Calendar.DATE);
-		
 		PrintWriter out = response.getWriter(); // 웹 브라우저에 출력하기 위한 객체
 		
 		out.print("<html>");
@@ -41,7 +35,17 @@ public class Ex04_servlet extends HttpServlet {
 		out.print("</title>");
 		out.print("</head>");
 		out.print("<body>");
-		out.print(year + "년 " +("0")+ month + "월 " +date +"일");
+		// request 가 가지고 있는 기본 정보
+		String url = request.getRemoteAddr();
+		String host = request.getRemoteHost();
+		String user = request.getRemoteUser();
+		int port = request.getRemotePort();
+		
+		out.print("요청 주소 : " + url + "<br>");
+		out.print("요청 호스트 : " + host + "<br>");
+		out.print("요청 사용자 : " + user + "<br>");
+		out.print("요청 포트 : " + port + "<br>");
+		
 		out.print("</body>");
 		out.print("</html>");
 	}

@@ -37,7 +37,7 @@ public class Ex01_servlet extends HttpServlet {
     // init() 메소드
     // servlet 생성 후 한 번만 호출
     // 초기화 용도로 사용
-    // init() 메소드 호출 뒤 > service() 메소드가 자동 호출
+    // init() 메소드 호출 뒤 > service() 메소드가 자동 호출 
     public void init(ServletConfig config) throws ServletException {
     	System.out.println("init() 호출");
     }

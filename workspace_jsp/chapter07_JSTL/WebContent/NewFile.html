@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	onload = function () {
+		let N = 5
+		let stages = [1,2,2,2,4,3,3,3]
+		let stage = stages.length
+		let num = [];
+		let stpro = [];
+		
+		
+		for (var j = 1; j <= N; j++) {
+			let count = 0;
+			for (var i = 0; i < stages.length; i++) {
+				if (stages[i] == j+1) {
+					count++;
+				}	
+			}
+			
+			num[j] = count;
+			stpro[j] = {"name" : j , result : count/stage}
+			stage -= count
+		}
+		
+		
+		stpro.sort((a, b) => {
+			return a.score - b.score
+		});
+		
+		document.write(stpro.name + "" + stpro.result);
+		
+	
+	}
+</script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +52,7 @@
 		}
 		
 		
-		f.action  = "insert_one.jsp";
+		f.action  = "insert.jsp";
 		f.submit();
 	}
 	function remove_one(f) {
@@ -64,7 +63,7 @@
 			return;
 		}
 		
-		f.action  = "remove_one.jsp";
+		f.action  = "remove.jsp";
 		
 		f.submit();
 	}

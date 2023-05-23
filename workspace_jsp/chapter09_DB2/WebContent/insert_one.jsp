@@ -34,7 +34,7 @@
 		ps.setInt(4, age);
 		ps.setString(5, addr);
 		
-		int result = ps.executeUpdate();
+		int result = ps.executeUpdate();	// 1 값을 넘긴다
 		
 		conn.commit();
 		

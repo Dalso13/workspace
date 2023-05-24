@@ -74,14 +74,14 @@
 			return;
 		}
 		
-		f.action  = "update_one.jsp";
+		f.action  = "update_page.jsp";
 		
 		f.submit();
 	}
 	function view_one(f) {
 		// 해당 id 정보 - 데이터 한 개
-		if (f.id.value == ''){
-			alert("id를 입력해주세요");
+		if (f.id.value == '' || f.pw.value == ''){
+			alert("id 와 pw를 입력해주세요");
 			
 			return;
 		}

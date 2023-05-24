@@ -38,6 +38,7 @@ public class GreenDao {
 		return conn;
 	}
 	
+	// 2  select * 하는 메소드
 	public List<GreenDto> getAllList() {
 		List<GreenDto> list = new ArrayList<>();	// greenDto 클래스 타입에 리스트 배열을 만듬
 		
@@ -84,5 +85,179 @@ public class GreenDao {
 		return list;
 	}
 	
+	// 데이터 insert 하는 메소드
+	public int getInsert(GreenDto dto) {
+		int result = 0;
+		try {
+			conn = getConnection();
+			
+			String sql = "insert INTO green "
+						+ "(id, pw, name, age, addr, idx, reg_date) "
+						+ "VALUES( ? , ? , ? , ? , ? , green_seq.nextval , SYSDATE) ";
+					
+	 		ps = conn.prepareStatement(sql);
+	 		
+	 		ps.setString(1, dto.getId());
+			ps.setString(2, dto.getPw());
+			ps.setString(3, dto.getName());
+			ps.setInt(4, dto.getAge());
+			ps.setString(5, dto.getAddr());
+			
+			result = ps.executeUpdate();	// 1 값을 넘긴다
+			
+			conn.setAutoCommit(false);
+			
+			
+			if(result > 0) {
+				conn.commit();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} 
+		return result;
+	}
+	
+	// 데이터 remove 하는 메소드
+	public int getRemove(GreenDto dto) {
+		int result = 0;
+		try {
+			conn = getConnection();
+			
+			sql = " DELETE FROM green "
+					+ " WHERE ID = ? and pw = ?" ;
+					
+	 		ps = conn.prepareStatement(sql);
+	 		
+	 		ps.setString(1, dto.getId());
+			ps.setString(2, dto.getPw());
+			
+			result = ps.executeUpdate();	// 1 값을 넘긴다
+			
+			conn.setAutoCommit(false);
+			
+			
+			if(result > 0) {
+				conn.commit();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} 
+		return result;
+	}
+	
+	
+	// 2  특정 데이터 select 하는 메소드
+	public GreenDto getOneList(String id, String pw) {
+		GreenDto dto = new GreenDto();
+		
+		try {
+			conn = getConnection();
+			
+			sql = "select * from green where id = ? and pw = ?";
+			ps = conn.prepareStatement(sql);
+			
+	 		ps.setString(1, id);
+			ps.setString(2, pw);
+			
+			rs = ps.executeQuery();
+			if (rs.next()) {	
+				dto.setIdx(rs.getInt(1));
+				dto.setId(rs.getString(2));
+				dto.setPw(rs.getString(3));
+				dto.setName(rs.getString(4));
+				dto.setAge(rs.getInt(5));
+				dto.setAddr(rs.getString(6));
+				dto.setReg_date(rs.getDate(7));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} 
+		return dto;
+	
+	}
+	
+	// 데이터 update 하는 메소드
+	public int getUpdate(GreenDto dto) {
+		int result = 0;
+		try {
+			conn = getConnection();
+			
+			String sql = "UPDATE green "
+					+ " SET pw = ? , name = ? , age = ? , addr = ? "
+					+ " where idx = ?";
+			
+	 		ps = conn.prepareStatement(sql);
+	 		
+	 		ps.setString(1, dto.getPw());
+			ps.setString(2, dto.getName());
+			ps.setInt(3, dto.getAge());
+			ps.setString(4, dto.getAddr());
+			ps.setInt(5, dto.getIdx());
+			
+			result = ps.executeUpdate();	// 1 값을 넘긴다
+			
+			conn.setAutoCommit(false);
+			
+			
+			if(result > 0) {
+				conn.commit();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} 
+		return result;
+	}
 	
 }

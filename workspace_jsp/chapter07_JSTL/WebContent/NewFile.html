@@ -6,21 +6,21 @@
 </head>
 <body>
 <script type="text/javascript">
-		let array = [-2, 3, 0, 2, -5];
-		
-		for (var i = 0; i < array.length-2; i++) {
-			for (var j = i+1; j < array.length-1; j++) {
-				for (var n = j+1; n < array.length; n++) {
-					if (array[j] + array[i] + array[n] == 0) {
-						answer++;
-					}
-				}
-			}
-		}
-		
-
+	let s = '1zerotwozero3';
 	
+	let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+	var answer = s;
 	
+	for(let i=0; i< numbers.length; i++) {
+	    let arr = answer.split(numbers[i]);
+	    answer = arr.join(i);
+	}
+	
+	alert(Number(answer));
+		
+	
+		
+		
 </script>
 </body>
 </html>

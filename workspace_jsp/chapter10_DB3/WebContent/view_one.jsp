@@ -12,7 +12,6 @@
 	GreenDto dto = GreenDao.getInstance().getOneList(id,pw);
 
 	pageContext.setAttribute("dto", dto);
-
 %>
 <!DOCTYPE html>
 <html>

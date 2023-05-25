@@ -16,7 +16,6 @@
 	int result = GreenDao.getInstance().getRemove(dto);
 	
 	pageContext.setAttribute("result", result);
-	
 %>
 <!DOCTYPE html>
 <html>

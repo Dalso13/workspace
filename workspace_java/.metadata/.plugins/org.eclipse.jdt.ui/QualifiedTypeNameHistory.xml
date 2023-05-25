@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.joonzis.name.Select"/>
-    <fullyQualifiedTypeName name="org.joonzis.status.StatusMain"/>
-    <fullyQualifiedTypeName name="org.joonzis.city.Shop"/>
-    <fullyQualifiedTypeName name="org.joonzis.status.slime"/>
-    <fullyQualifiedTypeName name="sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData"/>
-    <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ"/>
     <fullyQualifiedTypeName name="org.joonzis.city.Start"/>
     <fullyQualifiedTypeName name="org.joonzis.city.Select_city"/>
     <fullyQualifiedTypeName name="org.joonzis.Filed.FiledStart"/>
@@ -22,8 +16,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.joonzis.name.Save"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="org.joonzis.Filed.Camp"/>
     <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="org.joonzis.name.main"/>
@@ -35,7 +27,6 @@
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="org.joonzis.status.MonsterState"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="com.sun.tools.sjavac.server.SysInfo"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -60,4 +51,13 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="org.joonzis.db.DBConnection"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.code.Type.ForAll"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+    <fullyQualifiedTypeName name="jdk.internal.util.xml.impl.Input"/>
+    <fullyQualifiedTypeName name="org.joonzis.test.Triangle"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="org.joonzis.test.Student"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

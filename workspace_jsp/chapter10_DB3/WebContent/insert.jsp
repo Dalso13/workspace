@@ -33,7 +33,6 @@
 	int result = GreenDao.getInstance().getInsert(dto);
 	
 	pageContext.setAttribute("result", result);
-
 %>
 	
 	<c:choose>

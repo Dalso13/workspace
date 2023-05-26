@@ -6,12 +6,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-		let new_id2 =	"z-+.^.";
-
-		let num = new_id2.match(/[A-Z]/g);
-		let num2 = new_id2.split(/[A-Z]/g);
-		
-		alert(num + "" + num2)
+	let t = "3141592";
+	let p = "271";
+	let count = 0;
+	
+	for (var i = 0; i < ; i++) {
+		t.substring(i,p.length + i);
+	}
+	
+	i
 </script>
 </head>
 <body>

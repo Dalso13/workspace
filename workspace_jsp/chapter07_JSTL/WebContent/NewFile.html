@@ -6,48 +6,18 @@
 </head>
 <body>
 <script type="text/javascript">
-	let new_id =	"z-+.^.";
-	    
-		let num = new_id.match(/[A-Z]/g);
-		let num2 = new_id.split(/[A-Z]/g);
-		
-		if (num != null) {
-			new_id = '';
-			for (var i = 0; i < num2.length; i++) {
-		
-				if (num[i] == undefined) {
-					new_id += num2[i];
-					break;
-				}
-				new_id += num2[i] + num[i].toLowerCase();
-			}
-		}
-		
-		new_id = new_id.replace(/[^\w-\.-\'-']/g,"");
-		new_id = new_id.replace(/\.{2,}/g,".");
-		
-		new_id = new_id.replace(/^\./,"");
-		new_id = new_id.replace(/\.$/,"");
-		
-		let sum = /[0-9a-z]/
-		if (!sum.exec(new_id)) {
-			new_id += "a";
-		}
-		if (new_id.length >= 16) {
-			new_id = new_id.substring(0,15);
-			
-		}
-		new_id = new_id.replace(/\.$/,"");
-		console.log(new_id.length)
-		
-		if (new_id.length <= 3) {
-			while (new_id.length != 3) {
-				new_id += new_id.substring(new_id.length -1 , new_id.length);
-			}
-		}
+	let t = "3141592";
+	let p = "271";
+	let count = 0;
 	
+	for (var i = 0; p.length + i <= t.length ; i++) {
+		if (parseInt(t.substring(i,p.length + i)) <= parseInt(p)) {
+			count++;
+		} 
+	}
 	
-	alert(new_id)
+	alert(count)
+	
 </script>
 </body>
 </html>

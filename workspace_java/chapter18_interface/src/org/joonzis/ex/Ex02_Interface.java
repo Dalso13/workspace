@@ -69,7 +69,7 @@ public class Ex02_Interface {
 		rect[0].output();
 		System.out.println("-------------");
 		rect[1].output();
-		
+	
 		
 	}
 }

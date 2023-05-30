@@ -59,5 +59,6 @@ public class Ex01_ArrayList {
 			list.remove(0);
 			
 		}
+		
 	}
 }

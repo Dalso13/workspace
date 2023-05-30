@@ -6,17 +6,19 @@
 </head>
 <body>
 <script type="text/javascript">
-	let t = "3141592";
-	let p = "271";
-	let count = 0;
-	
-	for (var i = 0; p.length + i <= t.length ; i++) {
-		if (parseInt(t.substring(i,p.length + i)) <= parseInt(p)) {
-			count++;
-		} 
-	}
-	
-	alert(count)
+	let n = ["aya", "ye", "woo", "ma"];
+	let babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"];
+	let answer = 0;
+	  let sum = /aya|ye|woo|ma/g
+	 let sum2 = /(aya){2}|(ye){2}|(woo){2}|(ma){2}/g
+	for(let i = 0 ; i < babbling.length; i++){
+		babbling[i]= babbling[i].replace(sum2,"1")
+		   babbling[i] = babbling[i].replace(sum,"")
+		 if(babbling[i] == "") {
+		        answer += 1;
+		    }
+	 }
+	alert(babbling);
 	
 </script>
 </body>

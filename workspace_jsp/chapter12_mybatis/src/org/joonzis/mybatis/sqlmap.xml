@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
-<!-- 연결을 위한 정보를 담고있는곳 -->
 <configuration>
 
 	<environments default="development">
@@ -18,7 +17,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         </environment>
 	</environments>
 	
-<!-- 맵핑 해주는 경로 -->
 	<mappers>
         <mapper resource="org/joonzis/mybatis/green.xml"/>
 	</mappers>

@@ -3,23 +3,19 @@ package org.joonzis.ex;
 import java.sql.Date;
 
 public class GreenVO {
-	private int idx;
-	private String id;
-	private String pw;
-	private String name;
-	private int age;
-	private String addr;
+	private int idx, age;
+	private String id, pw, name, addr;
 	private Date reg_date;
 	
 	public GreenVO() {}
 
-	public GreenVO(int idx, String id, String pw, String name, int age, String addr, Date reg_date) {
+	public GreenVO(int idx, int age, String id, String pw, String name, String addr, Date reg_date) {
 		super();
 		this.idx = idx;
+		this.age = age;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
-		this.age = age;
 		this.addr = addr;
 		this.reg_date = reg_date;
 	}
@@ -32,34 +28,6 @@ public class GreenVO {
 		this.idx = idx;
 	}
 
-	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	
 	public int getAge() {
 		return age;
 	}
@@ -68,7 +36,30 @@ public class GreenVO {
 		this.age = age;
 	}
 
-	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getAddr() {
 		return addr;
 	}
@@ -77,7 +68,6 @@ public class GreenVO {
 		this.addr = addr;
 	}
 
-	
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -85,6 +75,5 @@ public class GreenVO {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	
 	
 }

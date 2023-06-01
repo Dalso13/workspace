@@ -1,42 +1,66 @@
-<%@page import="org.joonzis.ex.GreenVO"%>
 <%@page import="org.joonzis.ex.GreenDao"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@page import="org.joonzis.mybatis.DBService"%>
+<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
+<%@page import="org.joonzis.ex.GreenVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+
+    
+ <%
 	request.setCharacterEncoding("utf-8");
-	
-	String id = request.getParameter("id");
-	String pw = request.getParameter("pw");
-	
-	GreenVO dto = new GreenVO();
-	dto.setId(id);
-	dto.setPw(pw);
-	
-	int result = GreenDao.getInstance().getRemove(dto);
-	
-	pageContext.setAttribute("result", result);
+
+	GreenVO vo = new GreenVO();
+	vo.setId(request.getParameter("id"));
+	vo.setPw(request.getParameter("pw"));   
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>	
-	<c:choose>
-		<c:when test="${result gt 0 }">
-			<script type="text/javascript">
-				alert("회원 삭제 성공");
-				location.href = "view_all.jsp";
-			</script>
-		</c:when>
-		<c:otherwise>
-			<script type="text/javascript">
-				alert("회원 삭제 실패!");
-				location.href = "index.jsp";
-			</script>
-		</c:otherwise>
-	</c:choose>
-</body>
-</html>
+<!--
+	// delete문의 커밋 처리 
+	// 1. 수동 커밋을 사용 : openSession(false)
+	// 2. 커밋		  : commit()
+	// 3. 닫기		  : close()	
+	
+	SqlSessionFactory factory = DBService.getFactory();
+	SqlSession sqlSession = factory.openSession(false);
+
+	/*
+	delete문의 메소드
+	1. delete("sql문의 id")				- 
+	2. deltet("sql문의 id", 파라미터) 
+	
+	*/	
+	
+	int result = sqlSession.delete("remove", dto);
+	if( result > 0 ){
+		sqlSession.commit();
+		sqlSession.close();
+		response.sendRedirect("view_all.jsp");
+	} else {
+		sqlSession.close();
+%>
+	<script type="text/javascript">
+		alert("회원 삭제에 실패했습니다.");
+		history.back();
+	</script>
+<% // } %>
+-->
+<%
+	GreenDao dao = GreenDao.getInstance();
+	int result = dao.remove(vo);
+	
+	if (result > 0) {
+		out.println("<script>");
+		out.println("alert('회원 삭제 성공!')");
+		out.println("location.href='view_all.jsp'");
+		out.println("</script>");
+	} else {
+		out.println("<script>");
+		out.println("alert('회원 삭제 실패!')");
+		out.println("history.back()");
+		out.println("</script>");
+	}
+
+%>
+
+
+

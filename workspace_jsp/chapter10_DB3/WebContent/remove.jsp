@@ -1,11 +1,10 @@
-<%@page import="org.joonzis.ex.GreenDao"%>
 <%@page import="org.joonzis.ex.GreenDto"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="org.joonzis.ex.GreenDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setCharacterEncoding("utf-8");
-	
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	
@@ -14,29 +13,23 @@
 	dto.setPw(pw);
 	
 	int result = GreenDao.getInstance().getRemove(dto);
-	
 	pageContext.setAttribute("result", result);
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>	
+
 	<c:choose>
 		<c:when test="${result gt 0 }">
 			<script type="text/javascript">
-				alert("회원 삭제 성공");
-				location.href = "view_all.jsp";
+				alert("회원이 삭제되었습니다.");
+				location.href='view_all.jsp';
 			</script>
 		</c:when>
 		<c:otherwise>
 			<script type="text/javascript">
-				alert("회원 삭제 실패!");
-				location.href = "index.jsp";
+				alert("회원 삭제를 실패했습니다.");
+				location.href='view_all.jsp';
 			</script>
 		</c:otherwise>
 	</c:choose>
-</body>
-</html>
+	
+	
+	

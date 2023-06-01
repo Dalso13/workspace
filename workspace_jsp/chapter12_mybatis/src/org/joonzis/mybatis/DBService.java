@@ -15,8 +15,8 @@ public class DBService {	// factory를 만드는게 목적
 	static {
 		try {
 			String resource = "org/joonzis/mybatis/sqlmap.xml";
-			InputStream is = Resources.getResourceAsStream(resource); // 위에 정보를 저장함
-			factory = new SqlSessionFactoryBuilder().build(is);  // 팩토리 빌더라는 팩토리 모음집에서 원하는 팩토리 값을 넣어줌
+			InputStream is = Resources.getResourceAsStream(resource);
+			factory = new SqlSessionFactoryBuilder().build(is);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -27,7 +27,15 @@ public class DBService {	// factory를 만드는게 목적
 		return factory;
 	}
 }
-//SqlSessionFactoryBuilder에서   SqlSessionFactory 을 생성하고, Factory에서  SqlSession을 생성한다.
+//SqlSessionFactoryBuilder에서   SqlSessionFactory 을 생성하고,
+// Factory에서  SqlSession을 생성한다.
 //mybaytis를 이용하려면 SqlSession이 필요하다!!!!!!
+
+
+
+
+
+
+
 
 

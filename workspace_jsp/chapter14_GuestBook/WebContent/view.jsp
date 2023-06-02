@@ -48,44 +48,46 @@
 </style>
 </head>
 <body>
-	<h2>${vo.writer }의 방명록</h2>
-	<table>
-		<tbody>
-			<tr>
-				<th> 제목 </th>
-				<td>${vo.title } </td>
-			</tr>
-			<tr>
-				<th> 이메일 </th>
-				<td>${vo.email } </td>
-			</tr>
-			<tr>
-				<th> 첨부파일 </th>
-				<c:choose>
-					<c:when test="${empty vo.filename }">
-						<td>첨부파일 없음 </td>
-					</c:when>
-					<c:otherwise>
-						<td> <a href="download.jsp?path=upload&filename=${vo.filename }"> ${vo.filename } </a></td>
-					</c:otherwise>
-				</c:choose>
-			</tr>
-			<tr>
-				<th> 내용 </th>
-				<td>${vo.content } </td>
-			</tr>
-			<tr>
-				<th> 작성일 </th>
-				<td>${vo.reg_date } </td>
-			</tr>
-			<tr>
-				<td colspan="2"> 
-					<input type="button" value="방명록 수정" onclick="location.href = 'update_page.jsp'"> 
-					<input type="button" value="방명록 삭제" onclick="location.href = 'remove_page.jsp'"> 
-					<input type="button" value="목록으로 이동" onclick="location.href = 'index.jsp'"> 
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div>
+		<h2>${vo.writer }의 방명록</h2>
+		<table>
+			<tbody>
+				<tr>
+					<th> 제목 </th>
+					<td>${vo.title } </td>
+				</tr>
+				<tr>
+					<th> 이메일 </th>
+					<td>${vo.email } </td>
+				</tr>
+				<tr>
+					<th> 첨부파일 </th>
+					<c:choose>
+						<c:when test="${empty vo.filename }">
+							<td>첨부파일 없음 </td>
+						</c:when>
+						<c:otherwise>
+							<td> <a href="download.jsp?path=upload&filename=${vo.filename }"> ${vo.filename } </a></td>
+						</c:otherwise>
+					</c:choose>
+				</tr>
+				<tr>
+					<th> 내용 </th>
+					<td>${vo.content } </td>
+				</tr>
+				<tr>
+					<th> 작성일 </th>
+					<td>${vo.reg_date } </td>
+				</tr>
+				<tr>
+					<td colspan="2"> 
+						<input type="button" value="방명록 수정" onclick="location.href = 'update_page.jsp'"> 
+						<input type="button" value="방명록 삭제" onclick="location.href = 'remove_page.jsp'"> 
+						<input type="button" value="목록으로 이동" onclick="location.href = 'index.jsp'"> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

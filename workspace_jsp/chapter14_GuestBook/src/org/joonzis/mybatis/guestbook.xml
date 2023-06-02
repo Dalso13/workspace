@@ -8,13 +8,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="select_all" resultType="org.joonzis.ex.GuestbookVO">
 		SELECT * FROM GUESTBOOK ORDER BY IDX DESC
 	</select>
+	
 	<select id="select" resultType="org.joonzis.ex.GuestbookVO" parameterType="int">
 		SELECT * FROM GUESTBOOK WHERE IDX = #{idx }
 	</select>
+	
 	<insert id="insert" parameterType="org.joonzis.ex.GuestbookVO">
 		INSERT INTO GUESTBOOK VALUES( GUESTBOOK_SEQ.NEXTVAL, #{writer}, #{email}, #{pw}, #{filename}, #{title}, #{content}, SYSDATE)
 	</insert>
+	
 	<delete id="remove" parameterType="int">
 		DELETE FROM GUESTBOOK WHERE IDX =#{idx}
 	</delete>
+	
+	<update id="update" parameterType="org.joonzis.ex.GuestbookVO">
+		update GUESTBOOK set email= #{email}, title = #{title}, content = #{content}, filename = #{filename}  where idx = #{idx}
+	</update>
+	
 </mapper>

@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	div{
+		width: 800px;
+		margin: auto;
+		text-align: center;
+	}
 	table {
 		width: 100%;
 		border-collapse: collapse;
@@ -41,26 +46,28 @@
 </script>
 </head>
 <body>
-	<h2>${vo.writer }의 방명록 삭제 확인</h2>
-	<form action="remove.jsp">
-		<table>
-			<tbody>
-				<tr>
-					<th>제목 </th>
-					<td>${vo.title } </td>
-				</tr>
-				<tr>
-					<th>비밀번호 확인 </th>
-					<td> <input type="password" name="pw" size="80"> </td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="button" value="방명록 삭제" onclick="remove(this.form)">
-						<input type="button" value="목록으로 이동" onclick="location.href = 'index.jsp'">
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</form>
+	<div>
+		<h2>${vo.writer }의 방명록 삭제 확인</h2>
+		<form action="remove.jsp">
+			<table>
+				<tbody>
+					<tr>
+						<th>제목 </th>
+						<td>${vo.title } </td>
+					</tr>
+					<tr>
+						<th>비밀번호 확인 </th>
+						<td> <input type="password" name="pw" size="80"> </td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" value="방명록 삭제" onclick="remove(this.form)">
+							<input type="button" value="목록으로 이동" onclick="location.href = 'index.jsp'">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

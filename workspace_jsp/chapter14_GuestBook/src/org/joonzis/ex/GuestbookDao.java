@@ -58,4 +58,15 @@ public class GuestbookDao {
 		
 		return result;
 	}
+	
+	// 5. 특정 정보 갱신
+	public static int update(GuestbookVO vo) {
+		int result1 = getSqlSession().update("update", vo);
+		
+		if (result1 > 0) {
+			getSqlSession().commit();
+		}
+		
+		return result1;
+	}
 }

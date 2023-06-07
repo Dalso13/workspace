@@ -6,19 +6,24 @@
 </head>
 <body>
 <script type="text/javascript">
-	let n = ["aya", "ye", "woo", "ma"];
-	let babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"];
-	let answer = 0;
-	  let sum = /aya|ye|woo|ma/g
-	 let sum2 = /(aya){2}|(ye){2}|(woo){2}|(ma){2}/g
-	for(let i = 0 ; i < babbling.length; i++){
-		babbling[i]= babbling[i].replace(sum2,"1")
-		   babbling[i] = babbling[i].replace(sum,"")
-		 if(babbling[i] == "") {
-		        answer += 1;
-		    }
-	 }
-	alert(babbling);
+
+    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+    
+    let s = '(())';
+    
+    name();
+   function name(){
+       s = s.replaceAll('()',"");
+    	if(s.indexOf("()") != -1){
+        	name();
+   		 }
+    };
+    
+    
+    
+    
+    var answer = s == "";
+    alert(answer)
 	
 </script>
 </body>

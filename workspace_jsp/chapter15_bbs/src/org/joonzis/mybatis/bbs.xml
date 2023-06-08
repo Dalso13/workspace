@@ -25,5 +25,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{pw}, #{hit}, #{ip}, #{filename}, SYSDATE
 		)
 	</insert>
-	
+	<delete id="remove_bbs" parameterType="int">
+		DELETE FROM BBS_T WHERE B_IDX = #{idx}
+	</delete>
+	<update id="update_bbs" parameterType="org.joonzis.ex.BVO">
+		UPDATE BBS_T 
+		SET IP = #{ip} , TITLE = #{title} , CONTENT = #{content}, FILENAME = #{filename}  
+		WHERE B_IDX = #{b_idx}
+	</update>
+	<update id="updateHit_bbs" parameterType="org.joonzis.ex.BVO" >
+		UPDATE BBS_T 
+		SET HIT = #{hit}
+		WHERE B_IDX = #{b_idx}
+	</update>
 </mapper>

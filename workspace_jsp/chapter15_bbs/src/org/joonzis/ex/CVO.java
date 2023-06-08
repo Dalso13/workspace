@@ -62,11 +62,11 @@ public class CVO {
 		this.pw = pw;
 	}
 
-	public String getIP() {
+	public String getIp() {
 		return ip;
 	}
 
-	public void setIP(String ip) {
+	public void setIp(String ip) {
 		this.ip = ip;
 	}
 

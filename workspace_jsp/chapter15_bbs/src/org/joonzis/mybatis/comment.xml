@@ -4,7 +4,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="org.joonzis.mybatis.comment"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
-	
-	 
-	
+	<insert id="insert_comment" parameterType="org.joonzis.ex.CVO">
+		INSERT INTO COMMENT_T 
+		VALUES(
+			COMMENT_SEQ.NEXTVAL, #{writer}, #{content}, 
+			#{pw}, #{ip}, SYSDATE , #{b_idx}
+		)
+	</insert>
+	<select id="list_comment" resultType="org.joonzis.ex.CVO" parameterType="int">
+		SELECT * FROM COMMENT_T WHERE B_IDX = #{b_idx}
+	</select> 
+	<delete id="remove_comment" parameterType="int">
+		DELETE FROM COMMENT_T WHERE C_IDX = #{c_idx}
+	</delete>
 </mapper>

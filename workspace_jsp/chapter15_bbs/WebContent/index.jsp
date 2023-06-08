@@ -68,6 +68,7 @@
 	List<BVO> bvo  = BDao.getList(map);
 
 	pageContext.setAttribute("bvo", bvo);
+	
 %>
 <!DOCTYPE html>
 <html>

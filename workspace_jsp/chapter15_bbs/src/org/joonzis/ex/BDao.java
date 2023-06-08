@@ -44,6 +44,53 @@ public class BDao {
 			}
 			return result;
 		}
+		public static int getRemove(int idx) {
+			int result = getSqlSession().delete("remove_bbs",idx);
+			
+			if(result > 0) {
+				getSqlSession().commit();
+			}
+			
+			return result;
+		}
+		public static int getUpdate(BVO bvo) {
+			int result = getSqlSession().update("update_bbs",bvo);
+			
+			if(result > 0) {
+				getSqlSession().commit();
+			}
+			
+			return result;
+		}
 		
+		public static void getUpdateHit(BVO bvo) {
+			int result = getSqlSession().update("updateHit_bbs",bvo);
+			
+			if(result > 0) {
+				getSqlSession().commit();
+			}
+			
+		}
 		
+		public static int getInsertComment(CVO cvo) {
+			int result = getSqlSession().insert("insert_comment",cvo);
+			
+			if (result > 0) {
+				getSqlSession().commit();
+			}
+			
+			return result;
+		}
+		
+		public static List<CVO> getListComment(int b_idx) {
+			return getSqlSession().selectList("list_comment",b_idx);
+		}
+		
+		public static void removeComment(int c_idx) {
+			int result = getSqlSession().delete("remove_comment",c_idx);
+			
+			if(result > 0) {
+				getSqlSession().commit();
+			}
+		}
 }

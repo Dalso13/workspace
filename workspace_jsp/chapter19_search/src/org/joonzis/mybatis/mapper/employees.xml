@@ -4,5 +4,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="org.joonzis.mybatis.mapper.employees">
-
+	<select id="select_all" resultType="org.joonzis.vo.EmployeeVO">
+		SELECT * FROM EMPLOYEES ORDER BY EMPLOYEE_ID
+	</select>
+	
+	<select id="select_dept" resultType="org.joonzis.vo.EmployeeVO" parameterType="int">
+		SELECT * FROM EMPLOYEES WHERE DEPARTMENT_ID = #{department_id}  ORDER BY EMPLOYEE_ID
+	</select>
+	
+	<select id="select_dynamic" resultType="org.joonzis.vo.EmployeeVO" parameterType="hashmap">
+		SELECT * FROM EMPLOYEES WHERE
+		<!-- <choose>
+			<when test="key==1"> <bind name="rK" value="'EMPLOYEE_ID" /> </when>
+			<when test="key==2"> <bind name="rK" value="CONCAT(FIRST_NAME,LAST_NAME)" /> </when>
+			<when test="key==3"> <bind name="rK" value="'DEPARTMENT_ID" /> </when>
+		</choose> -->
+		<choose>
+			<when test="key==1"> EMPLOYEE_ID </when>
+			<when test="key==2"> CONCAT(FIRST_NAME,LAST_NAME) </when>
+			<when test="key==3"> DEPARTMENT_ID </when>
+		</choose>
+		= #{value} ORDER BY EMPLOYEE_ID
+	</select>
 </mapper>

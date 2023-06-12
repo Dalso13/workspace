@@ -29,10 +29,10 @@
 		location.href = "/chapter19_search/Controller?cmd=allList"
 	}
 	function search2() {
-			
-	}
+		location.href = "/chapter19_search/Controller?cmd=inputDept"
+	}	
 	function search3() {
-		
+		location.href = "/chapter19_search/Controller?cmd=inputDynamic"
 	}
 </script>
 </head>

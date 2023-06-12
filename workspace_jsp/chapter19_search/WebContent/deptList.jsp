@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +29,8 @@
 </head>
 <body>
 	<div>
-		<h1>전체 직원 목록</h1>
-		<c:if test="${key eq 1}"> <h3>직원ID 검색 결과</h3> </c:if>
-		<c:if test="${key eq 2}"><h3>직원성명 검색 결과</h3></c:if>
-		<c:if test="${key eq 3}"><h3>부서ID 검색 결과</h3></c:if>
+		<h1>부서별 직원 목록</h1>
+		
 		<table>
 			<thead>
 				<tr>
@@ -47,7 +45,7 @@
 			<tbody>
 				<c:choose>
 					<c:when test="${empty result }">
-						<tr> <td colspan="6">검색 결과가 없습니다.</td> </tr>
+						<tr> <td>장버기 없습니다.</td> </tr>
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="vo" items="${result }">

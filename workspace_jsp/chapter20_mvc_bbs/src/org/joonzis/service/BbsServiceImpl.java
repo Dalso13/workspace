@@ -24,4 +24,25 @@ public class BbsServiceImpl implements BbsService{
 	public int getInsert(BVO bvo) {
 		return dao.getInsert(bvo);
 	}
+	
+	@Override
+	public BVO getView(int b_idx) {
+	
+		return dao.getBBS(b_idx);
+	}
+	@Override
+	public int getRemove(int b_idx) {
+		
+		return dao.getRemove(b_idx);
+	}
+	@Override
+	public int getUpdate(BVO bvo) {
+		return dao.getUpdate(bvo);
+	}
+	
+	@Override
+	public void setHit(BVO bvo) {
+		dao.getUpdateHit(bvo);
+		
+	}
 }

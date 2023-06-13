@@ -17,4 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="remove_comment" parameterType="int">
 		DELETE FROM COMMENT_T WHERE C_IDX = #{c_idx}
 	</delete>
+	<delete id="remove_all" parameterType="int">
+		DELETE FROM COMMENT_T WHERE B_IDX = #{b_idx}
+	</delete>
 </mapper>

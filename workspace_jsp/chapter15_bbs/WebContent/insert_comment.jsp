@@ -22,6 +22,7 @@
 	int result = BDao.getInsertComment(cvo);
 	
 	
+	
 	response.sendRedirect("view.jsp?b_idx="+b_idx +"&currentPage="+request.getParameter("currentPage"));
 
  %>

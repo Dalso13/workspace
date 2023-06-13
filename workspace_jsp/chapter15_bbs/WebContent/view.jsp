@@ -189,9 +189,7 @@
 									<td>${cvo.content }</td>
 									<td>${cvo.reg_date }</td>
 									<td><input type="button" value="x"
-										onclick="
-									 	location.href = 'remove_comment.jsp?b_idx=${bvo.b_idx }&currentPage=${param.currentPage }&c_idx=${cvo.c_idx }'
-									 	">
+										onclick="remove(${bvo.b_idx },${param.currentPage },${cvo.c_idx })">
 									</td>
 								</tr>
 							</c:forEach>

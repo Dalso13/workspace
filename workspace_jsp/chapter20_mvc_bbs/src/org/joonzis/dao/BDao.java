@@ -14,4 +14,5 @@ public interface BDao {
 	public int getRemove(int idx);
 	public int getUpdate(BVO bvo);
 	public int getTotalRecord();
+	public void getUpdateHit(BVO bvo);
 }

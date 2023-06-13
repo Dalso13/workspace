@@ -101,14 +101,6 @@
 </style>
 <script type="text/javascript">
 	onload = function () {
-		if (${result} != "" || ${result} != null || ${result} != -100) {
-			if (${result} > 0) {
-				alert("성공")
-			} else if (${result} == 0) {
-				alert("실패")
-			}
-		}
-		
 		
 		var btn = document.querySelector("#btn");
 		
@@ -144,7 +136,7 @@
 							<tr>
 							 	<c:set var="b_idx" value="${bvo.b_idx }"/>
 							 	<td> ${b_idx } </td>
-							 	<td> <a href="view.jsp?b_idx=${b_idx }&currentPage=${pvo.nowPage}">${bvo.title }</a>  </td>
+							 	<td> <a href="/chapter20_mvc_bbs/BBSController?cmd=view&b_idx=${b_idx }&currentPage=${pvo.nowPage}">${bvo.title }</a>  </td>
 							 	<td> ${bvo.writer } </td>
 							 	<td> ${bvo.reg_date } </td>
 							 	<td>${bvo.hit }</td>

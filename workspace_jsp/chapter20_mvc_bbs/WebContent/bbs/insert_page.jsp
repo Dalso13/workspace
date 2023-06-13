@@ -36,8 +36,7 @@
 			alert("입력하세요");
 			return;
 		}
-		alert(f.cmd.value)
-		f.action="/chapter20_mvc_bbs/BBSController";
+		f.action="/chapter20_mvc_bbs/BBSController?cmd=insert";
 		f.submit();
 	}
 </script>
@@ -45,7 +44,7 @@
 <body>
 	<div>
 		<h2>BBS 게시글 작성</h2>
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<table>
 				<tbody>
 					<tr>
@@ -61,6 +60,10 @@
 						<td><input type="password" name="pw" size="80"></td>
 					</tr>
 					<tr>
+						<th>첨부파일</th>
+						<td><input type="file" name="filename"></td>
+					</tr>
+					<tr>
 						<th>내용</th>
 						<td><textarea rows="10" cols="80" name="content"></textarea></td>
 					</tr>
@@ -73,7 +76,6 @@
 					</tr>
 				</tbody>
 			</table>
-			<input type="hidden" name="cmd" value="insert">
 		</form>
 	</div>
 </body>

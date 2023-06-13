@@ -37,7 +37,7 @@ public class BDaoImpl implements BDao{
 		@Override
 		public BVO getBBS(int idx) {
 			
-			return null;
+			return getSqlSession().selectOne("view_bbs",idx);
 		}
 		
 		@Override
@@ -60,11 +60,34 @@ public class BDaoImpl implements BDao{
 		@Override
 		public int getRemove(int idx) {
 			
-			return 0;
+			int result = getSqlSession().delete("remove_bbs",idx);
+			
+			if (result > 0) {
+				getSqlSession().commit();
+			}
+
+			
+			return result;
 		}
 		@Override
 		public int getUpdate(BVO bvo) {
+			int result = getSqlSession().update("update_bbs",bvo);
 			
-			return 0;
+			if (result > 0) {
+				getSqlSession().commit();
+			}
+
+			
+			return result;
+		}
+		
+		@Override
+		public void getUpdateHit(BVO bvo) {
+			int result = getSqlSession().update("updateHit_bbs",bvo);
+			
+			if(result > 0) {
+				getSqlSession().commit();
+			}
+			
 		}
 }

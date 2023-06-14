@@ -6,31 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-  div {
-      width: 800px;
-      margin:auto;
- 
-   }
-   h1{
-   	 text-align: center;  
-   }
-   table {
-      width: 800px;
-      border-collapse: collapse;   
-   }
-   
-   td, th {
-      border : 1px solid #1e90ff;
-      padding: 10px;
-   }
-   th{
-  	 background-color: #0078ff;
-      color: white;  
-      text-align: center; 
-   }
-   
-</style>
+<link href="./CSS/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript"> 
 	
 	function update_page(f) {
@@ -117,7 +93,16 @@
 				<tbody>
 					<tr>
 						<th>댓글 작성자 </th>
-						<td> <input type="text" name="writer"> </td >
+						<td> 
+							<c:choose>
+								<c:when test="${not empty mid }">
+									<input type="text"name="writer" value="${mid}" readonly>
+								</c:when>
+								<c:otherwise>
+									<input type="text" name="writer"> 
+								</c:otherwise>
+							</c:choose>
+						</td >
 						<th>댓글 비밀번호 </th>
 						<td> <input type="password" name="pw"> </td >
 					</tr>

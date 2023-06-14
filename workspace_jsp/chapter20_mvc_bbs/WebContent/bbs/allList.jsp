@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	 div {
+  div {
       width: 800px;
       margin:auto;
       text-align: center;   
@@ -98,20 +98,42 @@
       color: tomato;
       font-weight: bold;
    }
+   #logout{
+   		display: none;
+   }
+   #btn{
+   		display: none;
+   }
 </style>
 <script type="text/javascript">
 	onload = function () {
 		
 		var btn = document.querySelector("#btn");
 		
+		if ("${mid}" != null && "${mid}" != "") {
+			document.getElementById("logSet").style = "display : none";
+			document.getElementById("logout").style = "display : inline";
+			btn.style = "display : inline";;
+		}
+		
+		
 		btn.addEventListener('click',function(){
 			location.href = '/chapter20_mvc_bbs/BBSController?cmd=insert_page';
 		});
+		
+		
+		
 	}
+
 </script>
 </head>
 <body>
 	<div class="wrap">
+		<div style="text-align: right;"> 
+			<button onclick="location.href ='/chapter20_mvc_bbs/MemberController?cmd=loginpage'" id="logSet">로그인</button>
+			<button onclick="location.href ='/chapter20_mvc_bbs/MemberController?cmd=logout'" id="logout">로그아웃</button>
+			<button onclick="location.href ='/chapter20_mvc_bbs/MemberController?cmd=joinpage'">회원가입</button> 
+		</div>
 		<h1>BBS 게시판</h1>
 		<table>
 			<thead>
@@ -180,11 +202,15 @@
                      </c:choose>   
                   </td>
                </tr>
+	             
 			</tfoot>
-			<p>
-				<button id="btn"> 게시글 작성</button>
-			</p>
+			
 		</table>
+	</div>
+	<div>
+		<p>
+			<button id="btn"> 게시글 작성</button>	
+		</p>
 	</div>
 </body>
 </html>

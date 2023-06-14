@@ -5,31 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-  div {
-      width: 800px;
-      margin:auto;
-   }
-   h2{
-   	text-align: center;
-   }
-   
-   table {
-      width: 800px;
-      border-collapse: collapse;   
-   }
-   
-   td, th {
-      border : 1px solid #1e90ff;
-      padding: 10px;
-   }
-   th{
-  	 background-color: #0078ff;
-      color: white;  
-      text-align: center; 
-   }
-   
-</style>
+<link href="../CSS/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function insert(f) {
 		if (f.writer.value == "" || f.title.value == "" || f.pw.value == "" || f.content.value == "") {
@@ -49,7 +25,7 @@
 				<tbody>
 					<tr>
 						<th>작성자</th>
-						<td><input type="text" name="writer" size="80"></td>
+						<td><input type="text"name="writer" value="${mid}" readonly size="80"></td>
 					</tr>
 					<tr>
 						<th>제목</th>

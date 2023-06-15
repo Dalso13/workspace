@@ -47,7 +47,7 @@
 						<td colspan="2">
 							<input type="button" value="게시글 저장" onclick="insert(this.form)"> 
 							<input type="reset" value="다시 작성"> 
-							<input type="button" value="목록으로 이동" onclick="">
+							<input type="button" value="목록으로 이동" onclick="location.href = '../BBSController'">
 						</td>
 					</tr>
 				</tbody>

@@ -8,6 +8,10 @@
 <link href="../CSS/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function login(f) {
+		if (f.mpw.value == '' || f.mid.value = '') {
+			alert("입력하세요.")
+			return;
+		}
 		if (f.mpw.value != f.mpwR.value) {
 			alert("비밀번호가 일치하지 않습니다.")
 			return;
@@ -39,7 +43,7 @@
 						<td colspan="2">
 							<input type="button" value="로그인" onclick="login(this.form)"> 
 							<input type="reset" value="다시 작성"> 
-							<input type="button" value="목록으로 이동" onclick="/chapter20_mvc_bbs/BBSController">
+							<input type="button" value="목록으로 이동" onclick="location.href = '/chapter20_mvc_bbs/BBSController'">
 							<input type="hidden" name="cmd" value="login">
 						</td>
 					</tr>

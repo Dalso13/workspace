@@ -22,7 +22,7 @@
 				
 				document.body.innerHTML += `\${jsonObj.name} <br>`; 
 				document.body.innerHTML += `\${jsonObj.age} <br>`; 
-				s
+				
 			}
 		}
 		

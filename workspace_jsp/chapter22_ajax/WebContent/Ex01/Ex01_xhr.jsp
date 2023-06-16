@@ -11,6 +11,23 @@
 	<hr>
 	
 	<script type="text/javascript">
+	
+	<%--
+		ajax : asynchronous javascript and xml
+		- 비동기식으로 Javascript와 xml을 사용하는 방식
+		- 현재는 xml보다 json을 이용
+	
+		1. asynchronous : 비동기통신을 의미 (클라이언트가 서버에게 정보를 요청하고,
+		   서버가 응답할때까지 기다리지 않는 통신 방식)
+		   - 페이지 단위로 로드하지 않고, 페이지의 일부 단위를 받아서 페이지 동적 갱신
+		
+		2. XMLHttpRequest 객체
+		   javascript 에서 ajax 처리를 할 때 필요한 객체
+	 --%>
+	
+	
+	
+	
 		// 1. XMLHttpRequest 객체 생성
 		let xhr = new XMLHttpRequest();
 		

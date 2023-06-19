@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.dalso.myb.map.table"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
+	<select id="select_title" resultType="org.dalso.vo.TitleVO">
+		SELECT TITLE,CARTEGORY FROM MY_TABLE
+	</select>
+	<insert id="insert_table" parameterType="org.dalso.vo.TVO">
+		INSERT INTO MY_TABLE VALUES(
+			TABLE_SEQ.NEXTVAL, #{t_writer}, #{title}, #{first_c_title}, #{first_c}, #{second_c_title}
+			, #{second_c}, #{third_c_title}, #{third_c}, #{emage}, #{hit}, #{cartegory}, #{semi_cartegory}
+			, SYSDATE
+		)
+	</insert>
+	<select id="select_table" resultType="org.dalso.vo.TVO" parameterType="String">
+		SELECT * FROM MY_TABLE WHERE TITLE = #{title}
+	</select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.dalso.myb.map.user"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
+	<insert id="join" parameterType="org.dalso.vo.UVO">
+		INSERT INTO USERSET VALUES(
+			U_SEQ.NEXTVAL,#{u_writer},#{u_pw},#{u_power}
+		)
+	</insert>
+	<select id="login" parameterType="org.dalso.vo.UVO" resultType="String"> 
+		SELECT U_WRITER FROM USERSET WHERE U_WRITER = #{u_writer} AND U_PW = #{u_pw}
+	</select>
+</mapper>

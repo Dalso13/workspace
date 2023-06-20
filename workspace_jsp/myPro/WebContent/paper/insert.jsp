@@ -37,7 +37,7 @@
 			<table>
 				<thead>
 					<tr>
-						<td> 작성자 : <input type="text" name="t_writer" value="${u_writer }" id="writer" readonly="readonly" ></td>
+						<td> 작성자 : <input type="text" name="t_writer" value="${uvo.u_writer }" id="writer" readonly="readonly" ></td>
 					</tr>
 					<tr>
 						<td> <input type="text" name="title" placeholder="타이틀"> </td>

@@ -1,18 +1,24 @@
 package org.dalso.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.dalso.service.Table_service;
 import org.dalso.service.Table_serviceImpl;
+import org.dalso.vo.SearchVO;
 import org.dalso.vo.TVO;
 import org.dalso.vo.TitleVO;
+import org.json.simple.JSONObject;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -28,6 +34,9 @@ public class TableCon extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		String cmd = request.getParameter("cmd");
 		if (cmd == null || cmd.isEmpty()) {
 			cmd = "main";
@@ -36,15 +45,15 @@ public class TableCon extends HttpServlet {
 		boolean isForward = false;
 		String path = "";
 		
+		
+		
 		Table_service ts = new Table_serviceImpl();
-		
-		
+
 		if(cmd.equals("main")) {
-			
 			List<TitleVO> tv = ts.dao_title();
+			HttpSession session = request.getSession();
 			
-			request.setAttribute("tv", tv);
-			
+			session.setAttribute("tv", tv);
 			isForward = true;
 			path = "main/main.jsp";
 		} else if (cmd.equals("insert_page")) {
@@ -85,18 +94,9 @@ public class TableCon extends HttpServlet {
 			
 			int result = ts.dao_table(tvo);
 			
-			if (result > 0) {
-				TVO tvo2 = ts.select_table(mr.getParameter("title"));
-				
-				request.setAttribute("tvo", tvo2);
-				
-				isForward = true;
-				path = "paper/Table.jsp";
-			} else {
-				path = "start.jsp";
-			}
 			
-			
+			path = "start.jsp";
+
 		}  else if (cmd.equals("select")) {
 			
 			TVO tvo = ts.select_table(request.getParameter("title"));
@@ -104,12 +104,17 @@ public class TableCon extends HttpServlet {
 			request.setAttribute("tvo", tvo);
 			
 			isForward = true;
-			path = "paper/table.jsp";
+			path = "paper/Table.jsp";
+		} else if (cmd.equals("find")) {
+			List<SearchVO> svo = ts.select_list(request.getParameter("search"));
+			
+			request.setAttribute("svo", svo);
+			
+			isForward = true;
+			path = "paper/search.jsp";
 		}
 		
-		
-		
-		
+	
 		
 		if (isForward) {
 			request.getRequestDispatcher(path).forward(request, response);

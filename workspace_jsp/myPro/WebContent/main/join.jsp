@@ -6,9 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+	onload = function () {
+		let id_check = document.getElementById("#id_check")
+	}
 	function go(f) {
-		
+		if (id_check.innerText == "이미 사용중인 아이디 입니다.") {
+			f.u_writer.focus()
+			return;
+		}
 		if (f.u_pw.value == '' || f.u_writer.value == ''){
 			alert("입력하세요.")
 			return;
@@ -21,6 +28,29 @@
 		f.action = "/myPro/UserCon";
 		f.submit();
 	}
+	function getID(f) {
+		$.ajax({
+			url : `/myPro/AjaxCon?cmd=getid&id=\${f.u_writer.value}`,		
+			dataType : "JSON",				
+			type : "post",			
+			success : function(d) {	
+				if (f.u_writer.value == "") {
+					id_check.innerHTML = "";
+				} else if (d.userId == "1") {
+					id_check.innerHTML = "이미 사용중인 아이디 입니다.";
+					id_check.style = "color:red"
+				} else if (d.userId == "0") {
+					id_check.innerHTML = "사용할수 있는 아이디 입니다.";
+					id_check.style = "color:blue"
+				}
+					
+				
+			},
+			error : function() {	
+				alert("error")
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -32,7 +62,8 @@
 					<tr>
 						<th>아이디</th>
 						<td>
-							<input type="text" name="u_writer" >
+							<input type="text" name="u_writer" onkeyup="getID(this.form)"> 
+							<span id="id_check"></span>
 						</td>
 					</tr>
 					<tr>
@@ -56,6 +87,5 @@
 			<input type="hidden" name="u_power" value="admin">
 		</form>
 	</div>
-
 </body>
 </html>

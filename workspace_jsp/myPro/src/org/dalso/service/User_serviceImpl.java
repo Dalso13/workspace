@@ -13,7 +13,12 @@ public class User_serviceImpl implements User_service{
 	}
 	
 	@Override
-	public String loginUser(UVO uvo) {
+	public UVO loginUser(UVO uvo) {
 		return dao.login(uvo);
+	}
+	@Override
+	public int joinId(String id) {
+		
+		return dao.getId(id);
 	}
 }

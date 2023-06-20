@@ -38,7 +38,11 @@ public class User_daoImpl implements User_dao{
 		return result;
 	}
 	@Override
-	public String login(UVO uvo) {
+	public UVO login(UVO uvo) {
 		return getSqlSession().selectOne("login",uvo);
+	}
+	@Override
+	public int getId(String id) {
+		return getSqlSession().selectOne("select_id",id);
 	}
 }

@@ -23,6 +23,9 @@ public class UserCon extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			request.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+		
 			String cmd = request.getParameter("cmd");
 			if (cmd == null || cmd.isEmpty()) {
 				cmd = "main";
@@ -58,18 +61,17 @@ public class UserCon extends HttpServlet {
 				uvo.setU_writer(request.getParameter("u_writer"));
 				uvo.setU_pw(request.getParameter("u_pw"));
 				
-				String u_writer = us.loginUser(uvo);
+				UVO uvo2 = us.loginUser(uvo);
 				
-					session.setAttribute("u_writer", u_writer);
-					isForward = true;
-					path = "start.jsp";
-				
-					
-				if (u_writer == null) {
+				isForward = true;	
+				if (uvo2 == null || uvo2.equals("")) {
 					request.setAttribute("result", "no");
-					isForward = true;
+					
 					path = "main/result.jsp";
-				}	
+				}else {
+					session.setAttribute("uvo", uvo2);
+					path = "start.jsp";
+				}
 					
 			}	
 		 	

@@ -4,5 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="org.dalso.myb.map.chat"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
-
+	<insert id="insert_comment" parameterType="org.dalso.vo.CVO">
+		INSERT INTO CHAT VALUES(
+			CHAT_SEQ.NEXTVAL, #{t_idx} , #{c_writer} , #{c_pw} , #{content}
+		)
+	</insert>
 </mapper>

@@ -2,17 +2,26 @@ package org.dalso.vo;
 
 public class CVO {
 	private int c_idx , t_idx;         
-	private String c_writer , c_pw;
+	private String c_writer , c_pw, content;
 	
 	public CVO() {
 	}
 
-	public CVO(int c_idx, int t_idx, String c_writer, String c_pw) {
+	public CVO(int c_idx, int t_idx, String c_writer, String c_pw ,String content) {
 		super();
 		this.c_idx = c_idx;
 		this.t_idx = t_idx;
 		this.c_writer = c_writer;
 		this.c_pw = c_pw;
+		this.content = content;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public int getC_idx() {

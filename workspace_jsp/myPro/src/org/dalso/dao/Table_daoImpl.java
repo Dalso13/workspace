@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.dalso.myb.config.DBService;
+import org.dalso.vo.SearchVO;
 import org.dalso.vo.TVO;
 import org.dalso.vo.TitleVO;
 
@@ -44,5 +45,11 @@ public class Table_daoImpl implements Table_dao{
 	@Override
 	public TVO select_table(String title) {
 		return getSqlSession().selectOne("select_table",title);
+	}
+	
+	@Override
+	public List<SearchVO> select_list(String title) {
+		
+		return getSqlSession().selectList("select_list",title);
 	}
 }

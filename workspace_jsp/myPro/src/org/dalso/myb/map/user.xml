@@ -9,7 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			U_SEQ.NEXTVAL,#{u_writer},#{u_pw},#{u_power}
 		)
 	</insert>
-	<select id="login" parameterType="org.dalso.vo.UVO" resultType="String"> 
-		SELECT U_WRITER FROM USERSET WHERE U_WRITER = #{u_writer} AND U_PW = #{u_pw}
+	<select id="login" parameterType="org.dalso.vo.UVO" resultType="org.dalso.vo.UVO"> 
+		SELECT * FROM USERSET WHERE U_WRITER = #{u_writer} AND U_PW = #{u_pw}
 	</select>
+	<select id="select_id" parameterType="String" resultType="int"> 
+		SELECT count(U_WRITER) FROM USERSET WHERE U_WRITER = #{id}
+	</select>
+	
 </mapper>

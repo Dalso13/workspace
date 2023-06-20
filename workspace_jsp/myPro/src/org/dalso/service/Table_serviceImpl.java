@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.dalso.dao.Table_dao;
 import org.dalso.dao.Table_daoImpl;
+import org.dalso.vo.SearchVO;
 import org.dalso.vo.TVO;
 import org.dalso.vo.TitleVO;
 
@@ -21,5 +22,10 @@ public class Table_serviceImpl implements Table_service{
 	@Override
 	public TVO select_table(String title) {
 		return dao.select_table(title);
+	}
+	@Override
+	public List<SearchVO> select_list(String title) {
+		
+		return dao.select_list(title);
 	}
 }

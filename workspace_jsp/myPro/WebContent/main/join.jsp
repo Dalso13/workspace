@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+	let reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
 	onload = function () {
 		let id_check = document.getElementById("#id_check")
 	}
@@ -29,6 +30,17 @@
 		f.submit();
 	}
 	function getID(f) {
+		if (f.u_writer.value.search(reg) != -1) {
+			alert("특수문자는 사용할수 없습니다")
+			f.u_writer.value = f.u_writer.value.substring(0,f.u_writer.value.search(reg))
+			return;
+		}
+		if (f.u_writer.value == '') {
+			id_check.innerHTML = "";
+			return;
+		}
+		
+		
 		$.ajax({
 			url : `/myPro/AjaxCon?cmd=getid&id=\${f.u_writer.value}`,		
 			dataType : "JSON",				

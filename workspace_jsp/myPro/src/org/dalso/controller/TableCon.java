@@ -46,12 +46,12 @@ public class TableCon extends HttpServlet {
 		String path = "";
 		
 		
+		HttpSession session = request.getSession();
 		
 		Table_service ts = new Table_serviceImpl();
 
 		if(cmd.equals("main")) {
 			List<TitleVO> tv = ts.dao_title();
-			HttpSession session = request.getSession();
 			
 			session.setAttribute("tv", tv);
 			isForward = true;
@@ -112,6 +112,10 @@ public class TableCon extends HttpServlet {
 			
 			isForward = true;
 			path = "paper/search.jsp";
+		} else if (cmd.equals("logout")) {
+			session.removeAttribute("uvo");
+			
+			path = "start.jsp";
 		}
 		
 	

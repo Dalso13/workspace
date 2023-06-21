@@ -3,6 +3,7 @@ package org.dalso.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +16,13 @@ import javax.servlet.http.HttpSession;
 
 import org.dalso.service.Chat_service;
 import org.dalso.service.Chat_serviceImpl;
+import org.dalso.service.Table_service;
+import org.dalso.service.Table_serviceImpl;
 import org.dalso.service.User_service;
 import org.dalso.service.User_serviceImpl;
 import org.dalso.vo.CVO;
 import org.dalso.vo.TitleVO;
+import org.dalso.vo.UVO;
 import org.json.simple.JSONObject;
 
 @WebServlet("/AjaxCon")
@@ -41,6 +45,7 @@ public class AjaxCon extends HttpServlet {
 		
 		String cmd = request.getParameter("cmd");
 		PrintWriter out = response.getWriter();
+		Table_service ts = new Table_serviceImpl();
 		
 		if (cmd.equals("title")) {
 			List<TitleVO> tv = (List<TitleVO>)session.getAttribute("tv");
@@ -72,28 +77,38 @@ public class AjaxCon extends HttpServlet {
 				int id = us.joinId(joinId);
 			
 				String result = "{" + "\"userId\":" + "\""+ id + "\"}";
-	
+				
+				
 
 			
 				out.println(result);
 			}
-		} else if (cmd.equals("insert_comment")) {
+		 } else if (cmd.equals("title_match")) {
+			
+	
+			int result = ts.title_match(request.getParameter("title"));
+			
+					
+			out.println(result+"");
+			
+		}  else if (cmd.equals("delete_page")) {
+			// cvo를 쓰면 헷갈리겠지만 안쓰고 다른걸 만들기엔 낭비가 심해서
+			// 헷갈리더라도 cvo를 쓰자
+			
+			
 			CVO cvo = new CVO();
-			cvo.setC_writer(request.getParameter("c_writer"));	
-			cvo.setC_pw(request.getParameter("c_pw"));
-			cvo.setContent(request.getParameter("content"));
+		
+			cvo.setC_writer(request.getParameter("t_writer"));
 			cvo.setT_idx(Integer.parseInt(request.getParameter("t_idx")));
 			
-			Chat_service cs = new Chat_serviceImpl();
+	
 			
-			int result = cs.insert_c(cvo);
-			String res = result + "";
+			int result = ts.remove_page(cvo);
 			
-			out.println(res);
-			
+			out.println(result+"");
 		}
 	
-	}
+	} 
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

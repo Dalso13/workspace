@@ -20,4 +20,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="select_list" resultType="org.dalso.vo.SearchVO" parameterType="String">
 		SELECT * FROM MY_TABLE WHERE TITLE like  '%' || #{title} || '%'
 	</select>
+	<select id="select_match" resultType="int" parameterType="String">
+		SELECT COUNT(TITLE) FROM MY_TABLE WHERE TITLE = #{title}
+	</select>
+	<select id="remove_count" resultType="int" parameterType="org.dalso.vo.CVO">
+		SELECT COUNT(TITLE) FROM MY_TABLE WHERE T_IDX = #{t_idx} and T_WRITER = #{c_writer}
+	</select>
+	<delete id="remove_page" parameterType="org.dalso.vo.CVO">
+		DELETE FROM MY_TABLE WHERE T_IDX = #{t_idx} and T_WRITER = #{c_writer}
+	</delete>
 </mapper>

@@ -14,16 +14,72 @@
 
 
 	function ajaxIn(f) {
+		if (f.c_writer.value == "" ) {
+			f.c_writer.focus();
+			return;
+		}
+		if (f.c_pw.value == "" ) {
+			f.c_pw.focus();
+			return;
+		}
+		if (f.content.value == "" ) {
+			f.content.focus();
+			return;
+		}
+		
+		setTimeout(function() {
+			 $.ajax({
+				url : "/myPro/ChatCon",		
+				dataType : "text",
+				data : $(f).serialize(),
+				type : "post",			
+				success : function(d) {	
+					if (d == 1) {
+						f.c_writer.value = null ;
+						f.c_pw.value = null;
+						f.content.value = null;
+						
+						ajaxOut()
+						
+					} else if (d == 0) {
+						alert("작성에 실패했습니다")
+					}
+				},
+				error : function() {	
+					alert("error")
+				}
+			}); 
+		} , 1000)
+	}	
+		
+
+		
+	function ajaxOut() {
 		$.ajax({
-			url : "/myPro/AjaxCon",		
-			dataType : "text",
-			data : $(f).serialize(),
+			url : `/myPro/ChatCon?cmd=select_comment&t_idx=${tvo.t_idx}`,		
+			dataType : "JSON",
 			type : "post",			
 			success : function(d) {	
-				if (d == "1") {
-					ajaxOut(d);
-				} else if (d == "0") {
-					alert("작성에 실패했습니다")
+				if (d.c_idx == -1) {
+					$("#comme").html("<tr><td>댓글이 없습니다</td></tr>");
+				
+				} else{
+					$("#comme").html("<tr> <th>댓글 작성자 </th> <th>내용 </th> </tr>	");
+					let text = "";
+					let comment = "";
+					let c_idx = "";
+					d.forEach(function(d2) {
+						$("#comme").append("<tr class='commentS'>");
+						text =  "<td>"+d2.c_writer+"</td>"
+						comment = "<td>"+d2.comment+"</td>"
+						c_idx = `<td> <button onclick="remove(\${d2.c_idx})">X</button> </td> </tr>`
+						$("#comme").append(text);
+						$("#comme").append(comment);
+						$("#comme").append(c_idx);
+					}) 
+						
+					
+
 				}
 			},
 			error : function() {	
@@ -31,14 +87,31 @@
 			}
 		});
 	}
+	
+	function remove(a) {
+		window.open(`paper/remove_comment.jsp?idx=\${a}` , '본인확인', 'width=700px,height=600px,top=200px,left=500px');
 		
-	function ajaxOut() {
+	}
+	function update_page() {
+		window.open(`/myPro/TableCon?cmd=select&title=${tvo.title}` , '본인확인', 'width=700px,height=600px,top=200px,left=500px');
+		
+		
+		
+		
+	}
+	function delete_page() {
+
 		$.ajax({
-			url : "/myPro/AjaxCon?cmd=select_comment&t_idx="+${tvo.t_idx},		
-			dataType : "JSON",
+			url : "/myPro/AjaxCon",		
+			dataType : "text",
+			data : {"t_idx":  `${tvo.t_idx}`, "t_writer" : `${uvo.u_writer}` , "cmd" : "delete_page"},
 			type : "post",			
 			success : function(d) {	
-				
+				if (d == 0) {
+					alert("정보가 일치하지 않습니다")
+				} else {
+					location.href = "/myPro/TableCon";
+				}
 			},
 			error : function() {	
 				alert("error")
@@ -95,13 +168,16 @@
 					<td>${tvo.my_date}</td>
 					<td>${tvo.hit}</td>
 				</tr>
-				<tr>
-					<td><input type="button" value="수정하기"> 
-						<input type="button" value="삭제하기"></td>
-				</tr>
+				<c:if test="${uvo.u_writer eq  tvo.t_writer}">
+					<tr>
+						<td><input type="button" value="수정하기" onclick="update_page()"> 
+							<input type="button" value="삭제하기" onclick="delete_page()"></td>
+					</tr>
+				</c:if>
+				
 			</tfoot>
 		</table>
-		
+		<br> <hr> <br>
 		<form action="">
 			<table>
 				<thead>
@@ -111,7 +187,7 @@
 							<c:when test="${not empty uvo.u_writer }">
 								<td><input type="text" name="c_writer" value="${uvo.u_writer}"
 									readonly></td>
-								<td><input type="hidden" name="c_pw" value=""></td>
+								<td><input type="hidden" name="c_pw" value="${uvo.u_pw}"></td>
 							</c:when>
 							<c:otherwise>
 								<td><input type="text" name="c_writer"></td>
@@ -134,10 +210,14 @@
 						</td>
 					</tr>
 				</thead>
-				<tbody>
-				</tbody>
 			</table>
 		</form>
+			<br> <hr> <br>
+			<table>
+				<tbody id="comme">
+					
+				</tbody>
+			</table>
 	</div>
 </body>
 </html>

@@ -16,8 +16,7 @@
 		f.submit();
 	}
 	function clickSpan(s){
-		location.href = `/myPro/TableCon?cmd=select&title=${s.innerText}`
+		location.href = `/myPro/TableCon?cmd=select&title=${s.innerText}`;
 	}
 	
-
 		

@@ -40,7 +40,11 @@
 						<td> 작성자 : <input type="text" name="t_writer" value="${uvo.u_writer }" id="writer" readonly="readonly" ></td>
 					</tr>
 					<tr>
-						<td> <input type="text" name="title" placeholder="타이틀"> </td>
+						<td > 
+							<input type="text" name="title" placeholder="타이틀" id="titles" onblur="evnTitle(this)"> 
+							<span id="title_match" st> </span>
+						</td>
+						
 						<td>
 							<select id="cart" name="cartegory"> 
 								<option value=""> 카테고리 </option>
@@ -89,5 +93,33 @@
 		</form>
 	</div>
 	<script type="text/javascript" src="/myPro/js/insert.js"></script>
+	<script type="text/javascript">
+		function evnTitle(s){
+			if (s.value == "") {
+				return;
+			}
+			
+			$.ajax({
+				url : "/myPro/AjaxCon",		
+				dataType : "JSON",
+				data : {"title":"\${s.value}","cmd":"title_match"},
+				type : "post",			
+				success : function(d) {
+					if (d == 1) {
+						
+						$("#title_match").html("제목이 이미 사용중입니다.");
+					} else {
+						$("#title_match").html("");
+					}
+
+				},
+				error : function() {
+					alert("a")
+				}
+			});
+			
+		}
+	
+	</script>
 </body>
 </html>

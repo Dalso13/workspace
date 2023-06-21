@@ -1,5 +1,9 @@
 	function insert(f){
-	
+		if(document.getElementById("title_match").innerText != ""){
+			f.title.focus()
+			return;
+		}
+		
 		if(f.title.value == ""){
 		   /*f.title.parentNode.innerHTML += "제목을 작성하세요";*/
 			f.title.focus()
@@ -109,5 +113,6 @@
 			
 		}	
 	}
-	
+
+
 		

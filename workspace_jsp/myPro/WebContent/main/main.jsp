@@ -46,14 +46,18 @@
 			}
 		});
 	}
-	
+	function logout(){
+		location.href = "/myPro/TableCon?cmd=logout";
+	}
 </script>
 </head>
 <body>
+<script type="text/javascript" src="/myPro/js/main.js"></script>
 	<div id="body">
 		<h1>동완 위키</h1>
 		<c:if test="${not empty uvo.u_writer }">
 			<button onclick="insert()">글 작성</button>
+			<button onclick="logout()">로그아웃</button>
 		</c:if>
 		<c:if test="${empty uvo.u_writer }">
 			<button onclick="move('login_page')">로그인</button>
@@ -72,6 +76,5 @@
 			<input type="hidden" name="cmd" value="find">
 		</form>
 	</div>
-<script type="text/javascript" src="/myPro/js/main.js"></script>
 </body>
 </html>

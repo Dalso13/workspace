@@ -9,4 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			CHAT_SEQ.NEXTVAL, #{t_idx} , #{c_writer} , #{c_pw} , #{content}
 		)
 	</insert>
+	<select id="select_comment" resultType="org.dalso.vo.CVO" parameterType="int">
+		SELECT * FROM CHAT WHERE T_IDX = #{t_idx} ORDER BY C_IDX
+	</select>
+	<delete id="remove_comment" parameterType="org.dalso.vo.CVO">
+		DELETE FROM CHAT WHERE C_IDX = #{c_idx} and C_WRITER = #{c_writer} and C_PW = #{c_pw}
+	</delete>
+	<delete id="remove_commentAll" parameterType="int">
+		DELETE FROM CHAT WHERE T_IDX = #{idx}
+	</delete>
 </mapper>

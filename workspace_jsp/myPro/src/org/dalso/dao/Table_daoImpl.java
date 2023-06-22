@@ -83,4 +83,13 @@ public class Table_daoImpl implements Table_dao{
 		}
 		
 	}
+	@Override
+	public int update_table(TVO tvo) {
+		int result = getSqlSession().update("update",tvo);
+		if (result > 0) {
+			getSqlSession().commit();
+		}
+		return result;
+		
+	}
 }

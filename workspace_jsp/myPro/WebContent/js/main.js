@@ -18,5 +18,21 @@
 	function clickSpan(s){
 		location.href = `/myPro/TableCon?cmd=select&title=${s.innerText}`;
 	}
+	function sideBtn(d){
+		let s = d.nextSibling;
+		let a = s.nextSibling;
+		if(a.style.display == "block") {
+			a.style.display = 'none';
+		} else {
+			a.style.display = 'block';
+		}
+	}
+	let semiCart = document.querySelectorAll(".semi_cartegory");
+	
+	semiCart.forEach((cart) => {
+		cart.addEventListener("click", function(){
+			location.href = `/myPro/TableCon?cmd=cart_table&semi_cartegory=${cart.innerText}`;
+		});
+	})
 	
 		

@@ -14,4 +14,5 @@ public interface Table_service {
 	public List<SearchVO> select_list(String title);
 	public int title_match(String title);
 	public int remove_page(CVO cvo);
+	public int dao_update(TVO tvo);
 }

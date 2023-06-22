@@ -74,13 +74,13 @@
 					<tr>
 						<th>아이디</th>
 						<td>
-							<input type="text" name="u_writer" onkeyup="getID(this.form)"> 
+							<input type="text" name="u_writer" onkeyup="getID(this.form)" maxlength="8"> 
 							<span id="id_check"></span>
 						</td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td><input type="password" name="u_pw" ></td>
+						<td><input type="password" name="u_pw" maxlength="8"></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
@@ -90,7 +90,7 @@
 						<td colspan="2">
 							<input type="button" value="회원가입" onclick="go(this.form)">
 							<input type="reset" value="다시 작성"> 
-							<input type="button" value="목록으로 이동" onclick="location.href = '/myPro/UserCon'">
+							<input type="button" value="목록으로 이동" onclick="location.href = '/myPro/TableCon'">
 							<input type="hidden" name="cmd" value="join">
 						</td>
 					</tr>

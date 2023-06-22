@@ -13,6 +13,7 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../main/logo.jsp" /> 
 	<div>
 		<h1>검색 결과</h1>
 		<table>
@@ -42,6 +43,8 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
+		<button onclick="location.href = '/myPro/TableCon'" style="width: 120px;">목록으로 이동 </button>
 	</div>
+	<jsp:include page="./search_bar.jsp" /> 
 </body>
 </html>

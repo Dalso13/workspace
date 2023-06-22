@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM MY_TABLE WHERE TITLE = #{title}
 	</select>
 	<select id="select_list" resultType="org.dalso.vo.SearchVO" parameterType="String">
-		SELECT * FROM MY_TABLE WHERE TITLE like  '%' || #{title} || '%'
+		SELECT * FROM MY_TABLE WHERE TITLE like  #{title} || '%' OR  SEMI_CARTEGORY = #{title}
 	</select>
 	<select id="select_match" resultType="int" parameterType="String">
 		SELECT COUNT(TITLE) FROM MY_TABLE WHERE TITLE = #{title}
@@ -29,4 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="remove_page" parameterType="org.dalso.vo.CVO">
 		DELETE FROM MY_TABLE WHERE T_IDX = #{t_idx} and T_WRITER = #{c_writer}
 	</delete>
+	<update id="update" parameterType="org.dalso.vo.TVO">
+		UPDATE my_table
+		SET TITLE = #{title}, FIRST_C_TITLE =  #{first_c_title}, FIRST_C = #{first_c}, SECOND_C_TITLE = #{second_c_title},
+		SECOND_C = #{second_c}, THIRD_C_TITLE = #{third_c_title}, THIRD_C = #{third_c}, EMAGE = #{emage}
+		WHERE T_IDX = #{t_idx}
+	</update>
 </mapper>

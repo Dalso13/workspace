@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/myPro/css/main.css" rel="stylesheet" type="text/css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	onload = function () {
 		let res = document.getElementById("res");
+		
 	}
 	function getJSON(f) {
 		$.ajax({
@@ -52,6 +54,51 @@
 </script>
 </head>
 <body>
+	<ul id="side">
+		<li><a onclick="sideBtn(this)">아시아</a>
+			<ul class="semi_side">
+				<li> <a class="semi_cartegory"> 북아시아 </a></li>
+				<li><a class="semi_cartegory"> 동아시아 </a></li>
+				<li><a class="semi_cartegory"> 동남아시아 </a> </li>
+				<li><a class="semi_cartegory"> 중앙아시아 </a> </li>
+				<li><a class="semi_cartegory"> 남아시아 </a> </li>
+				<li><a class="semi_cartegory"> 서아시아 </a> </li>
+			</ul>
+		</li>
+		<li>
+			<a onclick="sideBtn(this)"> 아메리카 </a>
+			<ul class="semi_side">
+				<li> <a class="semi_cartegory"> 북미 </a></li>
+				<li><a class="semi_cartegory"> 남미 </a></li>
+			</ul>	
+		</li>
+		<li>
+			<a onclick="sideBtn(this)"> 오세아니아 </a>
+			<ul class="semi_side">
+				<li> <a class="semi_cartegory"> 오스트랄라시아 </a></li>
+				<li><a class="semi_cartegory"> 폴리네시아 </a></li>
+			</ul>	
+		</li>
+		<li>
+			<a onclick="sideBtn(this)"> 유럽 </a>
+			<ul class="semi_side">
+				<li> <a class="semi_cartegory"> 서부유럽 </a></li>
+				<li><a class="semi_cartegory"> 북부유럽 </a></li>
+				<li><a class="semi_cartegory"> 남부유럽 </a> </li>
+				<li><a class="semi_cartegory"> 동부유럽 </a> </li>
+			</ul>
+		</li>
+			<li>
+			<a onclick="sideBtn(this)"> 아프리카 </a>
+			<ul class="semi_side">
+				<li> <a class="semi_cartegory"> 북아프리카 </a></li>
+				<li><a class="semi_cartegory"> 서아프리카 </a></li>
+				<li><a class="semi_cartegory"> 중앙아프리카 </a> </li>
+				<li><a class="semi_cartegory"> 동아프리카 </a> </li>
+				<li><a class="semi_cartegory"> 남아프리카 </a> </li>
+			</ul>
+		</li>
+	</ul>
 <script type="text/javascript" src="/myPro/js/main.js"></script>
 	<div id="body">
 		<h1>동완 위키</h1>
@@ -63,6 +110,7 @@
 			<button onclick="move('login_page')">로그인</button>
 			<button onclick="move('join_page')">회원 가입</button>
 		</c:if>
+		<br> <br>
 		<form>
 			<div id="sch">
 			  <input type="text" name="search" placeholder="검색어 입력" onkeydown="getJSON(this.form)">

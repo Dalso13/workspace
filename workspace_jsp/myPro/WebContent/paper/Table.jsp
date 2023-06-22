@@ -93,11 +93,8 @@
 		
 	}
 	function update_page() {
-		window.open(`/myPro/TableCon?cmd=select&title=${tvo.title}` , '본인확인', 'width=700px,height=600px,top=200px,left=500px');
-		
-		
-		
-		
+		location.href = `/myPro/TableCon?cmd=update_page&title=${tvo.title}`;
+
 	}
 	function delete_page() {
 
@@ -110,6 +107,7 @@
 				if (d == 0) {
 					alert("정보가 일치하지 않습니다")
 				} else {
+					alert("삭제 하였습니다.")
 					location.href = "/myPro/TableCon";
 				}
 			},
@@ -168,13 +166,13 @@
 					<td>${tvo.my_date}</td>
 					<td>${tvo.hit}</td>
 				</tr>
+				<tr>
 				<c:if test="${uvo.u_writer eq  tvo.t_writer}">
-					<tr>
 						<td><input type="button" value="수정하기" onclick="update_page()"> 
 							<input type="button" value="삭제하기" onclick="delete_page()"></td>
-					</tr>
 				</c:if>
-				
+					<td> <input type="button" value="목록으로 이동" onclick="location.href = '/myPro/TableCon'"> </td>
+				</tr>
 			</tfoot>
 		</table>
 		<br> <hr> <br>

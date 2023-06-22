@@ -44,7 +44,7 @@
 						<td colspan="2">
 							<input type="button" value="로그인" onclick="login(this.form)"> 
 							<input type="reset" value="다시 작성"> 
-							<input type="button" value="목록으로 이동" onclick="location.href = '/myPro/UserCon'">
+							<input type="button" value="목록으로 이동" onclick="location.href = '/myPro/TableCon'">
 							<input type="hidden" name="cmd" value="login">
 						</td>
 					</tr>

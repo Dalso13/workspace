@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -98,6 +99,22 @@ public class TableCon extends HttpServlet {
 			path = "start.jsp";
 
 		}  else if (cmd.equals("select")) {
+			String title = request.getParameter("title");
+			
+			
+			// 조회수를 쿠키로 처리해보기
+			/*
+			 * Cookie cookies[] = request.getCookies();
+			 * 
+			 * if (cookies != null && cookies.length > 0) { for (Cookie cookie : cookies) {
+			 * if (cookie.getValue().equals(title)) {
+			 * 
+			 * } } }
+			 */
+			
+			
+			
+			
 			
 			TVO tvo = ts.select_table(request.getParameter("title"));
 			
@@ -112,10 +129,64 @@ public class TableCon extends HttpServlet {
 			
 			isForward = true;
 			path = "paper/search.jsp";
-		} else if (cmd.equals("logout")) {
+		} else if (cmd.equals("cart_table")) {
+			List<SearchVO> svo = ts.select_list(request.getParameter("semi_cartegory"));
+			
+			request.setAttribute("svo", svo);
+			
+			isForward = true;
+			path = "paper/search.jsp";
+		}else if (cmd.equals("logout")) {
 			session.removeAttribute("uvo");
 			
 			path = "start.jsp";
+		}   else if (cmd.equals("update_page")) {
+			
+			TVO tvo = ts.select_table(request.getParameter("title"));
+			
+			request.setAttribute("tvo", tvo);
+			
+			isForward = true;
+			path = "paper/update_page.jsp";
+		} else if (cmd.equals("update")) {
+			TVO tvo = new TVO();
+			
+			String realPath = request.getServletContext().getRealPath("/image");
+			
+			
+			MultipartRequest mr  = new MultipartRequest(
+				request,
+				realPath,
+				1024 * 1024 * 10,	
+				"utf-8",
+				new DefaultFileRenamePolicy()
+			);
+			
+			
+			tvo.setT_idx(Integer.parseInt(mr.getParameter("t_idx")));
+			tvo.setTitle(mr.getParameter("title"));
+			tvo.setFirst_c_title(mr.getParameter("first_c_title"));
+			tvo.setFirst_c(mr.getParameter("first_c"));
+			tvo.setSecond_c_title(mr.getParameter("second_c_title"));
+			tvo.setSecond_c(mr.getParameter("second_c"));
+			tvo.setThird_c_title(mr.getParameter("third_c_title"));
+			tvo.setThird_c(mr.getParameter("third_c"));
+			
+			
+			if(mr.getFile("next_emage") != null && mr.getParameter("emage") != null){
+				tvo.setEmage(mr.getFilesystemName("next_emage"));
+			} else if(mr.getFile("next_emage") == null && mr.getParameter("emage") != null){
+				tvo.setEmage(mr.getParameter("emage"));
+			} else {
+				tvo.setEmage("");
+			}
+			
+			int result = ts.dao_update(tvo);
+			
+			request.setAttribute("result", result);
+			isForward = true;
+			path = "paper/result.jsp";
+			
 		}
 		
 	

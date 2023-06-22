@@ -23,8 +23,11 @@
 	$(function() {
 		
 		$("#btn").click(function() {
-				$("li").each(function(index, li) {
-				if (index %g 2 == 0) {
+				$("li").each(function(index, element) {
+				if (index % 2 == 0) {
+					// element -> li Element
+					// $(element) -> object
+					
 					$(this).toggleClass("hot")
 				} else {
 					$(this).toggleClass("cold")

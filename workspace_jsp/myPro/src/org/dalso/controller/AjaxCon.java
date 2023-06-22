@@ -84,8 +84,7 @@ public class AjaxCon extends HttpServlet {
 				out.println(result);
 			}
 		 } else if (cmd.equals("title_match")) {
-			
-	
+			 
 			int result = ts.title_match(request.getParameter("title"));
 			
 					

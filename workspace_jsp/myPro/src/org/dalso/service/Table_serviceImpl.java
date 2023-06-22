@@ -37,5 +37,9 @@ public class Table_serviceImpl implements Table_service{
 	public int remove_page(CVO cvo) {
 		return dao.removePage(cvo);
 	}
+	@Override
+	public int dao_update(TVO tvo) {
+		return dao.update_table(tvo);
+	}
 	
 }

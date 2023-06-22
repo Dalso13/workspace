@@ -41,8 +41,8 @@
 					</tr>
 					<tr>
 						<td > 
-							<input type="text" name="title" placeholder="타이틀" id="titles" onblur="evnTitle(this)"> 
-							<span id="title_match" st> </span>
+							<input type="text" name="title" placeholder="타이틀" id="titles" onblur="evnTitle(this)" maxlength="15"> 
+							<span id="title_match"> </span>
 						</td>
 						
 						<td>
@@ -62,15 +62,15 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>서론 : <input type="text" name="first_c_title"> </td>
+						<td>서론 : <input type="text" name="first_c_title" maxlength="15"> </td>
 					</tr>
 					<tr> <td> <textarea rows="8" cols="50" class="write" name="first_c"></textarea> </td> </tr>
 					<tr>
-						<td>본론 : <input type="text" name="second_c_title"> </td>
+						<td>본론 : <input type="text" name="second_c_title" maxlength="15"> </td>
 					</tr>
 					<tr> <td> <textarea rows="8" cols="50" class="write" name="second_c"></textarea> </td> </tr>
 					<tr>
-						<td>결론 : <input type="text" name="third_c_title"> </td>
+						<td>결론 : <input type="text" name="third_c_title" maxlength="15"> </td>
 					</tr>
 					<tr> <td> <textarea rows="8" cols="50" class="write" name="third_c"></textarea> </td> </tr>
 				</tbody>
@@ -86,7 +86,8 @@
 					</tr>
 					<tr>
 						<td> <input type="button" value="작성하기" onclick="insert(this.form)">
-							 <input type="reset" value="다시 작성"> </td>
+							 <input type="reset" value="다시 작성"> 
+							 <input type="button" value="목록으로 이동" onclick="location.href = '/myPro/TableCon'"></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -102,7 +103,7 @@
 			$.ajax({
 				url : "/myPro/AjaxCon",		
 				dataType : "JSON",
-				data : {"title":"\${s.value}","cmd":"title_match"},
+				data : {"title":`\${s.value}`,"cmd":"title_match"},
 				type : "post",			
 				success : function(d) {
 					if (d == 1) {

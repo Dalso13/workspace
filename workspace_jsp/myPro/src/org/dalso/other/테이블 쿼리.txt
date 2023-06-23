@@ -1,0 +1,34 @@
+이름             널?       유형           
+-------------- -------- ------------ 
+T_IDX          NOT NULL NUMBER        기본키
+T_WRITER       NOT NULL VARCHAR2(20) 
+TITLE          NOT NULL VARCHAR2(30)  유니크
+FIRST_C_TITLE           VARCHAR2(30) 
+FIRST_C                 CLOB         
+SECOND_C_TITLE          VARCHAR2(30) 
+SECOND_C                CLOB         
+THIRD_C_TITLE           VARCHAR2(30) 
+THIRD_C                 CLOB         
+EMAGE                   VARCHAR2(50) 
+HIT                     NUMBER       
+CARTEGORY      NOT NULL VARCHAR2(20) 
+SEMI_CARTEGORY NOT NULL VARCHAR2(30) 
+MY_DATE                 DATE 
+
+이름       널?       유형           
+-------- -------- ------------ 
+C_IDX    NOT NULL NUMBER     기본키
+T_IDX             NUMBER       참조키 mytable
+C_WRITER NOT NULL VARCHAR2(20) 
+C_PW     NOT NULL VARCHAR2(20) 
+CONTENT  NOT NULL CLOB         
+  
+
+이름       널?       유형           
+-------- -------- ------------ 
+U_IDX    NOT NULL NUMBER       기본키
+U_WRITER NOT NULL VARCHAR2(20)   유니크
+U_PW     NOT NULL VARCHAR2(20) 
+U_POWER  NOT NULL VARCHAR2(10) 
+
+그리고 시퀀스 3개 필요

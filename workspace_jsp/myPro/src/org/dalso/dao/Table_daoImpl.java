@@ -92,4 +92,23 @@ public class Table_daoImpl implements Table_dao{
 		return result;
 		
 	}
+	@Override
+	public void update_hit(TVO tvo) {
+		int result = getSqlSession().update("update_hit",tvo);
+		if (result > 0) {
+			getSqlSession().commit();
+		}
+	}
+	@Override
+	public List<TVO> select_req(String sear) {
+		List<TVO> result = null;
+		if (sear.equals("hit")) {
+			result = getSqlSession().selectList("select_hit");
+		} else if (sear.equals("today")) {
+			result = getSqlSession().selectList("select_today");
+		} else if (sear.equals("rec")) {
+			result = getSqlSession().selectList("select_rec");
+		}
+		return result;
+	}
 }

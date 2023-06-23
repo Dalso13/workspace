@@ -92,3 +92,13 @@ img {
 	width : 100%;
 	height: auto;
 }
+.right_side{
+	margin-top: 50px;
+}
+#view{
+	width: 400px;
+	margin: auto;
+}
+.titleg{
+		cursor : pointer;
+}

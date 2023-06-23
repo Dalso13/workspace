@@ -34,5 +34,7 @@
 			location.href = `/myPro/TableCon?cmd=cart_table&semi_cartegory=${cart.innerText}`;
 		});
 	})
-	
+	function titleGo(s){
+		location.href = `/myPro/TableCon?cmd=cart_table&semi_cartegory=${s.innerText}`;
+	}
 		

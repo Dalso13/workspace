@@ -41,5 +41,12 @@ public class Table_serviceImpl implements Table_service{
 	public int dao_update(TVO tvo) {
 		return dao.update_table(tvo);
 	}
-	
+	@Override
+	public void update_hit(TVO tvo) {
+		 dao.update_hit(tvo);
+	}
+	@Override
+	public List<TVO> select_req(String sear) {
+		return dao.select_req(sear);
+	}
 }

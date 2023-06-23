@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM USERSET WHERE U_WRITER = #{u_writer} AND U_PW = #{u_pw}
 	</select>
 	<select id="select_id" parameterType="String" resultType="int"> 
-		SELECT count(U_WRITER) FROM USERSET WHERE U_WRITER = #{id}
+		SELECT count(U_WRITER) FROM USERSET WHERE U_WRITER = LOWER(#{id})
 	</select>
 	
 </mapper>

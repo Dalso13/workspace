@@ -163,8 +163,10 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td>${tvo.my_date}</td>
-					<td>${tvo.hit}</td>
+					<td>날짜 ${tvo.my_date}</td> 
+				</tr>
+				<tr>
+					<td>조회수 ${tvo.hit}</td>
 				</tr>
 				<tr>
 				<c:if test="${uvo.u_writer eq  tvo.t_writer}">

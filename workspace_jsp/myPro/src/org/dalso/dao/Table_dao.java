@@ -15,4 +15,6 @@ public interface Table_dao {
 	public int title_match(String title);
 	public int removePage(CVO cvo);
 	public int update_table(TVO tvo);
+	public void update_hit(TVO tvo);
+	public List<TVO> select_req(String sear);
 }

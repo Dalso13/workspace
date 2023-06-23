@@ -2,6 +2,7 @@ package org.dalso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,9 +55,16 @@ public class TableCon extends HttpServlet {
 		if(cmd.equals("main")) {
 			List<TitleVO> tv = ts.dao_title();
 			
+			
+			
+			
+			
 			session.setAttribute("tv", tv);
 			isForward = true;
 			path = "main/main.jsp";
+			
+			
+			
 		} else if (cmd.equals("insert_page")) {
 			path = "paper/insert.jsp";
 		} else if (cmd.equals("insert")) {
@@ -103,21 +111,31 @@ public class TableCon extends HttpServlet {
 			
 			
 			// 조회수를 쿠키로 처리해보기
-			/*
-			 * Cookie cookies[] = request.getCookies();
-			 * 
-			 * if (cookies != null && cookies.length > 0) { for (Cookie cookie : cookies) {
-			 * if (cookie.getValue().equals(title)) {
-			 * 
-			 * } } }
-			 */
+			  TVO tvo = ts.select_table(request.getParameter("title"));
+			  Cookie cook = null;
+			  Cookie cookies[] = request.getCookies();
+			  
+			  if (cookies != null && cookies.length > 0){ 
+				  for (Cookie cookie : cookies) {
+					  if (cookie.getValue().equals(title)) {
+						  cook = cookie;
+					  } 
+				  } 
+			  }
 			
-			
-			
-			
-			
-			TVO tvo = ts.select_table(request.getParameter("title"));
-			
+			if (cook == null || (cookies == null && cookies.length <= 0)) {
+				String t_idx = tvo.getT_idx()+"";
+				
+				Cookie ck = new Cookie(t_idx, title);
+				ck.setMaxAge(60 * 10);  
+				int hit = tvo.getHit();
+				tvo.setHit(hit+1); 
+				ts.update_hit(tvo);
+				
+				response.addCookie(ck); 
+			}
+				 
+
 			request.setAttribute("tvo", tvo);
 			
 			isForward = true;

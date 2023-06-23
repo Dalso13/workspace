@@ -21,6 +21,7 @@ import org.dalso.service.Table_serviceImpl;
 import org.dalso.service.User_service;
 import org.dalso.service.User_serviceImpl;
 import org.dalso.vo.CVO;
+import org.dalso.vo.TVO;
 import org.dalso.vo.TitleVO;
 import org.dalso.vo.UVO;
 import org.json.simple.JSONObject;
@@ -105,7 +106,24 @@ public class AjaxCon extends HttpServlet {
 			int result = ts.remove_page(cvo);
 			
 			out.println(result+"");
-		}
+		} else if (cmd.equals("view")) {
+			String cmd2 = request.getParameter("cmd2");
+			
+			List<TVO> result =  ts.select_req(cmd2);
+			
+			List<String> tvo = new ArrayList<String>();
+			
+			
+			if (!result.isEmpty()) {
+				for (TVO results : result) {
+					String num = "{\""+"title\":\""+results.getTitle() +"\" , " + "\"semi_cartegory\""+":\""+results.getSemi_cartegory()+"\""
+							+ ", \"hit\""+":\""+results.getHit()+"\" }";
+					tvo.add(num);
+				}
+			}
+			
+			out.println(tvo.toString());
+ 		}
 	
 	} 
 

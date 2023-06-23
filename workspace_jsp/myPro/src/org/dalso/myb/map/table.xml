@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	<select id="select_table" resultType="org.dalso.vo.TVO" parameterType="String">
-		SELECT * FROM MY_TABLE WHERE TITLE = #{title}
+		SELECT * FROM MY_TABLE WHERE TITLE = LOWER(#{title})
 	</select>
 	<select id="select_list" resultType="org.dalso.vo.SearchVO" parameterType="String">
 		SELECT * FROM MY_TABLE WHERE TITLE like  #{title} || '%' OR  SEMI_CARTEGORY = #{title}
@@ -35,4 +35,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SECOND_C = #{second_c}, THIRD_C_TITLE = #{third_c_title}, THIRD_C = #{third_c}, EMAGE = #{emage}
 		WHERE T_IDX = #{t_idx}
 	</update>
+	<update id="update_hit" parameterType="org.dalso.vo.TVO">
+		UPDATE my_table
+		SET HIT = #{hit}
+		WHERE TITLE = #{title}
+	</update>
+	<select id="select_hit" resultType="org.dalso.vo.TVO">
+		SELECT * FROM (SELECT * FROM MY_TABLE ORDER BY HIT DESC) <![CDATA[where rownum <= 3]]>
+	</select>
+	<select id="select_rec" resultType="org.dalso.vo.TVO">
+		SELECT * FROM (SELECT * FROM MY_TABLE ORDER BY DBMS_RANDOM.RANDOM) <![CDATA[where rownum <= 3]]>
+	</select>
+	<select id="select_today" resultType="org.dalso.vo.TVO">
+		SELECT * FROM  MY_TABLE <![CDATA[where rownum <= 3]]> and  TO_CHAR(MY_DATE, 'YYYYMMDD') = TO_CHAR(SYSDATE, 'YYYYMMDD')
+	</select>
 </mapper>

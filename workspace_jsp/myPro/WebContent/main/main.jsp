@@ -51,6 +51,39 @@
 	function logout(){
 		location.href = "/myPro/TableCon?cmd=logout";
 	}
+	function view(a) {
+		$.ajax({
+			url : `/myPro/AjaxCon?cmd=view&cmd2=\${a}`,		
+			dataType : "JSON",	
+			type : "post",			
+			success : function(d) {
+				$("#view").html("");
+				
+				if (d.length == 0) {
+					$("#view").html("<tr><td>게시글이 없습니다</td></tr>");
+				} else {
+					$("#view").html("<tr> <th>카테고리 </th> <th>제목 </th> <th>조회수 </th> </tr>	");
+					let semi_cartegory = "";
+					let title = "";
+					let hit = "";
+					d.forEach(function(d2) {
+						$("#view").append("<tr class='commentS'>");
+						semi_cartegory =  "<td>"+d2.semi_cartegory+"</td>"
+						title = "<td>"+ "<a onclick='titleGo(this)' class='titleg'>"+ d2.title+ "</a>"+ "</td>"
+						hit = "<td>"+d2.hit+"</td>"
+						$("#view").append(semi_cartegory);
+						$("#view").append(title);
+						$("#view").append(hit);
+						$("#view").append("</tr>");
+					}) 
+				}
+				
+				
+			},
+			error : function() {	
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -123,6 +156,19 @@
 			</div>
 			<input type="hidden" name="cmd" value="find">
 		</form>
+		
+		<div id="right_side">
+			<h3>테마 게시글들</h3>
+			<div>
+				<button onclick="view('hit')">조회수 순</button>
+				<button onclick="view('today')">오늘 생성된 게시글</button>
+				<button onclick="view('rec')">오늘의 추천 게시글</button>
+			</div>
+			<table id="view">
+				
+			</table>
+		</div>
 	</div>
+	
 </body>
 </html>

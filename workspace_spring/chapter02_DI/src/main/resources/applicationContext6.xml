@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<!-- 
+		해당 xml 파일 생성 방법
+		1. spring bean configuration file
+		2. 하단 탭 중 Namespaces 에서 context 체크 ->  상단 beans 태그에 context 추가
+	 -->
+	 
+	 <!--  
+	 	Spring bean configuration file
+	 	Bean 생성 방법1
+	 	<bean id="객체명(인스턴스명)" class="클래스명">
+	 		<property name = "필드명1">
+	 			<value>값1</value>  // 문자든 숫자든 큰 따옴표 없이 그냥 적는다.
+	 		</property>
+	 		<property name = "필드명2" value="값2>
+	 		** property 를 이용하여 set 주입
+	 		
+	 		<constructor-arg name="필드명3" value="값3"/>
+	 		<constructor-arg ref ="객체"/>
+	 		** consetructor 를 이용하여 생성자에 매개변수 주입
+	
+	 	</bean>
+	 -->
+	 <!-- 
+	 	scope = singleton, prototype
+	 	singleton : 객체를 하나만 만든다.
+	 	prototype : 객체를 새로 만든다.
+	 	default : singleton 이다.
+	  -->
+	<bean id="satv" class="org.joonzis.DI_6_multiFields.SamSungTV" scope="singleton">
+	 	<constructor-arg index="0" ref="sony"/>
+	 	<constructor-arg index="1" value="1000"/>
+	 	<!-- 순서대로 들어간다는 보장이 없기에 index로 순서를 나타냄  -->
+	</bean>
+	<bean id="sony" class="org.joonzis.DI_6_multiFields.SonySpeaker"></bean>
+</beans>

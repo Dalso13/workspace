@@ -33,7 +33,7 @@
 						<c:forEach var="board" items="${list }">
 							<tr>
 								<td><c:out value="${board.bno}"></c:out></td>
-								<td><c:out value="${board.title }"></c:out></td>
+								<td> <a class="move" href="${board.bno}"> <c:out value="${board.title }"></c:out></a></td>
 								<td><c:out value="${board.writer}"></c:out></td>
 								<td><fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${board.updatedate}" pattern="yyyy-MM-dd"/></td>
@@ -41,6 +41,31 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<!-- page -->
+				<div class="pull-right">
+					<ul class="pagination">
+						<c:if test="${pageMaker.prev }">
+								<li class="paginate_button previous">
+									<a href="${pageMapker.endPage+1 }">&lt;</a>
+								</li>
+						</c:if>
+						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }" step="1">
+							  <li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active' : '' }">   
+                        <a href="${num }">${num }</a>
+                     </li>
+                  </c:forEach>
+                  <c:if test="${pageMaker.next }">
+                     <li class="paginate_button">
+                        <a href="${pageMaker.endPage+1 }">&gt;</a>
+                     </li>
+                  </c:if>
+               </ul>
+            </div>
+				
+				<form action="/board/list" method="get" id="actionForm">
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+					<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+				</form>
 			</div>
 			<!-- /.panel-body -->
 		</div>
@@ -80,6 +105,25 @@
 			return;
 		}
 	}
+	
+	const actionForm = $("#actionForm");
+	
+	// 조회하면 이동 이벤트 처리
+	$(".move").on('click', function(e) {
+		e.preventDefault();
+		
+		actionForm.attr('action', '/board/get');
+		actionForm.append(`<input type=hidden name=bno value=\${$(this).attr('href')}>`);
+		actionForm.submit();
+	});
+	
+	// 페이징 버튼 이벤트 처리
+	$(".paginate_button a").on('click', function(e) {
+		e.preventDefault();
+		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
+	});
 </script>
 
 <%@ include file="../include/footer.jsp" %>

@@ -3,6 +3,7 @@ package org.joonzis.service;
 import java.util.List;
 
 import org.joonzis.domain.BoardVO;
+import org.joonzis.domain.Criteria;
 import org.joonzis.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,10 @@ public class BoardServiceImpl implements BoardSerivce{
 		return mapper.read(bno);
 	}
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(Criteria cri) {
 		log.info("getList...");
-		return mapper.getList();
+		
+		return mapper.get(cri);
 	}
 	@Override
 	public boolean modify(BoardVO vo) {

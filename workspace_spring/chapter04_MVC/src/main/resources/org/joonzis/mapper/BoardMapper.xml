@@ -4,8 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="org.joonzis.mapper.BoardMapper"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
-	<select id="getList" resultType="org.joonzis.domain.BoardVO">
-		select * from tbl_board 
+	<select id="get" resultType="org.joonzis.domain.BoardVO" parameterType="org.joonzis.domain.Criteria">
+		 <![CDATA[	select * from 
+					(select /*+index_desc(tbl_board pk_board) */ 
+						rownum rn, bno, title, content, writer, regdate, updatedate 
+						from tbl_board 
+				 	where rownum <= (#{pageNum} * #{amount}) ) s
+					 where s.rn > ((#{pageNum}-1) * #{amount})	
+					]]> 
 	</select>
 	<insert id="insert" parameterType="org.joonzis.domain.BoardVO">
 		insert into tbl_board
@@ -22,4 +28,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE TBL_BOARD SET TITLE = #{title} , CONTENT = #{content} , WRITER = #{writer} 
 		WHERE BNO = #{bno}
 	</update>
+	
 </mapper>

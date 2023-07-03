@@ -3,10 +3,11 @@ package org.joonzis.mapper;
 import java.util.List;
 
 import org.joonzis.domain.BoardVO;
+import org.joonzis.domain.Criteria;
 
 public interface BoardMapper {
 	// 메퍼.xml이랑은 메소드명으로 매치
-	public List<BoardVO> getList();
+	public List<BoardVO> get(Criteria cri);
 	public void insert(BoardVO vo);
 	public BoardVO read(int bno);
 	public int delete(int bno);

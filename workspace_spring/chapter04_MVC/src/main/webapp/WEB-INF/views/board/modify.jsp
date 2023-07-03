@@ -37,6 +37,8 @@
 					<button  data-oper="modify" class="btn btn-primary">글 수정</button>
  					<button  data-oper="remove" class="btn btn-warning">글 삭제</button>
  					<button  data-oper="list" class="btn btn-danger">목록으로</button>
+ 					<input type="hidden" name="pageNum" value="${cri.pageNum }">
+					<input type="hidden" name="amount" value="${cri.amount }">
 				</form>
 			</div>
 			<!-- /.panel-body -->
@@ -60,6 +62,9 @@
 			if (operation == 'remove') {
 				formObj.attr('action','/board/remove')
 			} else if (operation == 'list'){
+				formObj.find(".form-control").remove();	
+	
+				
 				formObj.attr('action','/board/list')
 				formObj.attr('method','get')
 			}

@@ -1,6 +1,7 @@
 package org.joonzis.service;
 
 import org.joonzis.domain.BoardVO;
+import org.joonzis.domain.Criteria;
 import org.joonzis.mapper.BoardMapper;
 import org.joonzis.mapper.BoardMapperTest;
 import org.junit.Test;
@@ -21,30 +22,29 @@ public class BoardServiceTests {
 	@Setter(onMethod_ = @Autowired)
 	BoardSerivce service;
 	
-	@Autowired
-	BoardVO vo;
 	
 	
-//	@Test
-//	public void getList() {
-//		service.getList();
-//	}
-//	
+	@Test
+	public void getList() {
+		Criteria cri = new Criteria(1, 10);
+		service.getList(cri);
+	}
+	
 //	@Test
 //	public void get() {
 //		service.get(2);
 //	}
-	@Test
-	public void register() {
-		  String title = "새로운 테스트제목7"; 
-		  String content = "새로운 테스트내용7"; 
-		  String writer = "새로운 user07";
-		  vo.setTitle(title); 
-		  vo.setContent(content); 
-		  vo.setWriter(writer);
-		  
-		service.register(vo);
-	}
+//	@Test
+//	public void register() {
+//		  String title = "새로운 테스트제목7"; 
+//		  String content = "새로운 테스트내용7"; 
+//		  String writer = "새로운 user07";
+//		  vo.setTitle(title); 
+//		  vo.setContent(content); 
+//		  vo.setWriter(writer);
+//		  
+//		service.register(vo);
+//	}
 //	@Test
 //	public void remove() {
 //		service.remove(2);

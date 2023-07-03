@@ -3,6 +3,8 @@ package org.joonzis.controller;
 import java.util.List;
 
 import org.joonzis.domain.BoardVO;
+import org.joonzis.domain.Criteria;
+import org.joonzis.domain.PageDTO;
 import org.joonzis.service.BoardSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,13 +26,14 @@ public class BoardController {
 	BoardSerivce bs;
 	
 	@GetMapping("/list")
-	public String list(Model model) {
+	public String list(Model model, Criteria cri) {
 		log.info("list");
 		
 		
-		List<BoardVO> list = bs.getList();
+		List<BoardVO> list = bs.getList(cri);
 		
 		model.addAttribute("list",list);
+		model.addAttribute("pageMaker", new PageDTO(cri, 60));
 		
 		
 		// 데이터 뷰로 전달
@@ -53,17 +56,19 @@ public class BoardController {
 	}
 	
 	@GetMapping("/get")
-	public String get(@RequestParam("bno") int bno, Model model)	{
+	public String get(@RequestParam("bno") int bno, Model model, Criteria cri)	{
 		log.info("get");
 		model.addAttribute("vo", bs.get(bno));
+		model.addAttribute("cri", cri);
 		
 		return "board/get";
 	}
 	
 	@GetMapping("/modify")
-	public String modify(@RequestParam("bno") int bno, Model model) {
+	public String modify(@RequestParam("bno") int bno, Model model, Criteria cri) {
 		log.info("modify");
 		model.addAttribute("vo", bs.get(bno));
+		model.addAttribute("cri", cri);
 		
 		return "board/modify";
 	}

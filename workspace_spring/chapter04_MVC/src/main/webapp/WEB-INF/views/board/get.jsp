@@ -38,7 +38,9 @@
 				<button  data-oper="list" class="btn btn-danger">목록으로</button>
 
 				<form action="/board/modify" method="get" id="operForm">
-					<input type="hidden" name="bno" value="${vo.bno }">
+					<input type="hidden" name="bno" id="bno" value="${vo.bno }">
+					<input type="hidden" name="pageNum" value="${cri.pageNum }">
+					<input type="hidden" name="amount" value="${cri.amount }">
 				</form>
 			</div>
 			<!-- /.panel-body -->
@@ -57,7 +59,9 @@
 			operForm.submit();
 		})
 		
-			$("button[data-oper='list']").click(function() {
+		// 목록 화면 이동 버튼 클릭시 bno 값 없이 이동 --> 기존 내부 input 태그 삭제후 이동
+		$("button[data-oper='list']").click(function() {
+			operForm.find("#bno").remove();	
 			operForm.attr('action', '/board/list');
 			operForm.submit();
 		})

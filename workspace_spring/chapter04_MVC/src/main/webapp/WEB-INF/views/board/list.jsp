@@ -77,9 +77,19 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#regBtn").click(function() {
-			location.href='register';
+		$("#regBtn").click(function(e) {
+			e.preventDefault();
+			
+			actionForm.attr('action', '/board/register');
+			actionForm.submit();
 		});
+		
+		window.onpageshow = function(event) {
+		    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+
+		        location.reload()
+		    }
+		}
 	})
 
 	// 결과 창 출력을 위한 코드
@@ -111,6 +121,7 @@
 	// 조회하면 이동 이벤트 처리
 	$(".move").on('click', function(e) {
 		e.preventDefault();
+	
 		
 		actionForm.attr('action', '/board/get');
 		actionForm.append(`<input type=hidden name=bno value=\${$(this).attr('href')}>`);

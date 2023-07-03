@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +34,7 @@ public class BoardController {
 		List<BoardVO> list = bs.getList(cri);
 		
 		model.addAttribute("list",list);
-		model.addAttribute("pageMaker", new PageDTO(cri, 60));
+		model.addAttribute("pageMaker", new PageDTO(cri, bs.getTotal()));
 		
 		
 		// 데이터 뷰로 전달
@@ -41,7 +42,9 @@ public class BoardController {
 	}
 	
 	@GetMapping("/register")
-	public String register() {
+	public String register(Model model, Criteria cri) {
+		
+		model.addAttribute("cri",cri);
 		return "board/register";
 	}
 	
@@ -86,13 +89,14 @@ public class BoardController {
 	
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rt) {
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rt, Criteria cri) {
 		log.info("remove");
 		
 		
 		
 		if (bs.remove(bno)) {
 			rt.addFlashAttribute("result", "clear");
+			rt.addFlashAttribute("cri", "cri");
 		}
 		return "redirect:/board/list";
 	}

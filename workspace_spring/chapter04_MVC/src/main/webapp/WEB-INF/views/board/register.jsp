@@ -32,7 +32,9 @@
 					</div>
 					<button type="submit" data-oper="register" class="btn btn-primary">등록</button>
  					<button type="reset" class="btn btn-warning">취소</button>
- 					<button type="button" class="btn btn-danger" onclick="location.href='list'">목록으로</button>
+ 					<button type="submit" data-oper="list" class="btn btn-danger">목록으로</button>
+ 					<input type="hidden" name="pageNum" value="${cri.pageNum }">
+					<input type="hidden" name="amount" value="${cri.amount }">
 				</form>
 			</div>
 			<!-- /.panel-body -->
@@ -42,6 +44,27 @@
 	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+
+<script type="text/javascript">
+	$(function() {
+		
+		const formObj = $("form");
+		
+		$("button").click(function(e) {
+			
+			
+			let operation = $(this).data("oper");
+			
+			if (operation == 'list'){
+				formObj.attr('action','/board/list')
+				formObj.attr('method','get')
+				formObj.find(".form-control").remove();	
+			}
+			
+			
+		})
+	})
+</script>
 
 
 

@@ -45,4 +45,8 @@ public class BoardServiceImpl implements BoardSerivce{
 		return mapper.delete(bno) > 0;
 	}
 	
+	@Override
+	public int getTotal() {
+		return mapper.getTotalCount();
+	}
 }

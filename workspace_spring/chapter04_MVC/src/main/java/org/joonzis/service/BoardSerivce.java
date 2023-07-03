@@ -7,6 +7,7 @@ import org.joonzis.domain.Criteria;
 
 public interface BoardSerivce {
 	public List<BoardVO> getList(Criteria cri);
+	public int getTotal();
 	public void register(BoardVO vo);
 	public BoardVO get(int bno);
 	public boolean remove(int bno);

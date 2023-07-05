@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM TBL_BOARD WHERE BNO = #{bno}
 	</delete>
 	<update id="update" parameterType="org.joonzis.domain.BoardVO">
-		UPDATE TBL_BOARD SET TITLE = #{title} , CONTENT = #{content} , WRITER = #{writer} 
+		UPDATE TBL_BOARD SET TITLE = #{title} , CONTENT = #{content} , UPDATEDATE = SYSDATE
 		WHERE BNO = #{bno}
 	</update>
 	<select id="getTotalCount" resultType="int">

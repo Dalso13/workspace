@@ -51,6 +51,70 @@
 </div>
 <!-- /.row -->
 
+<div class = 'row'>
+   <div class = "col-lg-12">
+      <!-- /.panel -->
+      <div class = "panel panel-default">
+         <div class= "panel-heading">
+            <i class = "fa fa-comments fa-fw"></i> 댓글
+            <button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">댓글 달기</button>
+         </div>
+         <!-- /.panel-heading -->
+         <div class = "panel-body">
+            <ul class = "chat">
+               <!-- start reply -->
+               <li class = "left clearfix" data-rno = '12'>
+                  <div>
+                     <div class = "header">
+                        <strong class = "primary-font">user00</strong>
+                        <small class = "pull-right text-muted">2018-01-01 13:13</small>                        
+                     </div>
+                     <p>Good job!</p>
+                  </div>
+               </li>
+               <!-- end reply -->
+            </ul>
+            <!-- ./ end ul -->
+         </div>
+         <!-- /.panel .chat-panel -->
+      </div>
+   </div>
+   <!-- ./end row -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id = "MyModal" tabindex = "-1" role = "dialog"
+   aria-labelledby = "myModalLabel" aria-hidden = "true">
+   <div class = "modal-dialog">
+      <div class = "modal-content">
+         <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" ari-hidden = "true">&times;</button>
+            <h4 class = "modal-title" id = "myModalLabel">새 게시글 등록</h4>
+         </div>
+         <div class = "modal-body">
+            <div class = "form-group">
+               <label>댓글</label>
+               <input class = "form-control" name = 'reply' value = 'New Reply!!!!'>
+            </div>
+            <div class = "form-group">
+               <label>작성자</label>
+               <input class = "form-control" name = 'replyer' value = 'replyer'>
+            </div>
+            <div class = "form-group">
+               <label>등록 날짜</label>
+               <input class = "form-control" name = 'replyDate' value = '' >
+            </div>
+         </div>
+         <div class = "modal-footer">
+            <button id = 'modalModBtn' type = "button" class = "btn btn-warning">수정</button>
+            <button id = 'modalRemoveBtn' type = "button" class = "btn btn-danger">삭제</button>
+            <button id = 'modalRegisterBtn' type = "button" class = "btn btn-primary">등록</button>
+            <button id = 'modalCloseBtn' type = "button" class = "btn btn-default">취소</button>
+         </div>
+      </div>
+   </div>
+</div>
+
 <script type="text/javascript">
 	$(function() {
 		const operForm = $("#operForm");
@@ -67,9 +131,48 @@
 		})
 		
 	});
-
-
+	
 </script>
-
+<script type="text/javascript">
+	console.log('Reply Module...');
+	
+	let replyService = (function(){
+			function add(reply, callback, error) {
+	    		console.log('add reply...')
+	      
+	      			$.ajax({
+							type : 'post',
+							url : '/replies/new',
+							data : JSON.stringify(reply),
+							contentType : 'application/json; charset=utf-8',
+							success : function (result, status, xhr) {
+								if(callback) {
+									callback(result);
+								}
+								console.log(error);
+							},
+							error : function(xhr, status, er) {
+								if(error){
+									error(er);
+								}
+							}
+						});
+	    	}
+	
+		 	return {add : add};
+	
+	
+	
+	})();
+	console.log("=======================");
+	console.log("js test")
+	
+	let bnoValue = '${vo.bno}';
+	
+	replyService.add({reply:"JS TEST" , replyer:"tester" , bno : bnoValue}, 
+			function(result){
+				alert("result : " + result )
+	});
+</script>
 
 <%@include file="../include/footer.jsp" %>

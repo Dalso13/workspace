@@ -60,7 +60,9 @@ public class ReplyController {
 												 @PathVariable("page") int page) {
 		log.info("getList..." + bno);
 		
-		return new ResponseEntity<>(service.getListSer(bno), HttpStatus.OK);
+		List<ReplyVO> vo = service.getListSer(bno);
+		
+		return new ResponseEntity<>(vo, HttpStatus.OK);
 	}
 	
 	// 삭제

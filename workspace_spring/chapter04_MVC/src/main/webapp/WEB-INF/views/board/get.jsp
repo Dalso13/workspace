@@ -63,15 +63,7 @@
          <div class = "panel-body">
             <ul class = "chat">
                <!-- start reply -->
-               <li class = "left clearfix" data-rno = '12'>
-                  <div>
-                     <div class = "header">
-                        <strong class = "primary-font">user00</strong>
-                        <small class = "pull-right text-muted">2018-01-01 13:13</small>                        
-                     </div>
-                     <p>Good job!</p>
-                  </div>
-               </li>
+               
                <!-- end reply -->
             </ul>
             <!-- ./ end ul -->
@@ -132,6 +124,27 @@
 		
 	});
 	
+	// 시간 데이터 처리 함수  24시간이 지난 댓글은 날짜만 표기
+	console.log("Reply Module...");
+	function displayTime(timeValue){
+	   var today = new Date();
+	   var gap = today.getTime() - timeValue;
+	   var dateObj = new Date(timeValue);
+	   var str = "";
+	   
+	   if(gap < (1000 * 60 * 60 * 24)){
+	      var hh = dateObj.getHours();
+	      var mi = dateObj.getMinutes();
+	      var ss = dateObj.getSeconds();
+	      return [(hh>9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi, ':', (ss > 9 ? '' : '0') + ss].join('');
+	   }else{
+	      var yy = dateObj.getFullYear();
+	      var mm = dateObj.getMonth() + 1; // getMonth() is zero-based
+	      var dd = dateObj.getDate();
+	      return [yy, '/', (mm > 9 ? '' : '0')+mm, '/', (dd > 9 ? '' : '0') + dd].join('');
+	   }
+	}
+	
 </script>
 <script type="text/javascript">
 	console.log('Reply Module...');
@@ -158,21 +171,243 @@
 							}
 						});
 	    	}
-	
-		 	return {add : add};
-	
-	
-	
+		 	
+			function getList(p, cb) {
+				console.log('get List...')
+					$.ajax({
+						type : 'get',
+						url : `/replies/pages/\${p.bno}/\${p.page}`,
+						dataType : "JSON",
+						success : function (result, status, xhr) {
+							if(cb) {
+								cb(result);
+							}
+							
+						},
+						error : function(xhr, status, er) {
+							
+						}
+					});
+			}
+			function get(p, cb) {
+				console.log('get ...')
+			      
+					$.ajax({
+						type : 'get',
+						url : `/replies/\${p}`,
+						dataType : "JSON",
+						success : function (result, status, xhr) {
+							if(cb) {
+								cb(result);
+							}
+							
+						},
+						error : function(xhr, status, er) {
+							
+						}
+					});
+			}
+			
+			function remove(p, cb) {
+				console.log('remove ...')
+			      
+					$.ajax({
+						type : 'delete',
+						url : `/replies/\${p}`,
+						dataType : "text",
+						success : function (result, status, xhr) {
+							if(cb) {
+								cb(result);
+							}
+							
+						},
+						error : function(xhr, status, er) {
+							
+						}
+					});
+			}
+			function update(p, cb) {
+				console.log('remove ...')
+			      
+					$.ajax({
+						type : 'put',
+						url : `/replies/\${p.rno}`,
+						dataType : "text",
+						data : JSON.stringify(p),
+						contentType : 'application/json; charset=utf-8',
+						success : function (result, status, xhr) {
+							cb(result);
+							
+						},
+						error : function(xhr, status, er) {
+							
+						}
+					});
+			}
+			
+			return {
+				add : add,
+				getList : getList,
+				get : get,
+				remove : remove,
+				update : update
+			}
+
 	})();
+	
+	
+	
+
+</script>
+
+<script type="text/javascript">
 	console.log("=======================");
 	console.log("js test")
 	
 	let bnoValue = '${vo.bno}';
 	
-	replyService.add({reply:"JS TEST" , replyer:"tester" , bno : bnoValue}, 
+	
+	
+	
+	
+	$(function() {
+		showList();
+	})
+	
+/* 	<div>
+                     <div class = "header">
+                        <strong class = "primary-font">user00</strong>
+                        <small class = "pull-right text-muted">2018-01-01 13:13</small>                        
+                     </div>
+                     <p>Good job!</p>
+                  </div>
+ */
+	
+ 	// 댓글 조회 이벤트
+ 	function showList() {
+		replyService.getList({ bno : bnoValue , page : 1} , function(list) {
+			console.log("showList")
+			console.log(list.length)
+			
+			let result = "";
+			
+			if (list.length < 1) {
+				$(".chat").html(`<li class = "left clearfix"> <div> 내용이 없습니다 </div> </li>`);
+				
+			} else {
+				list.forEach(lists => {	
+					let sss = lists.replydate;
+					
+					
+					result += `<li class = "left clearfix" data-rno = \${lists.rno}>`;
+					result += `<div> <div class = "header"> <strong class = "primary-font">\${lists.replyer}</strong> `;
+					result += ` <small class = "pull-right text-muted">\${displayTime(sss)}</small> `;
+					result += ` </div> <p>\${lists.reply}</p> </div> </li> `;
+				});
+				$(".chat").html(result);
+				
+			}
+		}); 	
+	}  
+	
+ 
+ 	// 댓글 달기 버튼 클릭 이벤트
+ 	const modal = $(".modal");
+ 	const modalInputReply = modal.find("input[name='reply']");	// 댓글내용
+ 	const modalInputReplyer = modal.find("input[name='replyer']");	// 댓글 작성자
+ 	const modalInputReplydate = modal.find("input[name='replyDate']");	// 댓글 날짜
+ 	
+ 	const modalModBtn = $("#modalModBtn");				//수정
+ 	const modalRemoveBtn = $("#modalRemoveBtn");		//삭제
+ 	const modalRegisterBtn = $("#modalRegisterBtn");	//등록
+ 	const modalCloseBtn = $("#modalCloseBtn");			//취소 버튼
+ 	
+ 	$("#addReplyBtn").on('click', function() {
+ 		modal.find("input").val("");
+ 		modalInputReplydate.closest('div').hide();
+ 		modalModBtn.hide();
+ 		modalRemoveBtn.hide();
+ 		modal.modal('show');	//모달 창 보이기
+ 		
+ 		
+	})
+ 
+ 	// 댓글 입력 버튼 클릭 이벤트
+ 	modalRegisterBtn.on('click', function() {
+ 		
+ 		
+ 		
+ 		replyService.add({reply:modalInputReply.val() , replyer:modalInputReplyer.val() , bno : bnoValue}, 
+ 				function(result){
+ 				alert(result)
+ 				modal.modal('hide');
+ 				showList();
+ 		}); 
+	});
+ 
+ 	// 취소 버튼 클릭시 
+ 	modalCloseBtn.click(function() {
+ 		modal.modal('hide');
+	})
+ 
+ 	// chat 클래스 (ul) 내의 li 객체 클릭 이벤트
+ 	// 클릭이 되면 눌려진 객체 (this) 가 가지고 있는 rno를 통해서 get 함수 호출
+ 	// 데이터 가져온 뒤 모달 창에 내용 출력
+ 	
+ 		$(".chat").on('click', 'li' ,function(){
+			let s = this.getAttribute("data-rno");
+			
+			replyService.get( s , function(result) {
+			 
+				modalInputReply.val(result.reply);
+				modalInputReplyer.val(result.replyer);
+				modalInputReplydate.val(displayTime(result.replydate))
+				
+				
+				modalInputReplydate.closest('div').show();
+		 		modalModBtn.show();
+		 		modalRemoveBtn.show();
+		 		modalRegisterBtn.hide();
+				
+		 		modalInputReplyer.attr('readonly', true);
+		 		modalInputReplydate.attr('readonly', true);
+		 		
+		 		
+		 		
+				modal.modal('show'); 
+			});
+		})
+		
+
+
+
+	
+	
+	
+	
+	
+	
+	
+/* 	replyService.getList({ bno : bnoValue , page : 1}, function(result) {
+		console.log(result)
+	}); 
+	replyService.get( 1 , function(result) {
+		console.log(result)
+	});
+	
+	 replyService.add({reply:"JS TEST" , replyer:"tester" , bno : bnoValue}, 
 			function(result){
 				alert("result : " + result )
-	});
+	}); 
+	
+ 	replyService.remove( 5 , function(result) {
+		console.log(result)
+	}); 
+	
+	replyService.update({ rno : 1 , reply:"JS TEST UPDATE"}, function(result) {
+		console.log(result)
+	}); */
+
 </script>
 
 <%@include file="../include/footer.jsp" %>

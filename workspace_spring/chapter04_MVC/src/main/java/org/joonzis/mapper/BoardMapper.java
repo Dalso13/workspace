@@ -2,6 +2,7 @@ package org.joonzis.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.joonzis.domain.BoardVO;
 import org.joonzis.domain.Criteria;
 
@@ -13,4 +14,5 @@ public interface BoardMapper {
 	public int delete(int bno);
 	public int update(BoardVO vo);
 	public int getTotalCount();
+	public void updateReplyCnt(@Param("bno") long bno, @Param("amount") long amount);
 }

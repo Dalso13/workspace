@@ -327,6 +327,8 @@
  		modalInputReplydate.closest('div').hide();
  		modalModBtn.hide();
  		modalRemoveBtn.hide();
+ 		modalRegisterBtn.show();
+ 		modalInputReplyer.attr('readonly', false);
  		modal.modal('show');	//모달 창 보이기
  		
  		
@@ -353,9 +355,11 @@
  	// chat 클래스 (ul) 내의 li 객체 클릭 이벤트
  	// 클릭이 되면 눌려진 객체 (this) 가 가지고 있는 rno를 통해서 get 함수 호출
  	// 데이터 가져온 뒤 모달 창에 내용 출력
- 	
+ 		// 클릭한 li에 값
+ 		let s = "";
+ 		
  		$(".chat").on('click', 'li' ,function(){
-			let s = this.getAttribute("data-rno");
+			s = this.getAttribute("data-rno");
 			
 			replyService.get( s , function(result) {
 			 
@@ -378,10 +382,23 @@
 			});
 		})
 		
-
-
-
-	
+		// 삭제
+		modalRemoveBtn.on('click', function() {
+			replyService.remove( s , function(result) {
+				alert(result)
+ 				modal.modal('hide');
+ 				showList();
+			}); 
+		})
+		
+		// 수정
+		modalModBtn.on('click', function() {
+			replyService.update( {reply: modalInputReply.val() , rno: s} , function(result) {
+				alert(result)
+ 				modal.modal('hide');
+ 				showList();
+			}); 
+		})
 	
 	
 	

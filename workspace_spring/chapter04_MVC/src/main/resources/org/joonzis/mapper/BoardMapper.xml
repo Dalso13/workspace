@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get" resultType="org.joonzis.domain.BoardVO" parameterType="org.joonzis.domain.Criteria">
 		 <![CDATA[	select * from 
 					(select /*+index_desc(tbl_board pk_board) */ 
-						rownum rn, bno, title, content, writer, regdate, updatedate 
+						rownum rn, bno, title, content, writer, regdate, updatedate, replycnt  
 						from tbl_board 
 				 	where rownum <= (#{pageNum} * #{amount}) ) s
 					 where s.rn > ((#{pageNum}-1) * #{amount})	
@@ -31,4 +31,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalCount" resultType="int">
 		SELECT count(*) FROM TBL_BOARD
 	</select>
+<!-- <update id="updateReplyCnt" parameterType="long">
+		update tbl_board  
+		set replycnt = (select count(*) from tbl_reply where bno = #{bno}) 
+		where bno = #{bno};
+	</update> -->
+	 <update id="updateReplyCnt" parameterType="long">
+		update tbl_board  
+		set replycnt = replycnt + #{amount}
+		where bno = #{bno}
+	</update> 
 </mapper>

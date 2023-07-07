@@ -1,0 +1,80 @@
+---- 테스트 용 테이블
+
+	SELECT * FROM DUAL;
+
+
+---- 숫자함수
+
+---- ABS  절대값 구함  크기만 나타냄 (음수 입력시 양수로 출력)
+---- FLOOR    소수점 아래를 잘라냄
+---- ROUND    특정 자릿수 반올림
+	SELECT 34.5678, ROUND(34.5678, -1) FROM DUAL; ---- 1의 자리 반올림 10,100도 가능
+
+---- TRUNC    특정 자릿수 버림
+---- MOD      나눈후 나머지 반환 (자바에서 % 쓰는거랑 같음)
+
+
+---- 문자 처리 함수
+
+---- SUBSTR 문자열 꺼내기  == 자바 SUBSTRING
+
+	SELECT SUBSTR('ABCDEFG',3,4) FROM DUAL; ---- (시작위치, 꺼낼 개수)
+	SELECT SUBSTR('ABCDEFG',-3,3) FROM DUAL; ---- 마이너스 부터 시작 뒤에서 ""번째
+
+---- TRIM 공백 또는 특정 문자 잘라낼수있음
+
+
+---- 날짜 함수
+
+----SYSDATE 시스템 날짜 반환
+
+
+---- 형 변환 함수
+
+---- TO_CHAT 날짜형 OR 숫자형을 문자형으로 변환
+---- TO_DATE 문자형을 날짜형으로 변환
+---- TO_NUMBER 문자형을 숫자형으로 변환
+
+	select sysdate, to_char(sysdate, 'YYYY-MM-DD') FROM DUAL;
+	SELECT hiredate, TO_CHAR(hiredate,'YY/MON/DD DY') FROM EMP ORDER BY hiredate;
+
+
+---- TO CHAR
+
+	SELECT SAL, TO_CHAR(SAL,'L999,999') FROM EMP;
+
+
+----TO DATE
+
+	SELECT ENAME,HIREDATE FROM EMP WHERE hiredate = TO_DATE('20040108','YYYYMMDD');
+	SELECT TRUNC(SYSDATE - TO_DATE('2020/01/01','YYYY/MM/DD')) FROM DUAL;
+
+
+---- TO NUMBER
+
+SELECT TO_NUMBER('20,000', '99,999')- TO_NUMBER('10,000','99,999')FROM DUAL;
+
+
+
+---- DECODE 조건문 : 자바 SWITC문이랑 같은기능
+
+SELECT ENAME, DEPTNO, DECODE(deptno, 10, 'ACCOUNTING',
+                                    20, 'RESEARCH', 
+                                    30, 'SALES',
+                                    40, 'OPERATIONS')
+                                    AS DNAME
+    FROM EMP;
+    
+
+---- CASE 조건문 : 자바 IF ELSE 와 유사한 구조 WHEN,THEN
+
+SELECT ENAME, DEPTNO, CASE
+WHEN DEPTNO = 10 THEN 'ACCOUNTING'
+WHEN DEPTNO = 20 THEN 'RESEARCH'
+WHEN DEPTNO = 30 THEN 'SALES'
+WHEN DEPTNO = 40 THEN 'OPERATIONS'
+END ---- 끝날때 END
+FROM EMP;
+
+
+

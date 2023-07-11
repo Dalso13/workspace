@@ -10,4 +10,5 @@ public interface ReplyMapper {
 	public ReplyVO read(long rno);
 	public int delete(long rno);
 	public int update(ReplyVO vo);
+	public void deleteAll(long bno);
 }

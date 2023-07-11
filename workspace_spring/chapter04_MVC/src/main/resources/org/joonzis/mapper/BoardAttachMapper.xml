@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.joonzis.mapper.BoardAttachMapper"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
+	<insert id="insert" parameterType="org.joonzis.domain.BoardAttachVO">
+		INSERT INTO TBL_ATTACH (UUID,UPLOADPATH,FILENAME,BNO) VALUES(#{uuid},#{uploadPath},#{fileName},#{bno})
+	</insert>
+	<delete id="delete" parameterType="String">
+		DELETE FROM TBL_ATTACH WHERE UUID = #{uuid}
+	</delete>
+	<select id="findByBno" resultType="org.joonzis.domain.BoardAttachVO" parameterType="long">
+		SELECT * FROM TBL_ATTACH WHERE BNO = #{bno}
+	</select>
+	<delete id="deleteAll" parameterType="long">
+		DELETE FROM TBL_ATTACH WHERE BNO = #{bno}
+	</delete>
+</mapper>

@@ -15,4 +15,5 @@ public interface BoardMapper {
 	public int update(BoardVO vo);
 	public int getTotalCount();
 	public void updateReplyCnt(@Param("bno") long bno, @Param("amount") long amount);
+	public int getBno();
 }

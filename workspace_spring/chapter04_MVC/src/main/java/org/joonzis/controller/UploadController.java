@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import org.joonzis.domain.AttachFileDTO;
+import org.joonzis.domain.BoardAttachVO;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -81,10 +81,10 @@ public class UploadController {
 	
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<AttachFileDTO>> uploadAjaxAction(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<BoardAttachVO>> uploadAjaxAction(MultipartFile[] uploadFile) {
 		log.info("uploadAjaxAction --");
 		
-		List<AttachFileDTO> dtos = new ArrayList<AttachFileDTO>();
+		List<BoardAttachVO> dtos = new ArrayList<BoardAttachVO>();
 		
 		
 		String uploadFolder = "c:\\upload"; 
@@ -102,7 +102,7 @@ public class UploadController {
 			log.info("upload File Name : " + multipartFile.getOriginalFilename());
 			log.info("upload File Size : " + multipartFile.getSize());
 				
-			AttachFileDTO dto = new AttachFileDTO();
+			BoardAttachVO dto = new BoardAttachVO();
 			
 			UUID uuid = UUID.randomUUID(); // 랜덤값 생성
 				
@@ -121,7 +121,7 @@ public class UploadController {
 			}
 		}
 
-		return new ResponseEntity<List<AttachFileDTO>>(dtos, HttpStatus.OK);
+		return new ResponseEntity<List<BoardAttachVO>>(dtos, HttpStatus.OK);
 		
 		
 	}
@@ -138,7 +138,9 @@ public class UploadController {
 	public ResponseEntity<Resource> dd(String fileName) throws UnsupportedEncodingException {
 		log.info("download file : " + fileName);
 		
-		fileName = URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+//		fileName = URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+		
+		log.info(fileName);
 		
 		Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
 		
@@ -149,8 +151,8 @@ public class UploadController {
 		HttpHeaders headers = new HttpHeaders();
 		
 		try {
-			headers.add("content-Disposition", "attachment; filename=" +
-					new String(resourceOriginalName.getBytes("utf-8"), "ISO-8859-1"));
+			headers.add("content-Disposition", "attachment; filename=\"" +
+					new String(resourceOriginalName.getBytes("utf-8"), "ISO-8859-1") + "\"");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

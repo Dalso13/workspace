@@ -21,15 +21,15 @@ public class BoardMapperTest {
 	@Setter(onMethod_= @Autowired )
 	BoardMapper mapper;
 
-	@Test
-	public void testGetList() {
-		Criteria cri = new Criteria();
-		cri.setPageNum(1);
-		cri.setAmount(10);
-		List<BoardVO> list = mapper.get(cri);
-		log.info(list);
-	}
-	
+//	@Test
+//	public void testGetList() {
+//		Criteria cri = new Criteria();
+//		cri.setPageNum(1);
+//		cri.setAmount(10);
+//		List<BoardVO> list = mapper.get(cri);
+//		log.info(list);
+//	}
+//	
 	
 	/*
 	 * @Test public void testGetList() { //mapper.getList().forEach(board ->
@@ -86,5 +86,9 @@ public class BoardMapperTest {
 //	  
 //		  mapper.update(vo); 
 //	  }
+	@Test
+	public void test1() {
+		log.info(mapper.getBno());
+	}
 	
 }

@@ -22,4 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="long">
 		DELETE FROM TBL_REPLY WHERE RNO = #{rno}
 	</delete>
+	<delete id="deleteAll" parameterType="long">
+		DELETE FROM TBL_REPLY WHERE BNO = #{bno}
+	</delete>
 </mapper>

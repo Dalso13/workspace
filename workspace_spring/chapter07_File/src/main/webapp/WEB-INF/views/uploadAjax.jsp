@@ -29,7 +29,7 @@
 			let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 			let maxSize = 5242880; // 약5000kb , 5mb
 			let cloneObj = $(".uploadDiv input").clone();
-			
+			let uli = $(".uploadResult").children("ul");
 			
 			function checkExtenSion(name, size) {
 				if (size >= maxSize) {
@@ -58,8 +58,6 @@
 					formdate.append('uploadFile' , files[i])
 				}
 				
-				
-			
 				$.ajax({
 					type : 'post',
 					url : '/uploadAjaxAction',
@@ -80,25 +78,37 @@
 			});
 		
 			function showUploadFile(result) {
-				let uli = $(".uploadResult").children("ul");
 				
 				let texts = "";
 				
 				result.forEach(r => {
 					let fileCallPath = encodeURIComponent(r.uploadPath+"/"+r.uuid + "_" + r.fileName);
 					
-					alert(r.uploadPath+"/"+r.uuid + "_" + r.fileName)
-					
 					texts += `<li> <a href="/download?fileName=\${fileCallPath}">
 						<img src="/resources/img/KakaoTalk_20230707_153525040.png" style="width:15px">
 						\${r.fileName}
-						</a> </li>`; 
+						</a> <span data-file="\${fileCallPath}.">X</span> </li>`; 
 				})
 				
 				uli.html(texts);
 			}
 			
-			
+			// 위 span 클릭 이벤트 걸기
+			uli.on('click','span', function() {
+				let targetFile = $(this).attr("data-file");
+				$.ajax({
+					type : 'post',
+					url : '/deleteFile',
+					data : {fileName : targetFile} ,
+					dataType : "text",
+					success : function (result) {
+						alert(result);
+					},
+					error : function() {
+								
+					}
+				});	
+			});
 	</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp" %>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">게시글 등록</h1>
@@ -28,13 +28,14 @@
 					</div>
 					<div class="form-group">
 						<label>작성자</label>
-						<input class="form-control" name="writer">
+						<input class="form-control" name="writer" value='<sec:authentication property="principal.username"/>' readonly="readonly"> 
 					</div>
 					<button type="button"  data-oper="register" class="btn btn-primary">등록</button>
  					<button type="reset" class="btn btn-warning">취소</button>
  					<button type="button" data-oper="list" class="btn btn-danger">목록으로</button>
  					<input type="hidden" name="pageNum" value="${cri.pageNum }">
 					<input type="hidden" name="amount" value="${cri.amount }">
+					 <input type="hidden" name="${_csrf.parameterName}" value="${_csfr.token }">
 				</form>
 			</div>
 			<!-- 첨부파일 -->

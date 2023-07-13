@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.joonzis.mapper.MemberMapper"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
+	<resultMap type="org.joonzis.domain.MemberVO" id="memberMap">
+		<result property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="username" column="username"/>
+		<result property="regdate" column="regdate"/>
+		<result property="updatedate" column="updatedate"/>
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	
+	<resultMap type="org.joonzis.domain.AuthVO" id="authMap">
+		<result property="userid" column="userid"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+
+	<select id="read" resultMap="memberMap">
+		SELECT M.USERID, USERPW, USERNAME, REGDATE, enabled, UPDATEDATE, AUTH 
+		FROM TBL_MEMBER M LEFT JOIN TBL_MEMBER_AUTH MA
+		ON MA.USERID = M.USERID
+		WHERE M.USERID = #{userid}
+	</select>
+</mapper>

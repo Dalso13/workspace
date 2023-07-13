@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -47,6 +48,7 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@PreAuthorize("isAuthenticated()")	// 인증된 사용자라면 true 가 나옴
 	@GetMapping("/register")
 	public String register(Model model, Criteria cri) {
 		
@@ -54,6 +56,7 @@ public class BoardController {
 		return "board/register";
 	}
 	
+	@PreAuthorize("isAuthenticated()")	
 	@PostMapping("/register")
 	public String register(BoardVO vo, RedirectAttributes rt) {
 		log.info("register : " + vo);

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp" %>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">게시글</h1>
@@ -34,7 +34,16 @@
 					<label>작성자</label> 
 					<input class="form-control" name="writer" value="${vo.writer }" readonly="readonly">
 				</div>
-				<button  data-oper="modify" class="btn btn-primary">수정</button>
+				
+				<!-- 댓글 권한에 따라 막아두기 -->
+				<sec:authentication property="principal" var="pinfo"/>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${pinfo.username eq  vo.writer }">
+						<button  data-oper="modify" class="btn btn-primary">수정</button>	
+					</c:if>		
+				</sec:authorize>
+				
+				
 				<button  data-oper="list" class="btn btn-danger">목록으로</button>
 
 				<form action="/board/modify" method="get" id="operForm">
@@ -57,7 +66,9 @@
       <div class = "panel panel-default">
          <div class= "panel-heading">
             <i class = "fa fa-comments fa-fw"></i> 댓글
-            <button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">댓글 달기</button>
+            	<sec:authorize access="isAuthenticated()">				
+		            <button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">댓글 달기</button>
+				</sec:authorize>
          </div>
          <!-- /.panel-heading -->
          <div class = "panel-body">
@@ -90,7 +101,7 @@
             </div>
             <div class = "form-group">
                <label>작성자</label>
-               <input class = "form-control" name = 'replyer' value = 'replyer'>
+              	 <input class = "form-control" name = 'replyer' value = "ss" >
             </div>
             <div class = "form-group">
                <label>등록 날짜</label>

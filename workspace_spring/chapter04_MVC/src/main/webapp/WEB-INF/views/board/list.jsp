@@ -94,6 +94,7 @@
 		        location.reload()
 		    }
 		}
+		console.log(${list[1] })
 	})
 
 	// 결과 창 출력을 위한 코드

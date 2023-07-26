@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74bef353-c8d9-445e-b34f-40542d11dcca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../팀프로젝트 관련 파일들/pngwing.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../팀프로젝트 관련 파일들/그림1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../팀프로젝트 관련 파일들/플젝디자인초안pptx.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/worldFinder/controller.iml" beforeDir="false" afterPath="$PROJECT_DIR$/worldFinder/controller.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/dev/workspace/project_team3/worldFinder",
     "settings.editor.selected.configurable": "configurable.group.appearance",
     "vue.rearranger.settings.migration": "true"
@@ -39,6 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689930912003</updated>
       <workItem from="1689930913989" duration="152000" />
+      <workItem from="1690245184764" duration="25000" />
     </task>
     <servers />
   </component>

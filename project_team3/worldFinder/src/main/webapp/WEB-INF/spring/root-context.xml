@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:context="http://www.springframework.org/schema/context"
@@ -14,30 +13,32 @@
 
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-<!--	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">-->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
-<!--		&lt;!&ndash; log4jdbc &ndash;&gt;-->
-<!--		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>-->
-<!--		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>-->
-<!--		<property name="username" value="scott"></property>-->
-<!--		<property name="password" value="tiger"></property>-->
-<!--	</bean>-->
+		<!-- log4jdbc -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
 
-<!--	&lt;!&ndash; HikariCP configuration &ndash;&gt;-->
-<!--	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">-->
-<!--		<constructor-arg ref="hikariConfig"></constructor-arg>-->
-<!--	</bean>-->
+	<!-- HikariCP configuration -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
 
-<!--	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-<!--		<property name="dataSource" ref="dataSource"/>-->
-<!--	</bean>-->
-
-
-
-<!--	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--		<property name="dataSource" ref="dataSource" />-->
-<!--	</bean>-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 
 
-<!--	<tx:annotation-driven/>-->
+	<mybatis-spring:scan base-package="org.worldfinder.mapper"/>
+	<context:component-scan base-package="org.worldfinder.service"></context:component-scan>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<tx:annotation-driven/>
 </beans>

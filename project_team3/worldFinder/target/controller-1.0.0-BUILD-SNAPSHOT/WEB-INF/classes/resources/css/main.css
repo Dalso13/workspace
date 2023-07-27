@@ -61,13 +61,13 @@ img {
     margin-top: 10px;
     float: right;
 }
-#logo img{
-    display: inline-block;
-    width: 300px;
-    margin-left: 100px;
-    cursor: pointer;
-}
 
 #focusSpan{
     background-color: violet;
+}
+#logo img{
+    display: inline-block;
+    width: 300px;
+    cursor: pointer;
+    margin-left: 100px;
 }

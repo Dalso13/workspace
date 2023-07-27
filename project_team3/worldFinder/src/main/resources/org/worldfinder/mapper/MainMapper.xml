@@ -7,6 +7,8 @@
     <select id="readCountry" resultType="org.worldfinder.domain.CountryClassVO">
              SELECT * FROM C_CLASS_TABLE3
     </select>
-
+    <insert id="writeRequest" parameterType="org.worldfinder.domain.RequestVO">
+        insert into REQUEST_TABLE3 values (#{rq_name},#{rq_address},#{rq_tel},#{rq_category},#{rq_url})
+    </insert>
 
 </mapper>

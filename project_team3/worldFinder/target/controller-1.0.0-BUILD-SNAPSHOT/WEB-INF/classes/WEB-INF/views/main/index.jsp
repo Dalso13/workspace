@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="body">
-       <span id="logo"><img src="../../../resources/image/logo.jpg" /></span>
+        <span id="logo"><img src="../../../resources/image/logo.jpg" /></span>
         <span id="join"> <button>로그인</button>  <button>회원가입</button> </span><br>
             <div id="sch">
                 <input type="text" name="search" placeholder="알고싶은 나라"

@@ -1,9 +1,8 @@
-onload = function () {
+$(function () {
     document.getElementById("logo").onclick = function () {
-        location.reload()
+        location.href = "/";
     }
-
-}
+})
 
 let searchV  = "";
 function clickSpan(s) {
@@ -74,7 +73,11 @@ function searchEvent(e) {
 
 // 검색단어 매칭
 searchBar.on("keyup", function (e) {
-    // e.keyCode == 38 ↑ e.keyCode == 40 ↓
+
+    if(e.keyCode == 37 || e.keyCode == 39){
+        return;
+    }
+
     if (((e.keyCode == 38 || e.keyCode == 40)
             && res.find("span").text() != " 검색결과가 없습니다 ") && $(this).val() != "") {
             searchEvent(e.keyCode);

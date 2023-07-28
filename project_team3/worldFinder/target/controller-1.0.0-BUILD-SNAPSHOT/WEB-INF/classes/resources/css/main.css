@@ -65,9 +65,10 @@ img {
 #focusSpan{
     background-color: violet;
 }
-#logo img{
-    display: inline-block;
+#logo{
+    display: block;
     width: 300px;
     cursor: pointer;
-    margin-left: 100px;
+    text-align: center;
+    margin-left: 350px;
 }

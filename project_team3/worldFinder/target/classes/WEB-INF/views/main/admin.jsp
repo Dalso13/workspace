@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
             margin-top: 20px;
         }
         #commentReport th , #userReport th{
-            width: 200px;
+            width: 160px;
         }
         thead {
             border-bottom: 1px solid black;
@@ -52,18 +53,15 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>게시글 제목</th>
+                                <th>신고된 게시글 본문</th>
                                 <th>신고 사유</th>
                                 <th>신고 날짜</th>
+                                <th>신고 당한 횟수</th>
                                 <th>신고 삭제</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="userReportTbody">
                             <tr>
-                                <td>테스트</td>
-                                <td>테스트</td>
-                                <td>테스트</td>
-                                <td>테스트</td>
                             </tr>
                         </tbody>
                     </table>
@@ -72,19 +70,16 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>댓글 제목</th>
+                            <th>신고된 댓글 본문</th>
                             <th>신고 사유</th>
                             <th>신고 날짜</th>
+                            <th>신고 당한 횟수</th>
                             <th>신고 삭제</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                        </tr>
+                        <tbody id="commentTbody">
+                            <tr>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -100,13 +95,44 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                            <td>테스트</td>
-                        </tr>
+                            <c:choose>
+                                <c:when test="${empty request}">
+                                    <tr>
+                                        <td colspan="5">
+                                            건의 사항이 없습니다.
+                                        </td>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="req" items="${request}">
+                                        <tr>
+                                            <td>${req.rq_category}</td>
+                                            <td>${req.rq_name}</td>
+                                            <td>${req.rq_address}</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${empty req.rq_tel}">
+                                                        없음
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${req.rq_tel}
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${empty value.rq_url}">
+                                                        없음
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${value.rq_url}
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
                         </tbody>
                     </table>
                 </div>
@@ -146,10 +172,12 @@
                     }
 
                     if (this.dataset.report == "userPost"){
+                        reportAjax("유저");
                         userReport.style.display = "block";
                     } else if (this.dataset.menu === "request") {
                         request.style.display = "block";
                     } else if (this.dataset.report == "comment"){
+                        reportAjax("comment");
                         commentReport.style.display = "block";
                     }
 
@@ -169,6 +197,50 @@
 
         }*/
 
+
+        function reportAjax(a) {
+            $.ajax({
+                url: "/adminPage/getReport/"+a ,
+                dataType : "json",
+                type : "post",
+                success : function (datas) {
+                    console.log(datas)
+                    if (datas.length == 0){
+                        reportTbody.html(emptyValue);
+                        commentTbody.html(emptyValue);
+                    } else {
+                        userReportTable(datas, a)
+                    }
+                },
+            })
+        }
+
+        const reportTbody = $("#userReportTbody");
+        const commentTbody = $("#commentTbody");
+        const emptyValue = "<tr> <td colspan='5'> 신고된 항목이 없습니다 </td> </tr>";
+
+        function userReportTable(datas, a) {
+
+            let texts = "";
+
+            datas.forEach(d , () => {
+                    texts += `<tr>`;
+                    texts += `<td> <a>본문 보기</a> </td>
+                    <td> <a>신고 사유</a> </td>
+                    <td> <a>신고 당한 날짜</a> </td>
+                    <td> \${d.r_count} </td>
+                    <td> <a>X</a> </td>
+                    </tr>`;
+
+            })
+
+            if (a == "유저"){
+                reportTbody.html(emptyValue)
+            } else if (a == "comment") {
+                commentTbody.html(emptyValue)
+            }
+
+        }
     </script>
 </body>
 </html>

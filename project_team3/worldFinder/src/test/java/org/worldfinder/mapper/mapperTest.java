@@ -19,7 +19,7 @@ public class mapperTest {
 
     @Test
     public void tests(){
-        mapper.readCountry();
+        mapper.readReport("댓글");
     }
 }
 

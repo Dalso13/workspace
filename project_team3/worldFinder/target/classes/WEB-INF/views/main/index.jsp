@@ -11,8 +11,9 @@
 </head>
 <body>
     <div id="body">
-        <span id="logo"><img src="../../../resources/image/logo.jpg" /></span>
-        <span id="join"> <button>로그인</button>  <button>회원가입</button> </span><br>
+        <span id="join"> <button>로그인</button>  <button>회원가입</button>  <button id="adminGo">관리자 페이지 (임시)</button>
+        <button id="requestGo">건의사항 페이지 (임시)</button> </span><br>
+       <img src="../../../resources/image/logo.jpg"  id="logo"/>
             <div id="sch">
                 <input type="text" name="search" placeholder="알고싶은 나라"
                        autocomplete="off"  id="searchBar">
@@ -28,5 +29,6 @@
     </div>
     <script !src="">const countrys = ${country};</script>
     <script src="../../../resources/js/main.js"></script>
+    <script src="../../../resources/js/searchEngine.js"></script>
 </body>
 </html>

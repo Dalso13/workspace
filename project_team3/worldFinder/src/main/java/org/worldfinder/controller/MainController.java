@@ -4,13 +4,13 @@ import com.google.gson.Gson;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.worldfinder.domain.CountryClassVO;
+import org.worldfinder.domain.ReportVO;
 import org.worldfinder.domain.RequestVO;
 import org.worldfinder.service.MainService;
 
@@ -52,7 +52,28 @@ public class MainController {
 	}
 
 	@GetMapping("/adminPage")
-	public String adminPage(){
-		return "main/admin";
+	public String adminPage(Model model){
+
+			model.addAttribute("request",service.readRequest());
+			return "main/admin";
+	}
+
+	@PostMapping(value = "/adminPage/getReport/{category}" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<ReportVO> adminReport(@PathVariable String category) {
+
+		return service.readReport(category);
+	}
+
+	@GetMapping(value = "/logoSeach" ,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<CountryClassVO> logoSearch() {
+
+		return service.readCountry();
+	}
+
+	@GetMapping("/country")
+	public String country() {
+		return "country/country";
 	}
 }

@@ -10,5 +10,12 @@
     <insert id="writeRequest" parameterType="org.worldfinder.domain.RequestVO">
         insert into REQUEST_TABLE3 values (#{rq_name},#{rq_address},#{rq_tel},#{rq_category},#{rq_url})
     </insert>
-
+    <select id="readRequest" resultType="org.worldfinder.domain.RequestVO">
+        SELECT * FROM REQUEST_TABLE3
+    </select>
+    <select id="readReport" resultType="org.worldfinder.domain.ReportVO" parameterType="String">
+        select idx,r_category  ,count(*)as r_count from report_table3
+        where r_category = #{category}
+        GROUP By idx, r_category
+    </select>
 </mapper>

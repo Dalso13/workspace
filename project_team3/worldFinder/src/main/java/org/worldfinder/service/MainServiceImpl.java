@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.worldfinder.domain.CountryClassVO;
+import org.worldfinder.domain.ReportVO;
 import org.worldfinder.domain.RequestVO;
 import org.worldfinder.mapper.MainMapper;
 
@@ -24,6 +25,16 @@ public class MainServiceImpl implements MainService {
     @Override
     public int writeRequest(RequestVO vo) {
         return mapper.writeRequest(vo);
+    }
+
+    @Override
+    public List<ReportVO> readReport(String category) {
+        return mapper.readReport(category);
+    }
+
+    @Override
+    public List<RequestVO> readRequest() {
+        return mapper.readRequest();
     }
 
 

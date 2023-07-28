@@ -19,5 +19,5 @@ public class ReportVO {
     private String r_category;
     private long idx;
     private String u_writer;
-
+    private int r_count;
 }

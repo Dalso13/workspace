@@ -11,6 +11,10 @@
             text-align: left;
         }
 
+        #body{
+            text-align: center;
+        }
+
         .cateBtn {
             width: 100px;
             border-radius: 15px;

@@ -8,5 +8,5 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CountryClassVO {
-    private String country, continent, details_Continent;
+    private String country, continent, details_continent;
 }

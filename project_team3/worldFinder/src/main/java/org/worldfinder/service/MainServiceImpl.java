@@ -9,6 +9,7 @@ import org.worldfinder.domain.RequestVO;
 import org.worldfinder.mapper.MainMapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Log4j
 @Service
@@ -35,6 +36,16 @@ public class MainServiceImpl implements MainService {
     @Override
     public List<RequestVO> readRequest() {
         return mapper.readRequest();
+    }
+
+    @Override
+    public List<CountryClassVO> readContinent() {
+        return mapper.readContinent();
+    }
+
+    @Override
+    public List<Map<String,String>> countryList(String details_continet) {
+        return mapper.countryList(details_continet);
     }
 
 

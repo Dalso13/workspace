@@ -9,6 +9,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Log4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:WEB-INF/spring/root-context.xml")
@@ -19,7 +23,11 @@ public class mapperTest {
 
     @Test
     public void tests(){
-        mapper.readReport("댓글");
+       List<Map<String,String>> test = mapper.countryList("동아시아");
+
+       log.info(test.toString());
     }
+    
+    
 }
 

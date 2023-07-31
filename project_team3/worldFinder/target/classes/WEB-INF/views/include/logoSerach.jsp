@@ -13,6 +13,4 @@
     </label>
 </span>
 
-
-<script src="../../../resources/js/logoSearch.js"></script>
 <script src="../../../resources/js/searchEngine.js"></script>

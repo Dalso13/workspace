@@ -1,5 +1,13 @@
 package org.worldfinder.domain;
 
-public class ScrapVO {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ScrapVO {
+	private String u_writer;
+	private int up_idx;
 }

@@ -1,3 +1,19 @@
+let countrys = "";
+$.ajax({
+    url: "/logoSeach",
+    dataType: "json",
+    type: "get",
+    async: false,
+    success: function (datas) {
+        countrys = datas;
+    },
+})
+
+document.getElementById("smallLogo").onclick = function () {
+    location.href = "/";
+}
+
+
 let searchV = "";
 
 function clickSpan(s) {
@@ -7,6 +23,8 @@ function clickSpan(s) {
 
 const searchBar = $("#searchBar");
 const res = $("#res");
+
+
 
 searchBar.on("focusout", () => {
     res.css('display', 'none');

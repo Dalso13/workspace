@@ -1,22 +1,25 @@
 #smallLogo{
     width: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
-#searchBar {
-    width: 150px;
-    border: 1px solid #bbb;
-    border-radius: 8px;
-    padding: 5px 6px;
-    font-size: 11px;
-}
+
+
 #sch {
+    text-align: center;
+    margin: auto;
+    position: relative;
     width: 300px;
 }
+
+
 #search {
     cursor : pointer;
     position : absolute;
-    width: 17px;
-    top: 10px;
+    width: 12px;
+    top: 7px;
     right: 12px;
     margin: 0px;
 }
@@ -24,12 +27,11 @@
 #res{
     text-align : left;
     display : none;
-    margin: auto;
     position: absolute;
     background-color: white;
-    left: 0%;
-    width: 150px;
-    padding: 5px 6px;
+    margin-left: 70px;
+    width: 160px;
+    padding: 10px 12px;
     border: 3px solid black;
     border-top : 0px;
     border-radius: 8px;
@@ -41,6 +43,27 @@
     width : 100%;
     height: auto;
 }
+
+#searchBar {
+    width: 170px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 5px 6px;
+    font-size: 14px;
+}
+#join{
+    display: inline-block;
+    margin-top: 10px;
+    float: right;
+}
+
 #focusSpan{
     background-color: violet;
+}
+#logo{
+    display: block;
+    width: 300px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 350px;
 }

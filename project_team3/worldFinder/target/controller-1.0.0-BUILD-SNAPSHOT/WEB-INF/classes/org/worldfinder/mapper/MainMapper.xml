@@ -18,4 +18,10 @@
         where r_category = #{category}
         GROUP By idx, r_category
     </select>
+    <select id="readContinent" resultType="org.worldfinder.domain.CountryClassVO">
+        select distinct CONTINENT , DETAILS_CONTINENT FROM C_CLASS_TABLE3
+    </select>
+    <select id="countryList" resultType="hashMap" parameterType="String">
+        select COUNTRY from C_CLASS_TABLE3 where DETAILS_CONTINENT = #{details_continet}
+    </select>
 </mapper>

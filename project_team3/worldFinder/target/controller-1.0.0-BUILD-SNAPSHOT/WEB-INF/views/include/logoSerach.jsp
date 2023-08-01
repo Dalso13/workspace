@@ -9,8 +9,12 @@
     </div>
     <input type="button" style="display: none" id="btn">
     <label for="btn">
-        <img src="../../../resources/image/search.png" id="search">
+        <img src="../../../resources/image/search.png" id="searchMagnifier">
     </label>
 </span>
-
+<script>
+    document.getElementById("smallLogo").onclick = function () {
+        location.href = "/";
+    }
+</script>
 <script src="../../../resources/js/searchEngine.js"></script>

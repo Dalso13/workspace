@@ -1,6 +1,7 @@
 package org.worldfinder.mapper;
 
 import org.worldfinder.domain.CountryClassVO;
+import org.worldfinder.domain.CountryVO;
 import org.worldfinder.domain.ReportVO;
 import org.worldfinder.domain.RequestVO;
 
@@ -20,6 +21,8 @@ public interface MainMapper {
     public  List<CountryClassVO> readContinent();
     // 특정 대륙 나라 가져오기
     public  List<Map<String,String>> countryList(String details_continet);
-
-
+    //나라 페이지 내용 인설트하기
+    public void writeCountry(CountryVO vo);
+    // 나라 메인페이지 가져오기
+    public CountryVO readCountryPage(String country);
 }

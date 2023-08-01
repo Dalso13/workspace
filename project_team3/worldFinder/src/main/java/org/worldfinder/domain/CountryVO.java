@@ -12,7 +12,6 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CountryVO {
-    private String country;
-    private String content;
+    private String country , content , c_img;
     private Date reg_date;
 }

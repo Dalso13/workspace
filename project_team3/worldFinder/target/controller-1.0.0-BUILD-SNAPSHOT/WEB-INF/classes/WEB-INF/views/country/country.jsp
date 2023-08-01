@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,20 +17,35 @@
     <%@include file="../include/logoSerach.jsp"%>
     <br>
     <div id="body">
-        <h1>나라 둘러보기</h1>
-        <span>
-            <button>호텔</button>
-            <button>맛집</button>
-            <button>관광지</button>
-        </span>
-        <div id="content">
-            없음
-        </div>
-        <div id="userPost">
-
-        </div>
+        <c:choose>
+            <c:when test="${empty countryPage}">
+                <h1>죄송합니다 ${reCountry} 에 대한 내용은 준비되지 않았습니다.</h1>
+            </c:when>
+            <c:otherwise>
+                <h1>${countryPage.country} 둘러보기</h1>
+                <span>
+                    <button>호텔</button>
+                    <button>맛집</button>
+                    <button>관광지</button>
+                 </span>
+                <hr>
+                <div id="titleImg"></div>
+                <br>
+                <div id="content">
+                        ${countryPage.content}
+                </div>
+                <div id="userPost">
+                </div>
+            </c:otherwise>
+        </c:choose>
     </div>
+    <script !src="">
+        const imgEncodeUrl = '${countryPage.c_img}';
 
+        document.getElementById("titleImg").innerHTML =
+            `<img src="/country/viewImg?filename=\${encodeURIComponent(imgEncodeUrl)}" width="300px">`;
+
+    </script>
 
 </body>
 </html>

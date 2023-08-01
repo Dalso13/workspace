@@ -9,31 +9,56 @@ $.ajax({
     },
 })
 
-document.getElementById("smallLogo").onclick = function () {
-    location.href = "/";
-}
 
 
 let searchV = "";
 
-function clickSpan(s) {
-    // location.href = `\${s.innerText}`;
+
+
+function clickSpanCountry(s) {
+    location.href = `/country/\${s.innerText}`;
 }
 
 
 const searchBar = $("#searchBar");
 const res = $("#res");
 
-
-
-searchBar.on("focusout", () => {
-    res.css('display', 'none');
-})
-searchBar.on("focusin", () => {
-    if (searchBar.val() !== "") {
-        res.css('display', 'inline-block');
+$("#searchMagnifier").on('click', function () {
+    if (searchBar.val() != ""){
+        location.href = "/country/" + searchBar.val();
     }
+
 })
+
+res.on('click','.clickSpan',function () {
+    location.href = "/country/" + $(this).text();
+})
+
+// 대화창 좀더 깔끔하게 만들기
+document.querySelector("body").addEventListener("click" ,(e) => {
+    if (searchBar.val() !== ""){
+
+        if (e.target == document.getElementById("searchBar") &&  res.css('display') == 'block'){
+            res.css('display', 'none');
+            return;
+        }
+
+        if(e.target == document.getElementById("searchBar")
+            || e.target == document.getElementById("res") ) {
+            res.css('display', 'block');
+        } else {
+            res.css('display', 'none');
+        }
+    }
+
+})
+
+
+// searchBar.on("focusin", () => {
+//     if (searchBar.val() !== "") {
+//         res.css('display', 'inline-block');
+//     }
+// })
 
 
 function searchEvent(e) {
@@ -77,19 +102,26 @@ function searchEvent(e) {
 
 }
 
+// 검색엔진 활성화시
 searchBar.on("keyup", function (e) {
 
     if (e.keyCode == 37 || e.keyCode == 39) {
         return;
     }
-
+    
+    // 검색엔진 화살표 이벤트 추가
     if (((e.keyCode == 38 || e.keyCode == 40)
         && res.find("span").text() != " 검색결과가 없습니다 ") && $(this).val() != "") {
         searchEvent(e.keyCode);
 
         return;
-
-
+    }
+    
+    // 엔터키 활성화
+    if (e.keyCode === 13) {
+        if (searchBar.val() != ""){
+            location.href = "/country/" + searchBar.val();
+        }
     }
     res.css('display', 'inline-block');
     res.html("");
@@ -122,14 +154,14 @@ searchBar.on("keyup", function (e) {
     } else {
         let result = "";
         for (let i = 0; i < countryList.length; i++) {
-            result += `<span class="clickSpan" onclick = "clickSpan(this)">${countrys[countryList[i]]["country"]}</span> </br>`;
+            result += `<span class="clickSpan" >${countrys[countryList[i]]["country"]}</span> </br>`;
             if (i == 5) {
                 break;
             }
         }
         if (countryList.length < 5) {
             for (let i = 0; i < semiCountryList.length; i++) {
-                result += `<span class="clickSpan" onclick = "clickSpan(this)">${countrys[semiCountryList[i]]["country"]}</span> </br>`;
+                result += `<span class="clickSpan">${countrys[semiCountryList[i]]["country"]}</span> </br>`;
                 if (i + countryList.length == 5) {
                     break;
                 }

@@ -16,3 +16,6 @@ document.getElementById("login").onclick = function () {
 document.getElementById("joinPage").onclick = function () {
     location.href = "/user/joinPage";
 }
+document.getElementById("writeGO").onclick = function () {
+    location.href = "/countryWrite";
+}

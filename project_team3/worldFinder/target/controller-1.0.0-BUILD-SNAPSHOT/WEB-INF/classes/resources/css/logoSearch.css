@@ -15,13 +15,14 @@
 }
 
 
-#search {
+#searchMagnifier {
     cursor : pointer;
-    position : absolute;
-    width: 12px;
+    position: absolute;
+    width: 15px;
     top: 7px;
     right: 12px;
     margin: 0px;
+    z-index: inherit;
 }
 
 #res{
@@ -43,6 +44,9 @@
     width : 100%;
     height: auto;
 }
+.clickSpan:hover{
+    background-color: violet;
+}
 
 #searchBar {
     width: 170px;
@@ -59,11 +63,4 @@
 
 #focusSpan{
     background-color: violet;
-}
-#logo{
-    display: block;
-    width: 300px;
-    cursor: pointer;
-    text-align: center;
-    margin-left: 350px;
 }

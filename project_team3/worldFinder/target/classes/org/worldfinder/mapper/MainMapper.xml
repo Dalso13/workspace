@@ -24,4 +24,11 @@
     <select id="countryList" resultType="hashMap" parameterType="String">
         select COUNTRY from C_CLASS_TABLE3 where DETAILS_CONTINENT = #{details_continet}
     </select>
+    <insert id="writeCountry" parameterType="org.worldfinder.domain.CountryVO">
+        INSERT INTO COUNTRY_TABLE3
+        VALUES (#{country},#{content},SYSDATE,#{c_img})
+    </insert>
+    <select id="readCountryPage" resultType="org.worldfinder.domain.CountryVO" parameterType="String">
+        SELECT * FROM  COUNTRY_TABLE3 WHERE COUNTRY = #{country}
+    </select>
 </mapper>

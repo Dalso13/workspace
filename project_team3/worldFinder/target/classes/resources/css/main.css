@@ -19,7 +19,7 @@ img {
 }
 
 
-#search {
+#searchMagnifier {
     cursor : pointer;
     position : absolute;
     width: 17px;
@@ -71,4 +71,7 @@ img {
     cursor: pointer;
     text-align: center;
     margin-left: 350px;
+}
+.clickSpan:hover{
+    background-color: violet;
 }

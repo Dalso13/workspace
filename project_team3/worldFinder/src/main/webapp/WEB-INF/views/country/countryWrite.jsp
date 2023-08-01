@@ -54,36 +54,20 @@
         <input type="file" name="emage" accept="image/*" id="input-image" style="display: none" >
     </div>
     <hr>
-
-
     <div>
         <div><div class="editor-menu">
             <button id="btn-bold">
-                <b>B</b>
-            </button>
-            <button id="btn-italic">
-                <i>I</i>
-            </button>
-            <button id="btn-underline">
-                <u>U</u>
-            </button>
-            <button id="btn-strike">
-                <s>S</s>
-            </button>
-            <button id="btn-ordered-list">
-                OL
-            </button>
-            <button id="btn-unordered-list">
-                UL
-            </button>
-            <button id="btn-image">
-                IMG
+                <b>글씨 굵게</b>
             </button>
         </div></div>
         <hr>
         <div id="content" contenteditable="true"></div>
     </div>
+    <button id="sub">작성 완료</button>
 </div>
+<form action="/countryWrite" style="display: none" method="post" id="realForm">
+
+</form>
 <script>
     let set = new Set();
 
@@ -105,6 +89,7 @@
         details_continent.innerHTML = '<option value="">세부 대륙 선택</option>';
         if (this.value == ""){
             details_continent.style.display = "none";
+            country.style.display = "none";
         } else {
             details_continent.style.display = "inline-block";
             details_select(this.value);
@@ -121,7 +106,7 @@
 
     details_continent.addEventListener("change", () =>{
         country.innerHTML = '<option value="">나라 선택</option>';
-        if (this.value == ""){
+        if (details_continent.value == ""){
             country.style.display = "none";
         } else {
             country.style.display = "inline-block";
@@ -152,59 +137,95 @@
         }
     }
 
-    const inputImage = document.getElementById("input-image")
+    const inputImage = document.getElementById("input-image");
     inputImage.addEventListener("change", e => {
         readImage(e.target)
     })
 
-    document.getElementById("head").addEventListener("click", () =>{
-        document.getElementById("content").innerHTML += "<h1>";
+    const sub = document.getElementById("sub");
+
+    sub.addEventListener("click", () =>{
+        imageForm();
     })
 
+    function imageForm() {
+        if (country.value == ""){
+            alert("카테고리를 설정해주세요")
+            if (continent.value == ""){
+                continent.focus();
+            } else if (details_continent.value == ""){
+                details_continent.focus();
+            } else {
+                country.focus();
+            }
+            return;
+        } else if (inputImage.value == ""){
+            alert("대표 이미지를 넣어주세요")
+            inputImage.focus()
+
+            return;
+        } else if (content.innerHTML == ""){
+            alert("내용을 작성해주세요")
+            content.focus()
+
+            return;
+        }
+
+
+        let formdata = new FormData();
+        let inputFile = inputImage;
+
+        let files = inputFile.files;
+
+        for (let i = 0; i < files.length; i++) {
+            formdata.append('uploadFile' , files[i])
+        }
+
+        $.ajax({
+            type : 'post',
+            url : '/country/imgAjax',
+            data : formdata ,
+            dataType: "JSON",
+            contentType : false ,
+            processData : false ,
+            success : function (r) {
+                writePage(r.c_img)
+            },
+            error : function() {
+
+            }
+        });
+
+        function writePage(img) {
+            let realForm = document.getElementById("realForm");
+
+            realForm.innerHTML += `<input type="text" name="c_img" value="\${img}" >`;
+            realForm.innerHTML += `<input type="text" name="content" value="\${content.innerHTML}" >`;
+            realForm.innerHTML += `<input type="text" name="country" value="\${country.value}" >`;
+
+            realForm.submit();
+        }
+    }
 </script>
 <script>
-    const editor = document.getElementById('editor');
-    const btnBold = document.getElementById('btn-bold');
-    const btnItalic = document.getElementById('btn-italic');
-    const btnUnderline = document.getElementById('btn-underline');
-    const btnStrike = document.getElementById('btn-strike');
-    const btnOrderedList = document.getElementById('btn-ordered-list');
-    const btnUnorderedList = document.getElementById('btn-unordered-list');
 
-    btnBold.addEventListener('click', function () {
+    // 특정 영역 글씨 굵게만드는 이벤트 만들기
+    const content = document.getElementById('content');
+    const bold = document.getElementById('btn-bold');
+
+    bold.addEventListener('click', function () {
         setStyle('bold');
     });
 
-    btnItalic.addEventListener('click', function () {
-        setStyle('italic');
-    });
-
-    btnUnderline.addEventListener('click', function () {
-        setStyle('underline');
-    });
-
-    btnStrike.addEventListener('click', function () {
-        setStyle('strikeThrough')
-    });
-
-    btnOrderedList.addEventListener('click', function () {
-        setStyle('insertOrderedList');
-    });
-
-    btnUnorderedList.addEventListener('click', function () {
-        setStyle('insertUnorderedList');
-    });
+    // 포커스 해주기
+    function focusContent() {
+        content.focus({preventScroll: true});
+    }
 
     function setStyle(style) {
         document.execCommand(style);
-        focusEditor();
+        focusContent();
     }
-
-    // 버튼 클릭 시 에디터가 포커스를 잃기 때문에 다시 에디터에 포커스를 해줌
-    function focusEditor() {
-        editor.focus({preventScroll: true});
-    }
-
 </script>
 </body>
 </html>

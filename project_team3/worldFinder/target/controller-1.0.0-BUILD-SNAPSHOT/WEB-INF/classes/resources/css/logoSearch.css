@@ -18,9 +18,10 @@
 #searchMagnifier {
     cursor : pointer;
     position: absolute;
+    left: 230px;
     width: 15px;
     top: 7px;
-    right: 12px;
+    right: 50px;
     margin: 0px;
     z-index: inherit;
 }

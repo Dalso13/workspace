@@ -23,7 +23,7 @@ public class mapperTest {
 
     @Test
     public void tests(){
-       List<Map<String,String>> test = mapper.countryList("동아시아");
+       List<Map<String,String>> test = mapper.readfilter("북아시아","COUNTRY");
 
        log.info(test.toString());
     }

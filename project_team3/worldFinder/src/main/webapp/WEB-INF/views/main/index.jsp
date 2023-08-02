@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../../resources/css/main.css">
 </head>
 <body>
+    <%@ include file="../include/itemFilter.jsp"%>
     <div id="body">
         <span id="join"> <button id="login">로그인</button>  <button id="joinPage">회원가입</button>  <button id="adminGo">관리자 페이지 (임시)</button>
         <button id="requestGo">건의사항 페이지 (임시)</button> <button id="writeGO">나라게시글 작성 (임시)</button> </span><br>

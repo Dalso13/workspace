@@ -135,6 +135,24 @@ public class MainController {
 
 		return "country/country";
 	}
+	// 필터 값 가져오기
+	@PostMapping(value = "/filter/{filterValue}/{category}" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<Map<String,String>> filterAjax(@PathVariable String filterValue , @PathVariable String category){
+
+		String values;
+		if (category.equalsIgnoreCase("detail_c")){
+			values = "DETAILS_CONTINENT";
+		} else {
+			values = "COUNTRY";
+		}
+
+
+		List<Map<String,String>> map = service.readfilter(filterValue,values);
+		return map;
+
+	}
+
 	
 	// 이미지 저장
 	@PostMapping(value = "/country/imgAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -31,4 +31,14 @@
     <select id="readCountryPage" resultType="org.worldfinder.domain.CountryVO" parameterType="String">
         SELECT * FROM  COUNTRY_TABLE3 WHERE COUNTRY = #{country}
     </select>
+    <select id="readfilter" resultType="hashMap" parameterType="String">
+
+        select distinct
+            <choose>
+                <when test="category == 'DETAILS_CONTINENT'">
+                    DETAILS_CONTINENT from C_CLASS_TABLE3 where CONTINENT = #{filterValue}
+                </when>
+                <otherwise>COUNTRY from C_CLASS_TABLE3 where DETAILS_CONTINENT = #{filterValue}</otherwise>
+            </choose>
+    </select>
 </mapper>

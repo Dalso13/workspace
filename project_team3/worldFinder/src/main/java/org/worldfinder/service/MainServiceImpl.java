@@ -59,5 +59,11 @@ public class MainServiceImpl implements MainService {
         return mapper.readCountryPage(country);
     }
 
+    @Override
+    public List<Map<String, String>> readfilter(String filterValue, String category) {
+
+        return mapper.readfilter(filterValue,category);
+    }
+
 
 }

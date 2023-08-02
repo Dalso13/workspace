@@ -1,5 +1,6 @@
 package org.worldfinder.service;
 
+import org.apache.ibatis.annotations.Param;
 import org.worldfinder.domain.CountryClassVO;
 import org.worldfinder.domain.CountryVO;
 import org.worldfinder.domain.ReportVO;
@@ -25,4 +26,6 @@ public interface MainService {
     public void writeCountry(CountryVO vo);
     // 나라 메인페이지 가져오기
     public CountryVO readCountryPage(String country);
+    // 필터에 필요한값 가져오기
+    public  List<Map<String,String>> readfilter(String filterValue , String category);
 }

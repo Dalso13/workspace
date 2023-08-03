@@ -10,13 +10,32 @@
     <insert id="writeRequest" parameterType="org.worldfinder.domain.RequestVO">
         insert into REQUEST_TABLE3 values (#{rq_name},#{rq_address},#{rq_tel},#{rq_category},#{rq_url})
     </insert>
-    <select id="readRequest" resultType="org.worldfinder.domain.RequestVO">
-        SELECT * FROM REQUEST_TABLE3
+    <select id="readRequest" resultType="org.worldfinder.domain.RequestVO" parameterType="org.worldfinder.domain.Criteria">
+        <![CDATA[	 SELECT * FROM
+            (select /*+index_desc(tbl_board pk_board) */
+                 rownum rn, RQ_NAME, RQ_ADDRESS, RQ_TEL, RQ_CATEGORY,RQ_URL
+             from REQUEST_TABLE3
+             where rownum <= (#{pageNum} * #{amount}) ) s
+        where s.rn > ((#{pageNum}-1) * #{amount})
+        ]]>
+
+
     </select>
-    <select id="readReport" resultType="org.worldfinder.domain.ReportVO" parameterType="String">
-        select idx,r_category  ,count(*)as r_count from report_table3
-        where r_category = #{category}
-        GROUP By idx, r_category
+    <select id="readUserReport" resultType="org.worldfinder.domain.ReportVO" parameterType="org.worldfinder.domain.Criteria">
+            <![CDATA[ SELECT * FROM
+                     (select rownum rn, idx,r_category  ,count(*)as r_count from report_table3
+                    where r_category = 'USER' and rownum <= (#{pageNum} * #{amount})
+                    GROUP By idx, r_category, rownum ) s
+                 where s.rn > ((#{pageNum}-1) * #{amount})
+            ]]>
+    </select>
+    <select id="readCommentReport" resultType="org.worldfinder.domain.ReportVO" parameterType="org.worldfinder.domain.Criteria">
+        <![CDATA[ SELECT * FROM
+                (select rownum rn , idx,r_category  ,count(*)as r_count from report_table3
+                 where r_category = 'COMMENT' and rownum <= (#{pageNum} * #{amount})
+                 GROUP By idx, r_category,rownum ) s
+            where s.rn > ((#{pageNum}-1) * #{amount})
+        ]]>
     </select>
     <select id="readContinent" resultType="org.worldfinder.domain.CountryClassVO">
         select distinct CONTINENT , DETAILS_CONTINENT FROM C_CLASS_TABLE3
@@ -41,4 +60,8 @@
                 <otherwise>COUNTRY from C_CLASS_TABLE3 where DETAILS_CONTINENT = #{filterValue}</otherwise>
             </choose>
     </select>
+    <select id="getTotalCount" resultType="int">
+        SELECT count(*) FROM REQUEST_TABLE3
+    </select>
+
 </mapper>

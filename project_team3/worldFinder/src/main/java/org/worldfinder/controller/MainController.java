@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.worldfinder.domain.CountryClassVO;
-import org.worldfinder.domain.CountryVO;
-import org.worldfinder.domain.ReportVO;
-import org.worldfinder.domain.RequestVO;
+import org.worldfinder.domain.*;
 import org.worldfinder.service.MainService;
 
 import java.io.File;
@@ -66,9 +63,10 @@ public class MainController {
 	}
 
 	@GetMapping("/adminPage")
-	public String adminPage(Model model) {
+	public String adminPage(Model model, Criteria cri) {
 
-		model.addAttribute("request", service.readRequest());
+//		model.addAttribute("request", service.readRequest(cri));
+//		model.addAttribute("reqPageMaker", new PageDTO(cri, service.getTotalCount()));
 		return "main/admin";
 	}
 
@@ -80,6 +78,15 @@ public class MainController {
 		model.addAttribute("reCountry",country);
 
 		return "country/country";
+	}
+
+	@GetMapping("/country/modify/{country}")
+	public String countryModify(@PathVariable String country,Model model) {
+
+		model.addAttribute("countryPage",service.readCountryPage(country));
+		model.addAttribute("reCountry",country);
+
+		return "country/countryModify";
 	}
 
 	@GetMapping("/countryWrite")
@@ -97,12 +104,39 @@ public class MainController {
 		return "country/countryWrite";
 	}
 
-	// ajax 로 데이터 받는 애들
-	@PostMapping(value = "/adminPage/getReport/{category}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public List<ReportVO> adminReport(@PathVariable String category) {
 
-		return service.readReport(category);
+
+
+	// --------------AJAX 처리---------------------
+	@PostMapping(value = "/adminPage/getRequest/{pageNum}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public Map<String,Object> adminRequest(@PathVariable String pageNum) {
+
+		Criteria cri = new Criteria();
+		cri.setPageNum(Integer.parseInt(pageNum));
+
+		Map<String,Object> map = new HashMap<>();
+
+		map.put("requestVO",service.readRequest(cri));
+		map.put("reqPageMaker", new PageDTO(cri, service.getTotalCount()));
+
+		return map;
+	}
+
+	// ajax 로 데이터 받는 애들
+	@PostMapping(value = "/adminPage/getReport/{category}/{pageNum}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public Map<String,Object> adminReport(@PathVariable String category, @PathVariable String pageNum) {
+
+		Criteria cri = new Criteria();
+		cri.setPageNum(Integer.parseInt(pageNum));
+
+		Map<String,Object> map = new HashMap<>();
+		map.put("reportVO",service.readReport(category,cri));
+		map.put("reqPageMaker", new PageDTO(cri, service.getTotalCount()));
+
+		return map;
+
 	}
 
 	// 나라 불러오기
@@ -192,6 +226,17 @@ public class MainController {
 		return result;
 
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 	// 파일 보여주기
 	@GetMapping( value = "/country/viewImg")

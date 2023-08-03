@@ -114,14 +114,30 @@
     const filter = document.getElementById("filter");
     const  filter_detail_continent =  $("#filter_detail_continent");
     const  filter_country = $("#filter_country");
+    
+  	//======================추가된 코드===========================
+    var contiInform = "";		//대륙 이름 전역변수
+    var detailContiInform = "";		//세부 대륙 이름 전역변수
+    //=========================================================
 
     document.getElementById("filter_out").addEventListener('click',()=>{
         filter.style.display = "none";
-        filter_country.html("");
-        filter_detail_continent.html("");
-
-        $("#filter_continent").find(".filter_click").removeAttr('class');
+        // filter_country.html("");
+        // filter_detail_continent.html("");
+        //
+        // $("#filter_continent").find(".filter_click").removeAttr('class');
     })
+    
+    //======================추가된 코드===========================
+    	
+    //필터 바깥쪽 클릭하면 필터창 닫기
+ 	$(document).mouseup($("#filter"), function (e){
+		if($("#filter").has(e.target).length === 0){
+			$("#filter").hide();
+		}
+	});
+            
+    //=========================================================
 
     // 필터 버튼 클릭
     document.getElementById("filterBtn").addEventListener('click',() =>{
@@ -148,6 +164,10 @@
             filter_detail_continent.html("");
             e.target.setAttribute('class','filter_click');
             filterAjax(e.target.innerHTML,"detail_c")
+            
+            //======================추가된 코드===========================
+            contiInform = e.target.innerHTML;
+            //=========================================================
         }
 
     })
@@ -165,9 +185,10 @@
             filter_country.html("");
             e.target.setAttribute('class','filter_click');
             filterAjax(e.target.innerHTML,"country")
-
-            // 여기에 태우고싶은 함수 태우면 됨
-
+	
+            //======================추가된 코드===========================
+            detailContiInform = e.target.innerHTML;
+            //=========================================================
 
         }
 
@@ -183,7 +204,25 @@
                 filter_click.removeAttr('class');
             }
             e.target.setAttribute('class','filter_click');
+            
+         // 여기에 태우고싶은 함수 태우면 됨
+         
+         //=====================추가된 코드==============================
+        	 
+         //나라이름 검색 필터에 넣기
+         ranName(e.target.innerHTML);
+         
+         //나라정보 출력 (대륙 > 소대륙 > 나라)
+         var inform = "" + contiInform 
+         				+ " > " + detailContiInform 
+         				+ " > " + e.target.innerHTML;
+         writeCountry(inform);
         }
+        
+        //나라이름까지 클릭시 필터 닫기
+        $("#filter").hide();
+        
+        //=============================================================
     })
 
     function filterAjax(filterValue,category) {
@@ -196,7 +235,6 @@
                     return;
                 }
                 insertFilter(datas)
-
             },
         })
     }
@@ -218,4 +256,5 @@
             filter_country.html(content);
         }
     }
+    
 </script>

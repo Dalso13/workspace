@@ -3,10 +3,7 @@ package org.worldfinder.service;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.worldfinder.domain.CountryClassVO;
-import org.worldfinder.domain.CountryVO;
-import org.worldfinder.domain.ReportVO;
-import org.worldfinder.domain.RequestVO;
+import org.worldfinder.domain.*;
 import org.worldfinder.mapper.MainMapper;
 
 import java.util.List;
@@ -30,13 +27,17 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public List<ReportVO> readReport(String category) {
-        return mapper.readReport(category);
+    public List<ReportVO> readReport(String category , Criteria cri) {
+        if (category.equalsIgnoreCase("comment")){
+            return mapper.readCommentReport(cri);
+        } else {
+            return mapper.readUserReport(cri);
+        }
     }
 
     @Override
-    public List<RequestVO> readRequest() {
-        return mapper.readRequest();
+    public List<RequestVO> readRequest(Criteria cri) {
+        return mapper.readRequest(cri);
     }
 
     @Override
@@ -62,7 +63,12 @@ public class MainServiceImpl implements MainService {
     @Override
     public List<Map<String, String>> readfilter(String filterValue, String category) {
 
-        return mapper.readfilter(filterValue,category);
+        return mapper.readfilter(filterValue, category);
+    }
+
+    @Override
+    public int getTotalCount() {
+        return mapper.getTotalCount();
     }
 
 

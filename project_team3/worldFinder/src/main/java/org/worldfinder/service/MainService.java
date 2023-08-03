@@ -1,10 +1,7 @@
 package org.worldfinder.service;
 
 import org.apache.ibatis.annotations.Param;
-import org.worldfinder.domain.CountryClassVO;
-import org.worldfinder.domain.CountryVO;
-import org.worldfinder.domain.ReportVO;
-import org.worldfinder.domain.RequestVO;
+import org.worldfinder.domain.*;
 
 import java.util.List;
 import java.util.Map;
@@ -15,9 +12,9 @@ public interface MainService {
     // 건의사항 입력
     public int writeRequest(RequestVO vo);
     // 신고내역 가져오기
-    public  List<ReportVO> readReport(String category);
+    public  List<ReportVO> readReport(String category, Criteria cri);
     // 건의사항 가져오기
-    public  List<RequestVO> readRequest();
+    public  List<RequestVO> readRequest(Criteria cri);
 //     대륙, 세부대륙 가져오기
     public  List<CountryClassVO> readContinent();
     // 특정 대륙 나라 가져오기
@@ -28,4 +25,6 @@ public interface MainService {
     public CountryVO readCountryPage(String country);
     // 필터에 필요한값 가져오기
     public  List<Map<String,String>> readfilter(String filterValue , String category);
+    // 페이지 카운트 세기
+    public  int getTotalCount();
 }

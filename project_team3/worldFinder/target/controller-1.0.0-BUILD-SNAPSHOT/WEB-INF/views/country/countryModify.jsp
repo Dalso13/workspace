@@ -39,6 +39,7 @@ pageEncoding="UTF-8"%>
     <span id="oldImg"></span>
     <img style="width: 100px; margin-top: 10px" id="preview_image">
     <input type="file" name="emage" accept="image/*" id="input_image" style="display: none" >
+    <input type="file"  accept="image/*" id="backUpImg" style="display: none">
   </div>
   <hr>
   <div>
@@ -52,7 +53,7 @@ pageEncoding="UTF-8"%>
   </div>
   <button id="update">수정하기</button> <button id="delete">삭제하기</button>
 </div>
-<form action="/country/modify/{${countryPage.country}}" style="display: none" method="post" id="realForm">
+<form  id="realForm">
 
 </form>
 <script>
@@ -71,13 +72,25 @@ pageEncoding="UTF-8"%>
 
   const inputImage = document.getElementById("input_image");
   inputImage.addEventListener("change", e => {
+
+    // 파일 취소시 value 사라지는거 방지
+    if (inputImage.value == "" && document.getElementById("oldImg").innerHTML == ""){
+      $("#input_image").prop("files",$("#backUpImg").prop("files"));
+      return;
+    } else if (inputImage.value == "" && document.getElementById("oldImg").innerHTML != ""){
+      return;
+    }
+
+    // 백업 파일 생성
+    $("#backUpImg").prop("files",$("#input_image").prop("files"));
+
     document.getElementById("oldImg").innerHTML = "";
     readImage(e.target)
   })
 
-  const sub = document.getElementById("sub");
+  const update = document.getElementById("update");
 
-  sub.addEventListener("click", () =>{
+  update.addEventListener("click", () =>{
     imageForm();
   })
 
@@ -88,7 +101,10 @@ pageEncoding="UTF-8"%>
 
       return;
     }
-
+    if (inputImage.value == ""){
+        writePage("");
+        return;
+    }
 
     let formdata = new FormData();
     let inputFile = inputImage;
@@ -111,16 +127,56 @@ pageEncoding="UTF-8"%>
       }
     });
 
+    // 게시글 수정 ajax
     function writePage(img) {
       let realForm = document.getElementById("realForm");
 
-      realForm.innerHTML += `<input type="text" name="c_img" value="\${img}" >`;
-      realForm.innerHTML += `<input type="text" name="content" value="\${content.innerHTML}" >`;
-      realForm.innerHTML += `<input type="text" name="country" value="\${country.value}" >`;
+      realForm.innerHTML += `<input type="hidden" name="c_img" value="\${img}" >`;
+      realForm.innerHTML += `<input type="hidden" name="content" value="\${content.innerHTML}" >`;
+      realForm.innerHTML += `<input type="hidden" name="country" value="${countryPage.country}" >`;
 
-      realForm.submit();
+      $.ajax({
+        type : 'post',
+        url : '/country/modify',
+        data : $(realForm).serialize() ,
+        dataType: "text",
+        success : function (r) {
+          if (r == '0'){
+              alert("수정에 실패 했습니다")
+              return;
+          } else {
+            alert("수정 되었습니다")
+            location.href = `/country/${countryPage.country}`;
+         }
+        }
+      })
     }
   }
+
+  // 게시글 삭제
+  $("#delete").on('click',() =>{
+    const data = { country : '${countryPage.country}' , c_img : '${countryPage.c_img}'};
+
+    if (confirm("정말 삭제하시겠습니까?")){
+      $.ajax({
+        type : 'DELETE',
+        url : `/country/modify`,
+        data : JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "text",
+        success : function (r) {
+          if (r == '0'){
+            alert("삭제에 실패 했습니다")
+            return;
+          } else {
+            alert("삭제 되었습니다")
+            location.href = "/";
+          }
+        }
+      })
+    }
+
+  })
 </script>
 <script>
 
@@ -142,7 +198,10 @@ pageEncoding="UTF-8"%>
     focusContent();
   }
 </script>
+
+
 <script !src="">
+  // 이미지 첨부
   const imgEncodeUrl = '${countryPage.c_img}';
 
   document.getElementById("oldImg").innerHTML =

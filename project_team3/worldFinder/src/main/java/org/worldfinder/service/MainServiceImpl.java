@@ -51,8 +51,8 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public void writeCountry(CountryVO vo) {
-        mapper.writeCountry(vo);
+    public int writeCountry(CountryVO vo) {
+        return mapper.writeCountry(vo);
     }
 
     @Override
@@ -71,5 +71,20 @@ public class MainServiceImpl implements MainService {
         return mapper.getTotalCount();
     }
 
+    // 나라 페이지 업데이트
+    @Override
+    public int countryModify(CountryVO vo){
+        return mapper.countryModify(vo);
+    }
 
+    @Override
+    public List<Map<String,String>> clearCountList() {
+        return mapper.clearCountList();
+    }
+
+    // 나라게시글 삭제
+    @Override
+    public int deleteCountry(String country) {
+        return mapper.deleteCountry(country);
+    }
 }

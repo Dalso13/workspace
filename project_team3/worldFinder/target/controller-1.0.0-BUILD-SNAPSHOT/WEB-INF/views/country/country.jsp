@@ -23,6 +23,7 @@
             </c:when>
             <c:otherwise>
                 <h1>${countryPage.country} 둘러보기</h1>
+                <button id="modify">수정</button>
                 <span>
                     <button>호텔</button>
                     <button>맛집</button>
@@ -35,6 +36,7 @@
                         ${countryPage.content}
                 </div>
                 <div id="userPost">
+                    <div>유저 게시글</div>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -45,6 +47,9 @@
         document.getElementById("titleImg").innerHTML =
             `<img src="/country/viewImg?filename=\${encodeURIComponent(imgEncodeUrl)}" width="300px">`;
 
+        $("#modify").on('click',()=>{
+            location.href = "modify/${countryPage.country}";
+        })
     </script>
 
 </body>

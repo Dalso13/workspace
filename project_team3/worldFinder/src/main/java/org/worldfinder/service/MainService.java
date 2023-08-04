@@ -1,6 +1,5 @@
 package org.worldfinder.service;
 
-import org.apache.ibatis.annotations.Param;
 import org.worldfinder.domain.*;
 
 import java.util.List;
@@ -20,11 +19,20 @@ public interface MainService {
     // 특정 대륙 나라 가져오기
     public  List<Map<String,String>> countryList(String details_continet);
     //나라 페이지 내용 인설트하기
-    public void writeCountry(CountryVO vo);
+    public int writeCountry(CountryVO vo);
     // 나라 메인페이지 가져오기
     public CountryVO readCountryPage(String country);
     // 필터에 필요한값 가져오기
     public  List<Map<String,String>> readfilter(String filterValue , String category);
     // 페이지 카운트 세기
     public  int getTotalCount();
+
+    // 나라 페이지 업데이트
+    public int countryModify(CountryVO vo);
+
+    // 이미 작성한 나라게시글 가져오기
+    public List<Map<String,String>> clearCountList();
+
+    // 나라게시글 삭제
+    public  int deleteCountry(String country);
 }

@@ -63,5 +63,15 @@
     <select id="getTotalCount" resultType="int">
         SELECT count(*) FROM REQUEST_TABLE3
     </select>
-
+    <select id="clearCountList" resultType="hashMap">
+        SELECT country FROM  COUNTRY_TABLE3
+    </select>
+    <update id="countryModify" parameterType="org.worldfinder.domain.CountryVO">
+        update COUNTRY_TABLE3
+        set  CONTENT = #{content}  <if test="c_img != ''"> , C_IMG = #{c_img} </if>
+        where COUNTRY = #{country}
+    </update>
+    <delete id="deleteCountry" parameterType="String">
+        delete from COUNTRY_TABLE3 where COUNTRY = #{country}
+    </delete>
 </mapper>

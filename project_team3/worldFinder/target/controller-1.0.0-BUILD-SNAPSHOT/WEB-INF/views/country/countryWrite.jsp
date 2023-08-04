@@ -49,9 +49,10 @@
         <select id="county"></select>
     </div>
     <div id="imgBody">
-        <label for="input-image" id="realImage">대표 이미지 선택</label> <br>
+        <label for="input_image" id="realImage">대표 이미지 선택</label> <br>
         <img style="width: 100px; margin-top: 10px" id="preview-image">
-        <input type="file" name="emage" accept="image/*" id="input-image" style="display: none" >
+        <input type="file" name="emage" accept="image/*" id="input_image" style="display: none" >
+        <input type="file"  accept="image/*" id="backUpImg" style="display: none">
     </div>
     <hr>
     <div>
@@ -65,7 +66,7 @@
     </div>
     <button id="sub">작성 완료</button>
 </div>
-<form action="/countryWrite" style="display: none" method="post" id="realForm">
+<form id="realForm">
 
 </form>
 <script>
@@ -92,6 +93,7 @@
             country.style.display = "none";
         } else {
             details_continent.style.display = "inline-block";
+            country.style.display = "none";
             details_select(this.value);
         }
     }
@@ -115,13 +117,23 @@
                 dataType : "json",
                 type : "post",
                 success : function (countrys) {
-                    console.log(countrys)
                     for (const result of countrys) {
+
                         country.innerHTML += `<option value="\${result.COUNTRY}">\${result.COUNTRY}</option>`;
                     }
 
                 }
             })
+        }
+    })
+
+    country.addEventListener('change',(e) =>{
+        for(const c of ${clearCountry}) {
+            if (e.target.value == c.COUNTRY){
+                alert("이미 작성된 나라입니다")
+                e.target.value = "";
+                return;
+            }
         }
     })
 
@@ -137,8 +149,13 @@
         }
     }
 
-    const inputImage = document.getElementById("input-image");
+    const inputImage = document.getElementById("input_image");
     inputImage.addEventListener("change", e => {
+        if (inputImage.value == ""){
+            $("#input_image").prop("files",$("#backUpImg").prop("files"));
+            return;
+        }
+        $("#backUpImg").prop("files",$("#input_image").prop("files"));
         readImage(e.target)
     })
 
@@ -203,7 +220,21 @@
             realForm.innerHTML += `<input type="text" name="content" value="\${content.innerHTML}" >`;
             realForm.innerHTML += `<input type="text" name="country" value="\${country.value}" >`;
 
-            realForm.submit();
+            $.ajax({
+                type : 'post',
+                url : '/countryWrite',
+                data : $(realForm).serialize() ,
+                dataType: "text",
+                success : function (r) {
+                    if (r == '0'){
+                        alert("작성에 실패 했습니다")
+                        return;
+                    } else {
+                        alert("작성에 성공 했습니다")
+                        location.href = `/country/\${country.value}`;
+                    }
+                }
+            })
         }
     }
 </script>

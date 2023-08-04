@@ -20,6 +20,7 @@ import org.worldfinder.service.MainService;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -88,7 +89,6 @@ public class MainController {
 
 		return "country/countryModify";
 	}
-
 	@GetMapping("/countryWrite")
 	public String countryWrite(Model model) {
 
@@ -99,15 +99,37 @@ public class MainController {
 		String cont = gson.toJson(vos);
 
 		model.addAttribute("cont", cont);
+		model.addAttribute("clearCountry", gson.toJson(service.clearCountList()));
 
 
 		return "country/countryWrite";
 	}
+	
 
 
 
 
 	// --------------AJAX 처리---------------------
+	// 나라 게시글 수정
+	@PostMapping(value = "/country/modify" , produces = MediaType.TEXT_PLAIN_VALUE)
+	@ResponseBody
+	public String countryModify(CountryVO vo) {
+		log.info(vo.getCountry());
+		String result = Integer.toString(service.countryModify(vo));
+		log.info("data : " + result);
+		return result;
+	}
+	// 나라 게시글 작성
+	@PostMapping("/countryWrite")
+	@ResponseBody
+	public String countryWrite(CountryVO vo) {
+		log.info(vo.getCountry());
+		String result = Integer.toString(service.writeCountry(vo));
+		log.info("data : " + result);
+		return result;
+	}
+
+
 	@PostMapping(value = "/adminPage/getRequest/{pageNum}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public Map<String,Object> adminRequest(@PathVariable String pageNum) {
@@ -122,6 +144,29 @@ public class MainController {
 
 		return map;
 	}
+
+
+	// 나라 게시글 삭제
+	@DeleteMapping(value = "/country/modify" , produces = MediaType.TEXT_PLAIN_VALUE,
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public String deleteCountry(@RequestBody CountryVO vo){
+		// 이미지 삭제
+		log.info("url : " + vo.getC_img());
+
+		File file = null;
+		try {
+			file = new File("c:\\upload\\countryMain\\" + URLDecoder.decode(vo.getC_img(),"utf-8"));
+			file.delete();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return Integer.toString(service.deleteCountry(vo.getCountry()));
+
+	}
+
+
 
 	// ajax 로 데이터 받는 애들
 	@PostMapping(value = "/adminPage/getReport/{category}/{pageNum}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -155,19 +200,6 @@ public class MainController {
 
 
 		return result;
-	}
-
-	@PostMapping("/countryWrite")
-	public String countryWrite(CountryVO vo) {
-
-		log.info(vo.toString());
-		log.info(vo.getC_img());
-		log.info(vo.getCountry());
-		log.info(vo.getContent());
-
-		service.writeCountry(vo);
-
-		return "country/country";
 	}
 	// 필터 값 가져오기
 	@PostMapping(value = "/filter/{filterValue}/{category}" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -227,17 +259,6 @@ public class MainController {
 
 	}
 
-
-
-
-
-
-
-
-
-
-
-
 	// 파일 보여주기
 	@GetMapping( value = "/country/viewImg")
 	public ResponseEntity<Resource> viewImg(@RequestParam String filename){
@@ -261,4 +282,6 @@ public class MainController {
 
 		return new ResponseEntity<Resource>(resource, headrs, HttpStatus.OK);
 	}
+
+
 }
